@@ -11,7 +11,8 @@
   #app { background: #1a1a2e; padding: 12px; border-radius: 12px; font-family: 'DM Sans', sans-serif; position: relative; width: 100%; max-width: 480px; }
   #header { text-align: center; margin-bottom: 10px; }
   #header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; letter-spacing: 2px; }
-  #header p { font-size: 11px; color: #888; margin-top: 2px; }
+  #header .rival { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: #e53935; letter-spacing: 1px; margin-top: 2px; }
+  #header p { font-size: 11px; color: #888; margin-top: 4px; }
   #pitch-row { display: flex; align-items: stretch; gap: 6px; }
   #direction-indicator { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-width: 28px; }
   .dir-label { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; writing-mode: vertical-rl; }
@@ -92,7 +93,8 @@
     <button id="back-btn">← Volver</button>
   </div>
   <div id="header">
-    <h1>⚽ Armá tu formación — AAAJ</h1>
+    <h1>⚽ Armá tu formación</h1>
+    <div class="rival">AAAJ vs Aldosivi</div>
     <p>Arrastrá jugadores del banco a la cancha · Soltá en el banco para quitar</p>
   </div>
   <div id="pitch-row">
@@ -143,10 +145,14 @@
 <script>
 const SUPABASE_URL = 'https://igfencxdekvtfspsskwd.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnZmVuY3hkZWt2dGZzcHNza3dkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5NTUyOTEsImV4cCI6MjA4OTUzMTI5MX0.KVpBNe_p7OLAtZPMFUTpTbKmLCl-G63f53gvFJreinc';
-const LS_KEY = 'aaaj_formacion_enviada';
-const FOTO = id => `/fotos/${id}.png`;
 
-try { if (location.search.includes('reset=1')) { localStorage.removeItem(LS_KEY); location.href = location.pathname; } } catch(e) {}
+// ============================================================
+// CAMBIAR CADA FECHA:
+const RIVAL = 'Aldosivi';           // Nombre del rival
+const LS_KEY = 'aaaj_vs_aldosivi';  // Clave única por fecha (cambiar con el rival)
+// ============================================================
+
+const FOTO = id => `/fotos/${id}.png`;
 
 const squad = [
   {num:1,  name:'Mangiaut',    fid:1680187},
@@ -346,7 +352,7 @@ confirmBtn.addEventListener('click',async()=>{
     const res=await fetch(`${SUPABASE_URL}/rest/v1/formaciones`,{
       method:'POST',
       headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Prefer':'return=minimal'},
-      body:JSON.stringify({jugadores})
+      body:JSON.stringify({jugadores, rival: RIVAL})
     });
     if(res.ok||res.status===201){ try{localStorage.setItem(LS_KEY,'1');}catch(e){} successScreen.style.display='flex'; }
     else showToast('Error al guardar. Intentá de nuevo.');
@@ -366,9 +372,10 @@ document.getElementById('download-btn').addEventListener('click',async()=>{
     ctx.fillStyle='rgba(255,255,255,0.4)';
     ctx.font=`bold ${Math.round(canvas.width*0.04)}px sans-serif`;
     ctx.textAlign='right';
-    ctx.fillText('Mi formación AAAJ',canvas.width-12,canvas.height-12);
+    ctx.fillText(`Mi formación AAAJ vs ${RIVAL}`,canvas.width-12,canvas.height-12);
     const link=document.createElement('a');
-    link.download='mi-formacion-aaaj.png'; link.href=canvas.toDataURL('image/png'); link.click();
+    link.download=`mi-formacion-aaaj-vs-${RIVAL.toLowerCase()}.png`;
+    link.href=canvas.toDataURL('image/png'); link.click();
     generatingMsg.textContent='¡Descargada! Compartila en Twitter 🔴🤍';
   }catch(e){generatingMsg.textContent='No se pudo generar la imagen.';}
   finally{ successScreen.style.display='flex'; document.querySelectorAll('.xbtn').forEach(x=>x.style.display=''); btn.disabled=false; }
@@ -390,9 +397,8 @@ async function showResults(){
     data.forEach(row=>{
       (row.jugadores||[]).forEach(j=>{
         if(!counts[j.num]){
-          // Si no tiene fid (formaciones viejas), lo buscamos en el squad local
-          const sq = squad.find(s=>s.num===j.num);
-          counts[j.num]={num:j.num, name:j.name, fid:j.fid||sq?.fid||0, count:0};
+          const sq=squad.find(s=>s.num===j.num);
+          counts[j.num]={num:j.num,name:j.name,fid:j.fid||sq?.fid||0,count:0};
         }
         counts[j.num].count++;
       });
