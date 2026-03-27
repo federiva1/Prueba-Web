@@ -144,7 +144,6 @@
 const SUPABASE_URL = 'https://igfencxdekvtfspsskwd.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnZmVuY3hkZWt2dGZzcHNza3dkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5NTUyOTEsImV4cCI6MjA4OTUzMTI5MX0.KVpBNe_p7OLAtZPMFUTpTbKmLCl-G63f53gvFJreinc';
 const LS_KEY = 'aaaj_formacion_enviada';
-// Fotos servidas desde el propio repo — sin CORS
 const FOTO = id => `/fotos/${id}.png`;
 
 try { if (location.search.includes('reset=1')) { localStorage.removeItem(LS_KEY); location.href = location.pathname; } } catch(e) {}
@@ -164,7 +163,7 @@ const squad = [
   {num:13, name:'Yáñez',       fid:1804827},
   {num:14, name:'Coronel',     fid:1575797},
   {num:16, name:'Álvarez',     fid:920404},
-  {num:17, name:'Ferreira',    fid:892175},
+  {num:17, name:'Paredes',     fid:1137661},
   {num:18, name:'Fernández L', fid:306126},
   {num:19, name:'Giménez',     fid:1025559},
   {num:20, name:'Prieto',      fid:841913},
@@ -388,7 +387,16 @@ async function showResults(){
     const total=data.length;
     if(total===0){list.innerHTML='<div id="results-loading">Todavía no hay formaciones enviadas.</div>';return;}
     const counts={};
-    data.forEach(row=>{ (row.jugadores||[]).forEach(j=>{ if(!counts[j.num])counts[j.num]={num:j.num,name:j.name,fid:j.fid,count:0}; counts[j.num].count++; }); });
+    data.forEach(row=>{
+      (row.jugadores||[]).forEach(j=>{
+        if(!counts[j.num]){
+          // Si no tiene fid (formaciones viejas), lo buscamos en el squad local
+          const sq = squad.find(s=>s.num===j.num);
+          counts[j.num]={num:j.num, name:j.name, fid:j.fid||sq?.fid||0, count:0};
+        }
+        counts[j.num].count++;
+      });
+    });
     const sorted=Object.values(counts).sort((a,b)=>b.count-a.count);
     const max=sorted[0]?.count||1;
     totalEl.textContent=`${total} formación${total!==1?'es':''} enviada${total!==1?'s':''}`;
