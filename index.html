@@ -144,7 +144,8 @@
 const SUPABASE_URL = 'https://igfencxdekvtfspsskwd.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnZmVuY3hkZWt2dGZzcHNza3dkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5NTUyOTEsImV4cCI6MjA4OTUzMTI5MX0.KVpBNe_p7OLAtZPMFUTpTbKmLCl-G63f53gvFJreinc';
 const LS_KEY = 'aaaj_formacion_enviada';
-const FOTO = id => `/api/foto?id=${id}`;
+// Fotos servidas desde el propio repo — sin CORS
+const FOTO = id => `/fotos/${id}.png`;
 
 try { if (location.search.includes('reset=1')) { localStorage.removeItem(LS_KEY); location.href = location.pathname; } } catch(e) {}
 
@@ -192,19 +193,6 @@ const GOALKEEPERS = [1,12,32,50];
 let onPitch=[], draggingNew=null, activePitchDrag=null;
 let dragOffX=0, dragOffY=0, sending=false, wasReady=false;
 
-// Cache de imágenes precargadas
-const imgCache = {};
-
-// Prefetch: carga todas las fotos del plantel en background al arrancar
-function prefetchAllPhotos() {
-  squad.forEach(p => {
-    const img = new Image();
-    img.onload = () => { imgCache[p.fid] = 'ok'; };
-    img.onerror = () => { imgCache[p.fid] = 'err'; };
-    img.src = FOTO(p.fid);
-  });
-}
-
 const pitch = document.getElementById('pitch');
 const grid = document.getElementById('player-grid');
 const confirmBtn = document.getElementById('confirm-btn');
@@ -226,9 +214,6 @@ ro.observe(pitch); updatePlayerSizes();
 
 try { if (localStorage.getItem(LS_KEY)) alreadyScreen.style.display='flex'; } catch(e) {}
 
-// Arrancar prefetch inmediatamente
-prefetchAllPhotos();
-
 function showToast(msg) { toast.textContent=msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),3000); }
 
 function updateCounter() {
@@ -244,32 +229,15 @@ function updateCounter() {
 function makeAvatar(fid, num, size) {
   const wrap = document.createElement('div');
   wrap.style.cssText = `width:${size}px;height:${size}px;border-radius:50%;overflow:hidden;background:#e53935;display:flex;align-items:center;justify-content:center;flex-shrink:0;`;
+  const img = document.createElement('img');
+  img.src = FOTO(fid);
+  img.style.cssText = 'width:100%;height:100%;object-fit:cover;object-position:top center;display:none;';
   const fb = document.createElement('span');
   fb.style.cssText = `font-family:'Bebas Neue',sans-serif;color:#fff;font-size:${Math.round(size*0.38)}px;`;
   fb.textContent = num;
-
-  // Si ya está en caché y cargó ok, usamos img directamente
-  if (imgCache[fid] === 'ok') {
-    const img = document.createElement('img');
-    img.src = FOTO(fid);
-    img.style.cssText = 'width:100%;height:100%;object-fit:cover;object-position:top center;';
-    wrap.appendChild(img);
-  } else if (imgCache[fid] === 'err') {
-    wrap.appendChild(fb);
-  } else {
-    // Todavía cargando — mostrar número y actualizar cuando llegue
-    wrap.appendChild(fb);
-    const img = document.createElement('img');
-    img.src = FOTO(fid);
-    img.style.cssText = 'width:100%;height:100%;object-fit:cover;object-position:top center;display:none;';
-    img.onload = () => {
-      imgCache[fid] = 'ok';
-      img.style.display = 'block';
-      fb.style.display = 'none';
-    };
-    img.onerror = () => { imgCache[fid] = 'err'; };
-    wrap.appendChild(img);
-  }
+  img.onload = () => { img.style.display='block'; fb.style.display='none'; };
+  img.onerror = () => { img.style.display='none'; fb.style.display='block'; };
+  wrap.appendChild(img); wrap.appendChild(fb);
   return wrap;
 }
 
@@ -303,8 +271,8 @@ function makePitchPlayer(p){
   const img=document.createElement('img'); img.src=FOTO(p.fid); img.alt='';
   img.style.cssText='width:100%;height:100%;object-fit:cover;object-position:top center;display:none;';
   const fb=document.createElement('div'); fb.className='fallback-num'; fb.textContent=p.num;
-  img.onload=()=>{ img.style.display='block'; fb.style.display='none'; imgCache[p.fid]='ok'; };
-  img.onerror=()=>{ img.style.display='none'; fb.style.display='flex'; imgCache[p.fid]='err'; };
+  img.onload=()=>{ img.style.display='block'; fb.style.display='none'; };
+  img.onerror=()=>{ img.style.display='none'; fb.style.display='flex'; };
   bubble.appendChild(img); bubble.appendChild(fb);
   const numTag=document.createElement('div'); numTag.className='player-numtag'; numTag.textContent=`${p.num} · ${p.name}`;
   const xbtn=document.createElement('button'); xbtn.className='xbtn'; xbtn.textContent='✕';
