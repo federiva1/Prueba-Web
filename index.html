@@ -101,8 +101,8 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
 .player-numtag.banfield { background: var(--verde-banfield); }
 .player-on-pitch .xbtn { position: absolute; top: -5px; right: -5px; width: 16px; height: 16px; border-radius: 50%; background: var(--rojo-dark); border: none; color: #fff; font-size: 9px; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 5; }
 .player-on-pitch:hover .xbtn { display: flex; }
-.player-on-pitch.rival-player { pointer-events: none; opacity: 0.85; z-index: 9; }
-.player-on-pitch.rival-player .xbtn { display: none !important; }
+.player-on-pitch.rival-player { opacity: 0.85; z-index: 9; }
+  .player-on-pitch.rival-player .xbtn { display: none !important; }
 
 #action-bar { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
 #counter { font-size: 12px; color: #888; }
@@ -367,17 +367,17 @@ const squad = [
 ].sort((a,b)=>a.num-b.num);
 
 const banfieldSquad = [
-  {num:1,  name:'Sanguinetti', fid:1200037, x:50, y:88},
-  {num:27, name:'Abraham',     fid:1254641, x:18, y:72},
-  {num:6,  name:'Meriano',     fid:1299928, x:38, y:72},
-  {num:2,  name:'Arboleda',    fid:857776,  x:62, y:72},
-  {num:24, name:'López',       fid:1038763, x:82, y:72},
-  {num:10, name:'Gómez',       fid:1645972, x:18, y:54},
-  {num:5,  name:'Villegas',    fid:1246078, x:38, y:54},
-  {num:35, name:'Pais',        fid:1242942, x:62, y:54},
-  {num:40, name:'Zalazar',     fid:1336106, x:82, y:54},
-  {num:17, name:'Perrotta',    fid:1778729, x:35, y:36},
-  {num:16, name:'Méndez',      fid:1054259, x:65, y:36},
+  {num:1,  name:'Sanguinetti', fid:1200037, x:50, y:8},
+  {num:24, name:'López',       fid:1038763, x:18, y:24},
+  {num:27, name:'Abraham',     fid:1254641, x:37, y:24},
+  {num:6,  name:'Meriano',     fid:1299928, x:63, y:24},
+  {num:2,  name:'Arboleda',    fid:857776,  x:82, y:24},
+  {num:10, name:'Gómez',       fid:1645972, x:18, y:44},
+  {num:5,  name:'Villegas',    fid:1246078, x:37, y:44},
+  {num:35, name:'Pais',        fid:1242942, x:63, y:44},
+  {num:40, name:'Zalazar',     fid:1336106, x:82, y:44},
+  {num:17, name:'Perrotta',    fid:1778729, x:35, y:62},
+  {num:16, name:'Méndez',      fid:1054259, x:65, y:62},
 ];
 
 const GOALKEEPERS = [1,12,32,50];
