@@ -563,6 +563,8 @@ function toggleRival(){
     banfieldSquad.forEach(p=>{
       const el=makePitchPlayer(p,true);
       el.style.left=p.x+'%'; el.style.top=p.y+'%';
+      el.addEventListener('touchstart',ev=>startPitchDrag(ev,el,p),{passive:false});
+      el.addEventListener('mousedown',ev=>startPitchDrag(ev,el,p));
       pitch.appendChild(el); rivalElements.push(el);
     });
   } else {
