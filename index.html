@@ -639,6 +639,7 @@ confirmBtn.addEventListener('click',async()=>{
     });
     if(res.ok||res.status===201){
       try{localStorage.setItem(LS_KEY,'1');localStorage.setItem(LS_FORMATION_KEY,JSON.stringify(jugadores));}catch(e){}
+      if(rivalVisible){ rivalElements.forEach(el=>el.remove()); rivalElements=[]; rivalVisible=false; document.getElementById('rival-btn').classList.remove('active'); }
       successScreen.style.display='flex';
     } else showToast('Error al guardar. Intentá de nuevo.');
   }catch(e){showToast('Error de conexión.');}
