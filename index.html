@@ -711,12 +711,14 @@ async function showResults(){
         const empty=document.createElement('span'); empty.className='tier-empty'; empty.textContent='—';
         pDiv.appendChild(empty);
       } else {
-        inTier.forEach(p=>{
-          const wrap=document.createElement('div'); wrap.className='tier-player';
-          wrap.appendChild(makeAvatar(FOTO(p.fid||0),p.num,36));
-          const name=document.createElement('div'); name.className='tier-player-name'; name.textContent=p.name;
-          wrap.appendChild(name); pDiv.appendChild(wrap);
-        });
+      inTier.forEach(p=>{
+  const wrap=document.createElement('div'); wrap.className='tier-player';
+  wrap.appendChild(makeAvatar(FOTO(p.fid||0),p.num,36));
+  const info=document.createElement('div'); info.style.cssText='display:flex;flex-direction:column;align-items:flex-start;gap:1px;';
+  const name=document.createElement('div'); name.className='tier-player-name'; name.style.maxWidth='none'; name.textContent=p.name;
+  const pct=document.createElement('div'); pct.style.cssText='font-size:10px;color:var(--rojo);font-weight:500;font-family:"Bebas Neue",sans-serif;'; pct.textContent=p.pct+'%';
+  info.appendChild(name); info.appendChild(pct); wrap.appendChild(info); pDiv.appendChild(wrap);
+});
       }
       row.appendChild(pDiv); list.appendChild(row);
     });
