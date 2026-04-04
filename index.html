@@ -730,7 +730,7 @@ document.getElementById('ver-resultados-btn').addEventListener('click', showResu
 function closeResults(){ resultsScreen.style.display='none'; }
 
 async function showResults(){
-  resultsScreen.style.display='flex'; successScreen.style.display='none';
+resultsScreen.style.display='flex';
   const list=document.getElementById('results-list');
   const totalEl=document.getElementById('total-votes');
   list.innerHTML='<div id="results-loading">Cargando...</div>'; totalEl.textContent='';
