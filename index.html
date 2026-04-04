@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formaaajción — Argentinos Juniors</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap');
+
+:root {
+  --rojo: #e53935;
+  --rojo-dark: #b71c1c;
+  --dark: #0d0d1a;
+  --dark2: #1a1a2e;
+  --verde-banfield: #2e7d32;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(--dark); color: #fff; overflow-x: hidden; }
+
+/* ===== PANTALLA PRINCIPAL ===== */
+#home-screen { display: flex; height: 100vh; width: 100%; }
+
+.home-panel { flex: 1; position: relative; overflow: hidden; cursor: pointer; transition: flex 0.5s cubic-bezier(0.4,0,0.2,1); }
+.home-panel:hover { flex: 1.05; }
+
+.carousel { position: absolute; inset: 0; overflow: hidden; }
+.carousel-track { display: flex; height: 100%; transition: transform 0.8s cubic-bezier(0.4,0,0.2,1); }
+.carousel-slide { min-width: 100%; height: 100%; background-size: cover; background-position: center top; filter: brightness(0.3); transition: filter 0.5s; }
+.home-panel:hover .carousel-slide { filter: brightness(0.2); }
+
+.panel-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 24px 24px 40px; text-align: center; z-index: 2; }.panel-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--rojo); margin-bottom: 12px; opacity: 0.8; }
+.panel-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px, 5.5vw, 68px); letter-spacing: 3px; line-height: 1; color: #fff; text-shadow: 0 0 40px rgba(229,57,53,0.3); transition: transform 0.4s ease, text-shadow 0.4s ease; }
+.home-panel:hover .panel-title { transform: translateY(-4px); text-shadow: 0 0 60px rgba(229,57,53,0.6); }
+.panel-sub { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(12px, 1.8vw, 15px); color: rgba(255,255,255,0.5); margin-top: 10px; letter-spacing: 1px; }
+.panel-cta { margin-top: 28px; font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 2px; color: #fff; background: var(--rojo); border: none; padding: 12px 32px; border-radius: 4px; cursor: pointer; opacity: 0; transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease; }
+.home-panel:hover .panel-cta { opacity: 1; transform: translateY(0); }
+.panel-lock { margin-top: 16px; display: flex; align-items: center; gap: 8px; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 1px; color: rgba(255,255,255,0.3); opacity: 0; transform: translateY(10px); transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s; }
+.home-panel:hover .panel-lock { opacity: 1; transform: translateY(0); }
+
+.divider { width: 3px; background: linear-gradient(to bottom, transparent, var(--rojo), transparent); z-index: 10; flex-shrink: 0; }
+
+.carousel-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 3; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.3); transition: background 0.3s, transform 0.3s; }
+.dot.active { background: var(--rojo); transform: scale(1.3); }
+
+/* ===== APP FORMACIÓN ===== */
+#app-screen { display: none; min-height: 100vh; background: var(--dark); }
+#app { background: var(--dark2); padding: 12px; font-family: 'DM Sans', sans-serif; position: relative; max-width: 480px; margin: 0 auto; min-height: 100vh; }
+
+.back-btn { display: flex; align-items: center; gap: 6px; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; letter-spacing: 1px; color: rgba(255,255,255,0.5); cursor: pointer; margin-bottom: 10px; border: none; background: none; padding: 0; }
+.back-btn:hover { color: #fff; }
+
+#header { text-align: center; margin-bottom: 10px; }
+#header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; letter-spacing: 2px; }
+#header .rival-tag { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: var(--rojo); letter-spacing: 1px; margin-top: 2px; }
+#header p { font-size: 11px; color: #888; margin-top: 4px; }
+
+#pitch-row { display: flex; align-items: stretch; gap: 6px; }
+#direction-indicator { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-width: 28px; }
+.dir-label { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; writing-mode: vertical-rl; }
+.dir-label.atq { color: var(--rojo); transform: rotate(180deg); }
+.dir-label.arq { color: #aaa; transform: rotate(180deg); }
+.dir-arrow { display: flex; flex-direction: column; align-items: center; gap: 2px; flex: 1; justify-content: center; }
+.arrow-line { width: 2px; background: rgba(255,255,255,0.15); flex: 1; border-radius: 2px; }
+.arrow-head { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 8px solid rgba(255,255,255,0.2); }
+
+#pitch { width: 100%; aspect-ratio: 0.82; background: #2d7a3a; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); position: relative; overflow: hidden; flex: 1; }
+.stripe { position: absolute; top: 0; bottom: 0; width: 12.5%; }
+.stripe:nth-child(odd) { background: rgba(0,0,0,0.07); }
+.pl { position: absolute; border: 1.5px solid rgba(255,255,255,0.5); }
+.pc { position: absolute; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.5); }
+
+#rival-toggle-bar { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 8px 0 6px; }
+.rival-toggle-btn { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 1px; background: rgba(46,125,50,0.2); color: #81c784; border: 1px solid #2e7d32; border-radius: 20px; padding: 5px 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+.rival-toggle-btn.active { background: #2e7d32; color: #fff; }
+.rival-toggle-btn .toggle-dot { width: 8px; height: 8px; border-radius: 50%; background: #81c784; transition: background 0.2s; }
+.rival-toggle-btn.active .toggle-dot { background: #fff; }
+
+#bottom { margin-top: 10px; }
+#bench-label { font-size: 11px; color: #666; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; }
+#player-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; max-height: 200px; overflow-y: auto; padding: 4px; border: 1.5px dashed transparent; border-radius: 8px; transition: border-color 0.2s, background 0.2s; }
+#player-grid.drag-over { border-color: var(--rojo); background: rgba(229,57,53,0.08); }
+#player-grid::-webkit-scrollbar { width: 3px; }
+#player-grid::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+
+.player-chip { display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 6px 4px; cursor: grab; transition: background 0.15s, opacity 0.15s; min-height: 56px; gap: 3px; position: relative; }
+.player-chip:active { background: rgba(255,255,255,0.15); }
+.player-chip.used { opacity: 0.25; cursor: default; pointer-events: none; }
+.player-chip.injured { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+.injury-badge { position: absolute; top: -4px; right: -4px; width: 16px; height: 16px; border-radius: 50%; background: #c62828; display: flex; align-items: center; justify-content: center; font-size: 9px; border: 1.5px solid var(--dark2); }
+.chip-num { font-size: 11px; color: var(--rojo); font-weight: 500; line-height: 1; }
+.chip-name { font-size: 8px; color: #ccc; text-align: center; line-height: 1.2; word-break: break-word; }
+
+.player-on-pitch { position: absolute; display: flex; flex-direction: column; align-items: center; cursor: grab; transform: translate(-50%, -50%); z-index: 10; touch-action: none; }
+.player-bubble { width: var(--ps, 44px); height: var(--ps, 44px); border-radius: 50%; border: 2.5px solid #fff; overflow: hidden; position: relative; box-shadow: 0 2px 6px rgba(0,0,0,0.5); background: var(--rojo); display: flex; align-items: center; justify-content: center; }
+.player-bubble.banfield { background: var(--verde-banfield); }
+.player-bubble img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: none; }
+.player-bubble .fallback-num { font-family: 'Bebas Neue', sans-serif; font-size: var(--pfs, 16px); color: #fff; }
+.player-numtag { font-size: var(--ntfs, 10px); color: #fff; font-weight: 500; background: var(--rojo); border: 1.5px solid #fff; border-radius: 8px; padding: 1px 5px; margin-top: 2px; line-height: 1.3; white-space: nowrap; }
+.player-numtag.banfield { background: var(--verde-banfield); }
+.player-on-pitch .xbtn { position: absolute; top: -5px; right: -5px; width: 16px; height: 16px; border-radius: 50%; background: var(--rojo-dark); border: none; color: #fff; font-size: 9px; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 5; }
+.player-on-pitch:hover .xbtn { display: flex; }
+.player-on-pitch.rival-player { opacity: 0.85; z-index: 9; }
+  .player-on-pitch.rival-player .xbtn { display: none !important; }
+
+#action-bar { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+#counter { font-size: 12px; color: #888; }
+#counter b { color: var(--rojo); font-size: 15px; }
+@keyframes pulse-btn { 0%{transform:scale(1);box-shadow:0 0 0 0 rgba(229,57,53,0.7)} 50%{transform:scale(1.06);box-shadow:0 0 0 10px rgba(229,57,53,0)} 100%{transform:scale(1);box-shadow:0 0 0 0 rgba(229,57,53,0)} }
+
+
+#toast { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: #111; color: #fff; font-size: 13px; padding: 9px 18px; border-radius: 8px; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 999; white-space: nowrap; }
+#toast.show { opacity: 1; }
+
+#success-screen { display: none; position: absolute; inset: 0; background: rgba(15,15,30,0.97); border-radius: 8px; flex-direction: column; align-items: center; justify-content: center; gap: 10px; z-index: 50; padding: 20px; text-align: center; }
+#success-screen h2 { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--rojo); letter-spacing: 3px; }
+#success-screen p { font-size: 13px; color: #ccc; line-height: 1.6; }
+.btn-primary { font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 1px; background: var(--rojo); color: #fff; border: none; border-radius: 8px; padding: 10px 0; cursor: pointer; width: 100%; max-width: 220px; }
+#generating-msg { font-size: 11px; color: #888; min-height: 16px; }
+.btn-results { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 1px; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; padding: 9px 0; cursor: pointer; width: 100%; max-width: 220px; }
+
+#results-screen { display: none; position: absolute; inset: 0; background: var(--dark2); flex-direction: column; z-index: 200; padding: 16px; overflow-y: auto; }
+#results-screen h2 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; letter-spacing: 2px; text-align: center; margin-bottom: 4px; }
+.subtitle { font-size: 11px; color: #666; text-align: center; margin-bottom: 14px; }
+.result-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.result-num { font-size: 12px; color: var(--rojo); font-weight: 500; min-width: 20px; text-align: right; }
+.result-name { font-size: 13px; color: #fff; min-width: 80px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.result-bar-wrap { flex: 1; background: rgba(255,255,255,0.07); border-radius: 4px; height: 8px; overflow: hidden; }
+.result-bar { height: 100%; background: var(--rojo); border-radius: 4px; transition: width 0.6s ease; }
+.result-pct { font-size: 12px; color: #aaa; min-width: 36px; text-align: right; }
+#results-loading { text-align: center; color: #666; font-size: 13px; padding: 20px; }
+.tier-row { display: flex; align-items: stretch; margin-bottom: 6px; border-radius: 8px; overflow: hidden; min-height: 56px; }
+.tier-label { display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 54px; padding: 6px 4px; font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 1px; text-align: center; flex-shrink: 0; line-height: 1.2; }
+.tier-s .tier-label { background: #b71c1c; color: #fff; }
+.tier-a .tier-label { background: #c62828; color: #fff; }
+.tier-b .tier-label { background: #6a1515; color: #fff; }
+.tier-c .tier-label { background: #2a2a2a; color: #aaa; }
+.tier-d .tier-label { background: #1a1a1a; color: #555; }
+.tier-players { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px; background: rgba(255,255,255,0.04); flex: 1; align-items: center; border: 1px solid rgba(255,255,255,0.06); border-left: none; border-radius: 0 8px 8px 0; }
+.tier-player { display: flex; flex-direction: row; align-items: center; gap: 6px; }
+.tier-player-name { font-size: 8px; color: #ccc; text-align: center; max-width: 42px; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tier-empty { font-size: 11px; color: #333; padding: 4px; }
+#back-results-btn { font-family: 'Bebas Neue', sans-serif; font-size: 15px; color: #aaa; background: none; border: 1px solid #333; border-radius: 8px; padding: 8px 20px; cursor: pointer; width: 100%; margin-top: 12px; }
+#total-votes { font-size: 11px; color: #555; text-align: center; margin-bottom: 10px; }
+
+/* ===== PANTALLA PUNTAJES ===== */
+#scores-screen { display: none; min-height: 100vh; background: var(--dark); }
+#scores-app { background: var(--dark2); padding: 12px; max-width: 480px; margin: 0 auto; min-height: 100vh; position: relative; }
+.scores-header { text-align: center; margin-bottom: 16px; }
+.scores-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; letter-spacing: 2px; }
+.scores-header .rival-tag { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: var(--rojo); letter-spacing: 1px; }
+.scores-header p { font-size: 11px; color: #888; margin-top: 4px; }
+.scores-section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 2px; color: #555; text-transform: uppercase; margin: 14px 0 8px; }
+.score-player-row { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.04); border-radius: 10px; padding: 8px 10px; margin-bottom: 6px; border: 1px solid rgba(255,255,255,0.06); transition: border-color 0.2s; }
+.score-player-row.voted { border-color: rgba(229,57,53,0.3); }
+.score-avatar-wrap { width: 36px; height: 36px; border-radius: 50%; overflow: hidden; background: var(--rojo); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 2px solid rgba(255,255,255,0.15); }
+.score-avatar-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: none; }
+.score-avatar-wrap .av-fb { font-family: 'Bebas Neue', sans-serif; font-size: 13px; color: #fff; }
+.score-player-info { flex: 1; }
+.score-player-num { font-size: 11px; color: var(--rojo); font-weight: 500; }
+.score-player-name { font-size: 13px; color: #fff; }
+.score-btns { display: flex; gap: 3px; flex-wrap: wrap; justify-content: flex-end; }
+.score-btn { width: 26px; height: 26px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: #aaa; font-size: 11px; font-weight: 500; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; }
+.score-btn:hover { border-color: var(--rojo); color: #fff; }
+.score-btn.selected { background: var(--rojo); border-color: var(--rojo); color: #fff; }
+#scores-confirm-btn { font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 1px; background: var(--rojo); color: #fff; border: none; border-radius: 8px; padding: 12px; cursor: pointer; width: 100%; margin-top: 16px; opacity: 0.3; transition: opacity 0.3s; }
+#scores-confirm-btn.ready { opacity: 1; animation: pulse-btn 1s ease-in-out 3; }
+#scores-success { display: none; position: absolute; inset: 0; background: rgba(15,15,30,0.97); flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 20px; text-align: center; z-index: 50; }
+#scores-success h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--rojo); letter-spacing: 3px; }
+#scores-success p { font-size: 13px; color: #ccc; line-height: 1.6; }
+#scores-results-screen { display: none; position: absolute; inset: 0; background: var(--dark2); flex-direction: column; z-index: 200; padding: 16px; overflow-y: auto; }
+#scores-results-screen h2 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; letter-spacing: 2px; text-align: center; margin-bottom: 4px; }
+.score-result-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.score-result-num { font-size: 12px; color: var(--rojo); font-weight: 500; min-width: 20px; }
+.score-result-name { font-size: 13px; color: #fff; min-width: 80px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.score-result-bar-wrap { flex: 1; background: rgba(255,255,255,0.07); border-radius: 4px; height: 8px; overflow: hidden; }
+.score-result-bar { height: 100%; background: var(--rojo); border-radius: 4px; transition: width 0.6s ease; }
+.score-result-val { font-size: 13px; color: #fff; font-weight: 500; min-width: 28px; text-align: right; }
+.locked-overlay { position: fixed; inset: 0; background: rgba(10,10,20,0.93); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; z-index: 500; backdrop-filter: blur(4px); }
+.locked-overlay h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #fff; letter-spacing: 3px; text-align: center; }
+.locked-overlay p { font-size: 13px; color: #555; text-align: center; max-width: 260px; line-height: 1.6; }
+.lock-big { font-size: 48px; }
+</style>
+</head>
+<body>
+
+<!-- PANTALLA PRINCIPAL -->
+<div id="home-screen">
+  <div class="home-panel panel-left" onclick="openApp('formation')">
+    <div class="carousel">
+      <div class="carousel-track" id="track-left"></div>
+    </div>
+    <div class="panel-overlay">
+      <div class="panel-tag">⚽ vs Banfield</div>
+      <div class="panel-title">ARMÁ TU FORMACIÓN</div>
+      <div class="panel-sub">Elegí los 11 titulares que pondrías vos</div>
+      <button class="panel-cta">ENTRAR →</button>
+    </div>
+    <div class="carousel-dots" id="dots-left"></div>
+  </div>
+  <div class="divider"></div>
+  <div class="home-panel panel-right" onclick="openApp('scores')">
+    <div class="carousel">
+      <div class="carousel-track" id="track-right"></div>
+    </div>
+    <div class="panel-overlay">
+      <div class="panel-tag">⭐ Post partido</div>
+      <div class="panel-title">PONÉ TU PUNTAJE</div>
+      <div class="panel-sub">¿Cómo rindieron los jugadores?</div>
+      <button class="panel-cta">ENTRAR →</button>
+      <div class="panel-lock"><span>🔒</span> Se habilita al terminar el partido</div>
+    </div>
+    <div class="carousel-dots" id="dots-right"></div>
+  </div>
+</div>
+
+<!-- APP FORMACIÓN -->
+<div id="app-screen">
+<div id="app">
+  <button class="back-btn" onclick="goHome()">← Volver</button>
+  <div id="results-screen">
+    <h2>⚽ Resultados</h2>
+    <div class="subtitle">¿A quién elegiría la gente?</div>
+    <div id="total-votes"></div>
+    <div id="results-list"><div id="results-loading">Cargando...</div></div>
+    <button id="back-results-btn" onclick="closeResults()">← Volver</button>
+  </div>
+  <div id="header">
+    <h1>⚽ Armá tu formación</h1>
+    <div class="rival-tag">AAAJ vs Banfield</div>
+    <p>Arrastrá jugadores del banco a la cancha · Soltá en el banco para quitar</p>
+  </div>
+  <div id="rival-toggle-bar">
+    <button class="rival-toggle-btn" id="rival-btn" onclick="toggleRival()">
+      <span class="toggle-dot"></span>VER RIVAL (BANFIELD)
+    </button>
+  </div>
+  <div id="pitch-row">
+    <div id="pitch">
+      <div class="stripe" style="left:0%"></div><div class="stripe" style="left:12.5%"></div>
+      <div class="stripe" style="left:25%"></div><div class="stripe" style="left:37.5%"></div>
+      <div class="stripe" style="left:50%"></div><div class="stripe" style="left:62.5%"></div>
+      <div class="stripe" style="left:75%"></div><div class="stripe" style="left:87.5%"></div>
+      <div class="pl" style="left:5%;right:5%;top:0;border-top:1.5px solid rgba(255,255,255,0.5);border-left:none;border-right:none;border-bottom:none;height:0"></div>
+      <div class="pl" style="left:5%;right:5%;bottom:0;border-bottom:1.5px solid rgba(255,255,255,0.5);border-left:none;border-right:none;border-top:none;height:0"></div>
+      <div class="pl" style="left:5%;top:0;bottom:0;width:0;border-left:1.5px solid rgba(255,255,255,0.5);"></div>
+      <div class="pl" style="right:5%;top:0;bottom:0;width:0;border-left:1.5px solid rgba(255,255,255,0.5);"></div>
+      <div class="pl" style="left:5%;right:5%;top:50%;height:0;border-top:1.5px solid rgba(255,255,255,0.5);border-left:none;border-right:none;border-bottom:none;"></div>
+      <div class="pc" style="left:50%;top:50%;width:18%;padding-top:18%;transform:translate(-50%,-50%);"></div>
+      <div class="pc" style="left:50%;top:50%;width:3%;padding-top:3%;transform:translate(-50%,-50%);background:rgba(255,255,255,0.5);border:none;"></div>
+      <div class="pl" style="left:21%;right:21%;top:0;height:18%;border:1.5px solid rgba(255,255,255,0.5);border-top:none;"></div>
+      <div class="pl" style="left:21%;right:21%;bottom:0;height:18%;border:1.5px solid rgba(255,255,255,0.5);border-bottom:none;"></div>
+      <div class="pl" style="left:33%;right:33%;top:0;height:9%;border:1.5px solid rgba(255,255,255,0.5);border-top:none;"></div>
+      <div class="pl" style="left:33%;right:33%;bottom:0;height:9%;border:1.5px solid rgba(255,255,255,0.5);border-bottom:none;"></div>
+      <div id="success-screen">
+        <h2>¡Gracias, Bicho!</h2>
+        <p>Tu formación fue registrada.<br>Vamos Argentinos 🔴🤍</p>
+        <button class="btn-primary" id="download-btn">Descargar mi formación</button>
+        <div id="generating-msg"></div>
+
+      </div>
+    </div>
+    <div id="direction-indicator">
+      <div class="dir-label atq">ATQ</div>
+      <div class="dir-arrow"><div class="arrow-head"></div><div class="arrow-line"></div></div>
+      <div class="dir-label arq">ARQ</div>
+    </div>
+  </div>
+  <div id="bottom">
+    <div id="bench-label">
+      <span>Banco · soltá acá para quitar</span>
+      <span style="color:var(--rojo);font-size:13px;font-weight:500;" id="count">0</span><span style="color:#555;font-size:11px;">/11</span>
+    </div>
+    <div id="player-grid"></div>
+  </div>
+  <div id="action-bar">
+    <div id="counter">Titulares: <b id="count2">0</b>/11</div>
+    <div style="display:flex;gap:6px;">
+      <button id="download-pitch-btn" style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:9px 14px;cursor:not-allowed;opacity:0.3;transition:opacity 0.3s;" disabled>Descargar</button>
+      <button id="confirm-btn" style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;background:var(--rojo);color:#fff;border:none;border-radius:8px;padding:9px 14px;cursor:not-allowed;opacity:0.3;transition:opacity 0.3s;" disabled>Enviar a encuesta</button>
+    </div>
+  </div>
+  <div style="margin-top:6px;">
+    <button id="ver-resultados-btn" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;background:transparent;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:8px;cursor:pointer;width:100%;">Ver resultados →</button>
+  </div>
+</div>
+</div>
+
+<!-- APP PUNTAJES -->
+<div id="scores-screen">
+<div id="scores-app">
+  <button class="back-btn" onclick="goHome()">← Volver</button>
+  <div class="scores-header">
+    <h1>⭐ Puntuá el partido</h1>
+    <div class="rival-tag">AAAJ vs Banfield</div>
+    <p>Poné tu nota del 1 al 10 a cada jugador</p>
+  </div>
+  <div id="scores-list"></div>
+  <button id="scores-confirm-btn">Confirmar puntajes</button>
+  <button id="scores-ver-resultados-btn" style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;background:transparent;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:9px;cursor:pointer;width:100%;margin-top:8px;">Ver resultados →</button>
+  <div id="scores-success">
+    <h2>¡Gracias, Bicho!</h2>
+    <p>Tus puntajes fueron registrados.<br>Vamos Argentinos 🔴🤍</p>
+  </div>
+  <div id="scores-results-screen">
+    <h2>⭐ Puntajes</h2>
+    <div class="subtitle">Promedio de la gente</div>
+    <div id="scores-results-list"><div>Cargando...</div></div>
+    <button id="back-scores-results-btn" style="font-family:'Bebas Neue',sans-serif;font-size:15px;color:#aaa;background:none;border:1px solid #333;border-radius:8px;padding:8px 20px;cursor:pointer;width:100%;margin-top:12px;">← Volver</button>
+  </div>
+  <div class="locked-overlay" id="scores-locked">
+    <div class="lock-big">🔒</div>
+    <h2>PRÓXIMAMENTE</h2>
+    <p>Esta sección se habilita cuando termina el partido. ¡Volvé después!</p>
+    <button class="back-btn" style="margin-top:8px;color:#aaa;" onclick="goHome()">← Volver al inicio</button>
+  </div>
+</div>
+</div>
+
+<div id="toast"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+const SUPABASE_URL = 'https://igfencxdekvtfspsskwd.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnZmVuY3hkZWt2dGZzcHNza3dkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5NTUyOTEsImV4cCI6MjA4OTUzMTI5MX0.KVpBNe_p7OLAtZPMFUTpTbKmLCl-G63f53gvFJreinc';
+
+// ============================================================
+// CAMBIAR CADA FECHA:
+const RIVAL = 'Banfield';
+const LS_KEY = 'aaaj_vs_banfield';
+const LS_FORMATION_KEY = 'aaaj_vs_banfield_formacion';
+const LS_SCORES_KEY = 'aaaj_vs_banfield_puntajes';
+const SCORES_ENABLED = true;
+
+const playedSquad = [
+  {num:25, name:'Cortés',      fid:424153,  tipo:'titular'},
+  {num:20, name:'Prieto',      fid:841913,  tipo:'titular'},
+  {num:6,  name:'Riquelme',    fid:1277345, tipo:'titular'},
+  {num:16, name:'Álvarez',     fid:920404,  tipo:'titular'},
+  {num:14, name:'Coronel',     fid:1575797, tipo:'titular'},
+  {num:11, name:'Oroz',        fid:543304,  tipo:'titular'},
+  {num:24, name:'Fattori',     fid:616508,  tipo:'titular'},
+  {num:29, name:'Viveros',     fid:1304246, tipo:'titular'},
+  {num:10, name:'Lescano',     fid:1342579, tipo:'titular'},
+  {num:23, name:'López',       fid:1037535, tipo:'titular'},
+  {num:30, name:'Morales',     fid:785840,  tipo:'titular'},
+  {num:7,  name:'Giaccone',    fid:1220657, tipo:'suplente'},
+  {num:27, name:'Molina',      fid:728323,  tipo:'suplente'},
+  {num:26, name:'Bravo',       fid:723489,  tipo:'suplente'},
+  {num:32, name:'Infantino',   fid:1200022, tipo:'suplente'},
+  {num:8,  name:'Gómez',       fid:1609797, tipo:'suplente'},
+];
+// ============================================================
+
+const FOTO = id => `/fotos/${id}.png`;
+const FOTO_B = id => `/fotosBanfield/${id}.png`;
+const INJURED = [50, 22, 21, 33, 19, 9];
+
+const squad = [
+  {num:1,  name:'Mangiaut',    fid:1680187},
+  {num:3,  name:'Sánchez',     fid:862337},
+  {num:4,  name:'Godoy',       fid:316878},
+  {num:6,  name:'Riquelme',    fid:1277345},
+  {num:7,  name:'Giaccone',    fid:1220657},
+  {num:8,  name:'Gómez',       fid:1609797},
+  {num:9,  name:'Verón',       fid:918846},
+  {num:10, name:'Lescano',     fid:1342579},
+  {num:11, name:'Oroz',        fid:543304},
+  {num:12, name:'Siri',        fid:1608394},
+  {num:13, name:'Yáñez',       fid:1804827},
+  {num:14, name:'Coronel',     fid:1575797},
+  {num:16, name:'Álvarez',     fid:920404},
+  {num:17, name:'Paredes',     fid:1137661},
+  {num:18, name:'Fernández L', fid:306126},
+  {num:19, name:'Giménez',     fid:1025559},
+  {num:20, name:'Prieto',      fid:841913},
+  {num:21, name:'Florentín',   fid:1054269},
+  {num:22, name:'Lozano',      fid:1238138},
+  {num:23, name:'López',       fid:1037535},
+  {num:24, name:'Fattori',     fid:616508},
+  {num:25, name:'Cortés',      fid:424153},
+  {num:26, name:'Bravo',       fid:723489},
+  {num:27, name:'Molina',      fid:728323},
+  {num:28, name:'Gho',         fid:1232259},
+  {num:29, name:'Viveros',     fid:1304246},
+  {num:30, name:'Morales',     fid:785840},
+  {num:31, name:'Carrizo',     fid:1842716},
+  {num:32, name:'Infantino',   fid:1200022},
+  {num:33, name:'Enzo Pérez',  fid:40148},
+  {num:34, name:'Kida',        fid:1383188},
+  {num:36, name:'Bouhier',     fid:1789719},
+  {num:38, name:'Fernández R', fid:1929107},
+  {num:47, name:'Porcel',      fid:1648046},
+  {num:48, name:'Jainikoski',  fid:1843096},
+  {num:50, name:'Rodríguez',   fid:186986},
+].sort((a,b)=>a.num-b.num);
+
+const banfieldSquad = [
+  {num:1,  name:'Sanguinetti', fid:1200037, x:50,    y:8},
+  {num:24, name:'López',       fid:1038763, x:14.66, y:33.39},
+  {num:27, name:'Abraham',     fid:1254641, x:85.21, y:33.98},
+  {num:6,  name:'Meriano',     fid:1299928, x:63,    y:24.39},
+  {num:2,  name:'Arboleda',    fid:857776,  x:37.37, y:24.20},
+  {num:10, name:'Gómez',       fid:1645972, x:85.06, y:64.35},
+  {num:5,  name:'Villegas',    fid:1246078, x:34.85, y:50.46},
+  {num:35, name:'Pais',        fid:1242942, x:63,    y:50.85},
+  {num:40, name:'Zalazar',     fid:1336106, x:14.46, y:63.57},
+  {num:17, name:'Perrotta',    fid:1778729, x:35.72, y:80.40},
+  {num:16, name:'Méndez',      fid:1054259, x:63.81, y:80.79},
+];
+
+const GOALKEEPERS = [1,12,32,50];
+let onPitch=[], draggingNew=null, activePitchDrag=null;
+let dragOffX=0, dragOffY=0, sending=false, wasReady=false;
+let rivalVisible=false, rivalElements=[];
+let userScores={}, scoresWasReady=false;
+
+const pitch = document.getElementById('pitch');
+const grid = document.getElementById('player-grid');
+const resultsScreen = document.getElementById('results-screen');
+const toast = document.getElementById('toast');
+
+// ===== CARRUSEL ALEATORIO =====
+function initCarousel(trackId, dotsId, slides, interval) {
+  const track = document.getElementById(trackId);
+  const dotsContainer = document.getElementById(dotsId);
+  const n = slides.length;
+  let current = Math.floor(Math.random() * n);
+
+  // Crear slides
+  slides.forEach(src => {
+    const div = document.createElement('div');
+    div.className = 'carousel-slide';
+    div.style.backgroundImage = `url('${src}')`;
+    track.appendChild(div);
+  });
+
+  // Crear dots
+  slides.forEach((_,i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i===current?' active':'');
+    dotsContainer.appendChild(dot);
+  });
+
+  // Posición inicial aleatoria sin animación
+  track.style.transition = 'none';
+  track.style.transform = `translateX(-${current * 100}%)`;
+  setTimeout(() => { track.style.transition = 'transform 0.8s cubic-bezier(0.4,0,0.2,1)'; }, 50);
+
+  setInterval(() => {
+    current = (current + 1) % n;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsContainer.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i===current));
+  }, interval);
+}
+
+const dtSlides = ['/fotosDTs/dt1.png','/fotosDTs/dt2.png','/fotosDTs/dt3.png','/fotosDTs/dt4.png','/fotosDTs/dt5.png','/fotosDTs/dt6.png','/fotosDTs/dt7.png','/fotosDTs/dt8.png'];const pSlides  = ['/fotosPuntajes/p1.png','/fotosPuntajes/p2.jpg','/fotosPuntajes/p3.png'];
+initCarousel('track-left',  'dots-left',  dtSlides, 3000);
+initCarousel('track-right', 'dots-right', pSlides,  3800);
+
+// ===== NAVEGACIÓN =====
+function openApp(section) {
+  document.getElementById('home-screen').style.display = 'none';
+  if (section === 'formation') {
+    document.getElementById('app-screen').style.display = 'block';
+  } else {
+    document.getElementById('scores-screen').style.display = 'block';
+    if (!SCORES_ENABLED) {
+      document.getElementById('scores-locked').style.display = 'flex';
+    } else {
+      document.getElementById('scores-locked').style.display = 'none';
+      if (localStorage.getItem(LS_SCORES_KEY)) {
+        const btn=document.getElementById('scores-confirm-btn');
+        btn.textContent='Descargar puntajes';
+        btn.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:17px;letter-spacing:1px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:12px;cursor:pointer;width:100%;margin-top:16px;opacity:1;';
+      } else {
+        renderScores();
+      }
+    }
+  }
+}
+function goHome() {
+  document.getElementById('home-screen').style.display = 'flex';
+  document.getElementById('app-screen').style.display = 'none';
+  document.getElementById('scores-screen').style.display = 'none';
+}
+
+// ===== TAMAÑOS =====
+function updatePlayerSizes() {
+  const w = pitch.offsetWidth;
+  const size = Math.round(w * 0.09);
+  pitch.style.setProperty('--ps', size + 'px');
+  pitch.style.setProperty('--pfs', Math.round(size * 0.4) + 'px');
+  pitch.style.setProperty('--ntfs', Math.round(size * 0.27) + 'px');
+}
+const ro = new ResizeObserver(() => updatePlayerSizes());
+ro.observe(pitch); updatePlayerSizes();
+
+function showToast(msg) { toast.textContent=msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),3000); }
+
+function updateCounter() {
+  const n=onPitch.length;
+  document.getElementById('count').textContent=n;
+  document.getElementById('count2').textContent=n;
+  const isReady=n===11;
+  const dlBtn=document.getElementById('download-pitch-btn');
+  const cfBtn=document.getElementById('confirm-btn');
+  const alreadyVoted=!!localStorage.getItem(LS_KEY);
+  dlBtn.disabled=!isReady;
+  dlBtn.style.opacity=isReady?'1':'0.3';
+  dlBtn.style.cursor=isReady?'pointer':'not-allowed';
+  if(alreadyVoted){
+    cfBtn.disabled=true; cfBtn.style.opacity='0.3'; cfBtn.style.cursor='not-allowed'; cfBtn.textContent='Ya enviaste ✓';
+  } else {
+    cfBtn.disabled=!isReady; cfBtn.style.opacity=isReady?'1':'0.3'; cfBtn.style.cursor=isReady?'pointer':'not-allowed';
+    cfBtn.textContent='Enviar a encuesta';
+    if(isReady&&!wasReady){cfBtn.style.animation='none';void cfBtn.offsetWidth;cfBtn.style.animation='pulse-btn 1s ease-in-out 3';}
+  }
+  if(!isReady) cfBtn.style.animation='';
+  wasReady=isReady;
+}
+
+function makeAvatar(src, num, size) {
+  const wrap = document.createElement('div');
+  wrap.style.cssText = `width:${size}px;height:${size}px;border-radius:50%;overflow:hidden;background:#e53935;display:flex;align-items:center;justify-content:center;flex-shrink:0;`;
+  const img = document.createElement('img');
+  img.src = src;
+  img.style.cssText = 'width:100%;height:100%;object-fit:cover;object-position:top center;display:none;';
+  const fb = document.createElement('span');
+  fb.style.cssText = `font-family:'Bebas Neue',sans-serif;color:#fff;font-size:${Math.round(size*0.38)}px;`;
+  fb.textContent = num;
+  img.onload = () => { img.style.display='block'; fb.style.display='none'; };
+  img.onerror = () => { img.style.display='none'; fb.style.display='block'; };
+  wrap.appendChild(img); wrap.appendChild(fb);
+  return wrap;
+}
+
+function renderGrid() {
+  grid.innerHTML='';
+  squad.forEach(p=>{
+    const used=onPitch.find(x=>x.num===p.num);
+    const isInjured=INJURED.includes(p.num);
+    const chip=document.createElement('div');
+    chip.className='player-chip'+(used?' used':'')+(isInjured?' injured':'');
+    chip.appendChild(makeAvatar(FOTO(p.fid), p.num, 32));
+    const num=document.createElement('span'); num.className='chip-num'; num.textContent=p.num; chip.appendChild(num);
+    const nm=document.createElement('span'); nm.className='chip-name'; nm.textContent=p.name; chip.appendChild(nm);
+    if(isInjured){ const b=document.createElement('div'); b.className='injury-badge'; b.textContent='🏥'; chip.appendChild(b); }
+    if(!used&&!isInjured){
+      chip.addEventListener('touchstart',e=>{e.preventDefault();draggingNew=p;},{passive:false});
+      chip.addEventListener('mousedown',e=>{e.preventDefault();draggingNew=p;});
+    }
+    grid.appendChild(chip);
+  });
+}
+
+function removePlayer(num){
+  const idx=onPitch.findIndex(x=>x.num===num);
+  if(idx===-1)return;
+  onPitch[idx].el.remove(); onPitch.splice(idx,1);
+  updateCounter(); renderGrid();
+}
+
+function makePitchPlayer(p, isBanfield=false){
+  const el=document.createElement('div');
+  el.className='player-on-pitch'+(isBanfield?' rival-player':'');
+  const bubble=document.createElement('div');
+  bubble.className='player-bubble'+(isBanfield?' banfield':'');
+  const img=document.createElement('img');
+  img.src=isBanfield?FOTO_B(p.fid):FOTO(p.fid); img.alt='';
+  img.style.cssText='width:100%;height:100%;object-fit:cover;object-position:top center;display:none;';
+  const fb=document.createElement('div'); fb.className='fallback-num'; fb.textContent=p.num;
+  img.onload=()=>{ img.style.display='block'; fb.style.display='none'; };
+  img.onerror=()=>{ img.style.display='none'; fb.style.display='flex'; };
+  bubble.appendChild(img); bubble.appendChild(fb);
+  const numTag=document.createElement('div');
+  numTag.className='player-numtag'+(isBanfield?' banfield':'');
+  numTag.textContent=`${p.num} · ${p.name}`;
+  el.appendChild(bubble); el.appendChild(numTag);
+  if(!isBanfield){
+    const xbtn=document.createElement('button'); xbtn.className='xbtn'; xbtn.textContent='✕';
+    xbtn.addEventListener('click',e=>{e.stopPropagation();removePlayer(p.num);});
+    el.appendChild(xbtn);
+  }
+  return el;
+}
+
+function addToPitch(p,xPct,yPct,silent=false){
+  if(onPitch.find(x=>x.num===p.num))return;
+  const el=makePitchPlayer(p);
+  el.style.left=xPct+'%'; el.style.top=yPct+'%';
+  el.addEventListener('touchstart',ev=>startPitchDrag(ev,el,p),{passive:false});
+  el.addEventListener('mousedown',ev=>{if(!ev.target.classList.contains('xbtn'))startPitchDrag(ev,el,p);});
+  pitch.appendChild(el);
+  onPitch.push({num:p.num,name:p.name,fid:p.fid,xPct,yPct,el});
+  if(!silent){updateCounter();renderGrid();}
+}
+
+function toggleRival(){
+  rivalVisible=!rivalVisible;
+  document.getElementById('rival-btn').classList.toggle('active',rivalVisible);
+  if(rivalVisible){
+    banfieldSquad.forEach(p=>{
+      const el=makePitchPlayer(p,true);
+      el.style.left=p.x+'%'; el.style.top=p.y+'%';
+      pitch.appendChild(el); rivalElements.push(el);
+    });
+  } else {
+    rivalElements.forEach(el=>el.remove()); rivalElements=[];
+  }
+}
+
+function startPitchDrag(e,el,p){
+  if(e.target.classList.contains('xbtn'))return;
+  e.preventDefault();
+  const touch=e.touches?e.touches[0]:e;
+  const rect=pitch.getBoundingClientRect();
+  dragOffX=touch.clientX-rect.left-(parseFloat(el.style.left)/100*pitch.clientWidth);
+  dragOffY=touch.clientY-rect.top-(parseFloat(el.style.top)/100*pitch.clientHeight);
+  activePitchDrag={el,p}; el.style.zIndex=20;
+}
+
+function isOver(el,cx,cy){ const r=el.getBoundingClientRect(); return cx>=r.left&&cx<=r.right&&cy>=r.top&&cy<=r.bottom; }
+
+function handleMove(cx,cy){
+  if(activePitchDrag){
+    const rect=pitch.getBoundingClientRect();
+    let px=Math.max(3,Math.min(97,((cx-rect.left-dragOffX)/pitch.clientWidth)*100));
+    let py=Math.max(3,Math.min(97,((cy-rect.top-dragOffY)/pitch.clientHeight)*100));
+    activePitchDrag.el.style.left=px+'%'; activePitchDrag.el.style.top=py+'%';
+    const obj=onPitch.find(o=>o.num===activePitchDrag.p.num);
+    if(obj){obj.xPct=px;obj.yPct=py;}
+    grid.classList.toggle('drag-over',isOver(grid,cx,cy));
+  }
+}
+
+function handleEnd(cx,cy){
+  if(activePitchDrag){
+    if(isOver(grid,cx,cy))removePlayer(activePitchDrag.p.num);
+    grid.classList.remove('drag-over'); activePitchDrag=null;
+  } else if(draggingNew){
+    if(isOver(pitch,cx,cy)&&onPitch.length<11){
+      const rect=pitch.getBoundingClientRect();
+      addToPitch(draggingNew,
+        Math.max(3,Math.min(97,((cx-rect.left)/pitch.clientWidth)*100)),
+        Math.max(3,Math.min(97,((cy-rect.top)/pitch.clientHeight)*100))
+      );
+    }
+    draggingNew=null;
+  }
+}
+
+document.addEventListener('mousemove',e=>handleMove(e.clientX,e.clientY));
+document.addEventListener('mouseup',e=>handleEnd(e.clientX,e.clientY));
+document.addEventListener('touchmove',e=>{ if(activePitchDrag||draggingNew)e.preventDefault(); handleMove(e.touches[0].clientX,e.touches[0].clientY); },{passive:false});
+document.addEventListener('touchend',e=>handleEnd(e.changedTouches[0].clientX,e.changedTouches[0].clientY));
+
+// Restaurar formación guardada (solo visual)
+try {
+  const saved=localStorage.getItem(LS_FORMATION_KEY);
+  if(saved){
+    JSON.parse(saved).forEach(j=>{ const p=squad.find(s=>s.num===j.num); if(p)addToPitch(p,j.x,j.y,true); });
+    updateCounter(); renderGrid();
+  }
+} catch(e){}
+
+// Descargar formación
+document.getElementById('download-pitch-btn').addEventListener('click',async()=>{
+  const btn=document.getElementById('download-pitch-btn');
+  if(onPitch.length!==11)return;
+  btn.textContent='Generando...'; btn.disabled=true;
+  document.querySelectorAll('.xbtn').forEach(x=>x.style.display='none');
+  const rivalWasVisible=rivalVisible;
+  if(rivalVisible){ rivalElements.forEach(el=>el.style.opacity='0'); }
+  try{
+    await new Promise(r=>setTimeout(r,150));
+    const canvas=await html2canvas(pitch,{backgroundColor:'#2d7a3a',scale:2,useCORS:true,allowTaint:false,logging:false,width:pitch.offsetWidth,height:pitch.offsetHeight});
+    const ctx=canvas.getContext('2d');
+    ctx.fillStyle='rgba(255,255,255,0.4)';
+    ctx.font=`bold ${Math.round(canvas.width*0.04)}px sans-serif`;
+    ctx.textAlign='right';
+    ctx.fillText(`Mi formación AAAJ vs ${RIVAL}`,canvas.width-12,canvas.height-12);
+    const link=document.createElement('a');
+    link.download=`mi-formacion-aaaj-vs-${RIVAL.toLowerCase()}.png`;
+    link.href=canvas.toDataURL('image/png'); link.click();
+    showToast('¡Descargada! Compartila 🔴🤍');
+  }catch(e){showToast('No se pudo generar la imagen.');}
+  finally{
+    document.querySelectorAll('.xbtn').forEach(x=>x.style.display='');
+    if(rivalWasVisible){ rivalElements.forEach(el=>el.style.opacity=''); }
+    btn.textContent='Descargar'; btn.disabled=false;
+    updateCounter();
+  }
+});
+
+// Enviar a encuesta
+document.getElementById('confirm-btn').addEventListener('click',async()=>{
+  if(onPitch.length!==11||sending||localStorage.getItem(LS_KEY))return;
+  sending=true;
+  const btn=document.getElementById('confirm-btn');
+  btn.textContent='Enviando...'; btn.disabled=true;
+  const gk=onPitch.find(p=>GOALKEEPERS.includes(p.num));
+  let jugadores=onPitch.map(p=>({num:p.num,name:p.name,fid:p.fid,x:Math.round(p.xPct),y:Math.round(p.yPct)}));
+  if(gk&&gk.yPct<50)jugadores=jugadores.map(p=>({...p,x:Math.round(100-p.x),y:Math.round(100-p.y)}));
+  try{
+    const res=await fetch(`${SUPABASE_URL}/rest/v1/formaciones`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Prefer':'return=minimal'},
+      body:JSON.stringify({jugadores,rival:RIVAL})
+    });
+    if(res.ok||res.status===201){
+      try{localStorage.setItem(LS_KEY,'1');localStorage.setItem(LS_FORMATION_KEY,JSON.stringify(jugadores));}catch(e){}
+      if(rivalVisible){ rivalElements.forEach(el=>el.remove()); rivalElements=[]; rivalVisible=false; document.getElementById('rival-btn').classList.remove('active'); }
+      showToast('¡Formación enviada! Gracias, Bicho 🔴🤍');
+      updateCounter();
+    } else showToast('Error al guardar. Intentá de nuevo.');
+  }catch(e){showToast('Error de conexión.');}
+  finally{sending=false;}
+});
+
+// Ver resultados (siempre disponible)
+document.getElementById('ver-resultados-btn').addEventListener('click', showResults);
+
+
+
+function closeResults(){ resultsScreen.style.display='none'; }
+
+async function showResults(){
+  resultsScreen.style.display='flex';
+  const list=document.getElementById('results-list');
+  const totalEl=document.getElementById('total-votes');
+  list.innerHTML='<div id="results-loading">Cargando...</div>'; totalEl.textContent='';
+  try{
+    const res=await fetch(`${SUPABASE_URL}/rest/v1/formaciones?select=jugadores`,{headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}});
+    const data=await res.json();
+    const total=data.length;
+    if(total===0){list.innerHTML='<div id="results-loading">Todavía no hay formaciones enviadas.</div>';return;}
+    const counts={};
+    data.forEach(row=>{ (row.jugadores||[]).forEach(j=>{ if(!counts[j.num]){const sq=squad.find(s=>s.num===j.num);counts[j.num]={num:j.num,name:j.name,fid:j.fid||sq?.fid||0,count:0};}counts[j.num].count++;}); });
+    const players=Object.values(counts).map(p=>({...p,pct:Math.round((p.count/total)*100)})).sort((a,b)=>b.pct-a.pct);
+    totalEl.textContent=`${total} formación${total!==1?'es':''} enviada${total!==1?'s':''}`;
+    list.innerHTML='';
+    const tiers=[
+      {cls:'tier-s', label:'90%+',   min:90, max:100},
+      {cls:'tier-a', label:'75-89%', min:75, max:89},
+      {cls:'tier-b', label:'50-74%', min:50, max:74},
+      {cls:'tier-c', label:'25-49%', min:25, max:49},
+      {cls:'tier-d', label:'0-24%',  min:0,  max:24},
+    ];
+    tiers.forEach(tier=>{
+      const inTier=players.filter(p=>p.pct>=tier.min&&p.pct<=tier.max);
+      const row=document.createElement('div'); row.className=`tier-row ${tier.cls}`;
+      const label=document.createElement('div'); label.className='tier-label'; label.textContent=tier.label;
+      row.appendChild(label);
+      const pDiv=document.createElement('div'); pDiv.className='tier-players';
+      if(!inTier.length){
+        const empty=document.createElement('span'); empty.className='tier-empty'; empty.textContent='—';
+        pDiv.appendChild(empty);
+      } else {
+        inTier.forEach(p=>{
+          const wrap=document.createElement('div'); wrap.className='tier-player';
+          wrap.appendChild(makeAvatar(FOTO(p.fid||0),p.num,36));
+          const info=document.createElement('div'); info.style.cssText='display:flex;flex-direction:column;gap:1px;';
+          const name=document.createElement('div'); name.className='tier-player-name'; name.style.maxWidth='none'; name.textContent=p.name;
+          const pct=document.createElement('div'); pct.style.cssText='font-size:10px;color:var(--rojo);font-family:"Bebas Neue",sans-serif;'; pct.textContent=p.pct+'%';
+          info.appendChild(name); info.appendChild(pct); wrap.appendChild(info); pDiv.appendChild(wrap);
+        });
+      }
+      row.appendChild(pDiv); list.appendChild(row);
+    });
+  }catch(e){list.innerHTML='<div id="results-loading">Error al cargar resultados.</div>';}
+}
+
+
+document.getElementById('back-results-btn').addEventListener('click',closeResults);
+
+// ===== PUNTAJES =====
+function renderScores(){
+  const list=document.getElementById('scores-list');
+  list.innerHTML='';
+  if(!playedSquad.length){list.innerHTML='<p style="color:#555;font-size:13px;text-align:center;padding:20px;">El DT aún no cargó los jugadores que jugaron.</p>';return;}
+  const titulares=playedSquad.filter(p=>p.tipo==='titular');
+  const suplentes=playedSquad.filter(p=>p.tipo==='suplente');
+  function renderGroup(title,players){
+    if(!players.length)return;
+    const t=document.createElement('div'); t.className='scores-section-title'; t.textContent=title; list.appendChild(t);
+    players.forEach(p=>{
+      const row=document.createElement('div'); row.className='score-player-row'; row.dataset.num=p.num;
+      const avWrap=document.createElement('div'); avWrap.className='score-avatar-wrap';
+      const img=document.createElement('img'); img.src=FOTO(p.fid);
+      const fb=document.createElement('span'); fb.className='av-fb'; fb.textContent=p.num;
+      img.onload=()=>{img.style.display='block';fb.style.display='none';};
+      img.onerror=()=>{img.style.display='none';fb.style.display='block';};
+      img.style.display='none';
+      avWrap.appendChild(img); avWrap.appendChild(fb); row.appendChild(avWrap);
+      const info=document.createElement('div'); info.className='score-player-info';
+      const numEl=document.createElement('div'); numEl.className='score-player-num'; numEl.textContent=`#${p.num}`;
+      const nameEl=document.createElement('div'); nameEl.className='score-player-name'; nameEl.textContent=p.name;
+      info.appendChild(numEl); info.appendChild(nameEl); row.appendChild(info);
+      const btns=document.createElement('div'); btns.className='score-btns';
+      for(let i=1;i<=10;i++){
+        const btn=document.createElement('button'); btn.className='score-btn'; btn.textContent=i;
+        btn.addEventListener('click',()=>{
+          userScores[p.num]=i;
+          btns.querySelectorAll('.score-btn').forEach((b,idx)=>b.classList.toggle('selected',idx+1===i));
+          row.classList.add('voted');
+          checkScoresReady();
+        });
+        btns.appendChild(btn);
+      }
+      row.appendChild(btns); list.appendChild(row);
+    });
+  }
+  renderGroup('TITULARES',titulares);
+  renderGroup('SUPLENTES QUE INGRESARON',suplentes);
+}
+
+function checkScoresReady(){
+  const isReady=Object.keys(userScores).length===playedSquad.length&&playedSquad.length>0;
+  const btn=document.getElementById('scores-confirm-btn');
+  if(isReady&&!scoresWasReady){btn.classList.remove('ready');void btn.offsetWidth;btn.classList.add('ready');}
+  else if(!isReady) btn.classList.remove('ready');
+  scoresWasReady=isReady;
+}
+
+async function downloadMyScores(){
+  try{
+    const tmp=document.createElement('div');
+    tmp.style.cssText='background:#1a1a2e;padding:16px;width:320px;position:fixed;left:-9999px;top:0;';
+    const title=document.createElement('div');
+    title.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:20px;color:#fff;text-align:center;margin-bottom:4px;letter-spacing:2px;';
+    title.textContent='MIS PUNTAJES';
+    const sub=document.createElement('div');
+    sub.style.cssText='font-size:11px;color:#666;text-align:center;margin-bottom:12px;';
+    sub.textContent=`AAAJ vs ${RIVAL}`;
+    tmp.appendChild(title); tmp.appendChild(sub);
+    const sorted=Object.entries(userScores).map(([num,val])=>{
+      const p=playedSquad.find(s=>s.num===Number(num));
+      return {num:Number(num),name:p?.name||`#${num}`,fid:p?.fid||0,val:Number(val)};
+    }).sort((a,b)=>b.val-a.val);
+    sorted.forEach((p,i)=>{
+      const row=document.createElement('div');
+      row.style.cssText='display:flex;align-items:center;gap:8px;padding:6px 8px;background:rgba(255,255,255,0.04);border-radius:8px;margin-bottom:4px;';
+      const pos=document.createElement('span'); pos.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:13px;color:#555;min-width:16px;'; pos.textContent=i+1;
+      const av=makeAvatar(FOTO(p.fid),p.num,32);
+      const info=document.createElement('div'); info.style.cssText='flex:1;';
+      const name=document.createElement('div'); name.style.cssText='font-size:12px;color:#fff;'; name.textContent=p.name;
+      const num=document.createElement('div'); num.style.cssText='font-size:10px;color:#555;'; num.textContent=`#${p.num}`;
+      info.appendChild(name); info.appendChild(num);
+      const val=document.createElement('div'); val.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:20px;color:#e53935;'; val.textContent=p.val;
+      row.appendChild(pos); row.appendChild(av); row.appendChild(info); row.appendChild(val);
+      tmp.appendChild(row);
+    });
+    document.body.appendChild(tmp);
+    await new Promise(r=>setTimeout(r,200));
+    const canvas=await html2canvas(tmp,{backgroundColor:'#1a1a2e',scale:2,logging:false});
+    document.body.removeChild(tmp);
+    const link=document.createElement('a');
+    link.download=`mis-puntajes-aaaj-vs-${RIVAL.toLowerCase()}.png`;
+    link.href=canvas.toDataURL('image/png'); link.click();
+    showToast('Descargada!');
+  }catch(e){showToast('No se pudo generar.');}
+}
+
+document.getElementById('scores-confirm-btn').addEventListener('click',async()=>{
+  const btn=document.getElementById('scores-confirm-btn');
+  if(localStorage.getItem(LS_SCORES_KEY)){ downloadMyScores(); return; }
+  if(Object.keys(userScores).length!==playedSquad.length||!playedSquad.length)return;
+  try{
+    await fetch(`${SUPABASE_URL}/rest/v1/puntajes`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Prefer':'return=minimal'},
+      body:JSON.stringify({rival:RIVAL,puntajes:userScores})
+    });
+    try{localStorage.setItem(LS_SCORES_KEY,'1');}catch(e){}
+    btn.textContent='Descargar puntajes';
+    btn.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:17px;letter-spacing:1px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:12px;cursor:pointer;width:100%;margin-top:16px;';
+    btn.classList.remove('ready');
+    await showScoresResults();
+  }catch(e){showToast('Error de conexion.');}
+});
+
+
+async function showScoresResults(){
+  document.getElementById('scores-results-screen').style.display='flex';
+  document.getElementById('scores-success').style.display='none';
+  const list=document.getElementById('scores-results-list');
+  list.innerHTML='<div style="color:#555;text-align:center;padding:20px;">Cargando...</div>';
+  try{
+    const res=await fetch(`${SUPABASE_URL}/rest/v1/puntajes?select=puntajes`,{headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}});
+    const data=await res.json();
+    if(!data.length){list.innerHTML='<div style="color:#555;text-align:center;padding:20px;">Sin resultados aún.</div>';return;}
+    const totals={},counts2={};
+    data.forEach(row=>{ Object.entries(row.puntajes||{}).forEach(([num,val])=>{ totals[num]=(totals[num]||0)+Number(val); counts2[num]=(counts2[num]||0)+1; }); });
+    const results=Object.keys(totals).map(num=>{
+      const p=playedSquad.find(s=>s.num===Number(num));
+      return {num:Number(num),name:p?.name||`#${num}`,fid:p?.fid||0,avg:totals[num]/counts2[num]};
+    }).sort((a,b)=>b.avg-a.avg);
+    list.innerHTML='';
+    results.forEach((p,i)=>{
+      const row=document.createElement('div');
+      row.style.cssText='display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(255,255,255,0.04);border-radius:10px;margin-bottom:6px;border:1px solid rgba(255,255,255,0.06);';
+      const pos=document.createElement('span');
+      pos.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:14px;color:#555;min-width:18px;text-align:center;';
+      pos.textContent=i+1; row.appendChild(pos);
+      row.appendChild(makeAvatar(FOTO(p.fid),p.num,36));
+      const info=document.createElement('div'); info.style.cssText='flex:1;';
+      const name=document.createElement('div'); name.style.cssText='font-size:13px;color:#fff;'; name.textContent=p.name;
+      const num=document.createElement('div'); num.style.cssText='font-size:11px;color:#555;'; num.textContent=`#${p.num}`;
+      info.appendChild(name); info.appendChild(num); row.appendChild(info);
+      const val=document.createElement('div');
+      val.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:22px;color:var(--rojo);min-width:40px;text-align:right;';
+      val.textContent=p.avg.toFixed(1); row.appendChild(val);
+      list.appendChild(row);
+    });
+  }catch(e){list.innerHTML='<div style="color:#555">Error al cargar.</div>';}
+}
+
+document.getElementById('scores-ver-resultados-btn').addEventListener('click', showScoresResults);
+
+document.getElementById('back-scores-results-btn').addEventListener('click',()=>{
+  document.getElementById('scores-results-screen').style.display='none';
+});
+
+renderGrid(); updateCounter();
+</script>
+</body>
+</html>
