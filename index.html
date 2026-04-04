@@ -841,7 +841,7 @@ document.getElementById('scores-confirm-btn').addEventListener('click',async()=>
       const el=document.getElementById('scores-results-list');
       if(!el.children.length||el.innerHTML.includes('Cargando')){await showScoresResults();}
       try{
-        const canvas=await html2canvas(el,{backgroundColor:'#1a1a2e',scale:2,logging:false});
+const canvas=await html2canvas(document.getElementById('scores-app'),{backgroundColor:'#1a1a2e',scale:2,logging:false});
         const link=document.createElement('a');
         link.download=`puntajes-aaaj-vs-${RIVAL.toLowerCase()}.png`;
         link.href=canvas.toDataURL('image/png'); link.click();
