@@ -837,20 +837,44 @@ document.getElementById('scores-confirm-btn').addEventListener('click',async()=>
     btn.textContent='Descargar puntajes';
     btn.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:17px;letter-spacing:1px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:12px;cursor:pointer;width:100%;margin-top:16px;';
     btn.classList.remove('ready');
-    btn.onclick = async()=>{
-      const el=document.getElementById('scores-results-list');
-      if(!el.children.length||el.innerHTML.includes('Cargando')){await showScoresResults();}
-      try{
-const canvas=await html2canvas(document.getElementById('scores-app'),{backgroundColor:'#1a1a2e',scale:2,logging:false});
-        const link=document.createElement('a');
-        link.download=`puntajes-aaaj-vs-${RIVAL.toLowerCase()}.png`;
-        link.href=canvas.toDataURL('image/png'); link.click();
-        showToast('¡Descargada! 🔴🤍');
-      }catch(e){showToast('No se pudo generar.');}
-    };
-    await showScoresResults();
-  }catch(e){showToast('Error de conexión.');}
-}); 
+  btn.onclick = async()=>{
+  try{
+    const tmp=document.createElement('div');
+    tmp.style.cssText='background:#1a1a2e;padding:16px;width:320px;position:fixed;left:-9999px;top:0;';
+    const title=document.createElement('div');
+    title.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:20px;color:#fff;text-align:center;margin-bottom:4px;letter-spacing:2px;';
+    title.textContent='⭐ MIS PUNTAJES';
+    const sub=document.createElement('div');
+    sub.style.cssText='font-size:11px;color:#666;text-align:center;margin-bottom:12px;';
+    sub.textContent=`AAAJ vs ${RIVAL}`;
+    tmp.appendChild(title); tmp.appendChild(sub);
+    const sorted=Object.entries(userScores).map(([num,val])=>{
+      const p=playedSquad.find(s=>s.num===Number(num));
+      return {num:Number(num),name:p?.name||`#${num}`,fid:p?.fid||0,val:Number(val)};
+    }).sort((a,b)=>b.val-a.val);
+    sorted.forEach((p,i)=>{
+      const row=document.createElement('div');
+      row.style.cssText='display:flex;align-items:center;gap:8px;padding:6px 8px;background:rgba(255,255,255,0.04);border-radius:8px;margin-bottom:4px;';
+      const pos=document.createElement('span'); pos.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:13px;color:#555;min-width:16px;'; pos.textContent=i+1;
+      const av=makeAvatar(FOTO(p.fid),p.num,32);
+      const info=document.createElement('div'); info.style.cssText='flex:1;';
+      const name=document.createElement('div'); name.style.cssText='font-size:12px;color:#fff;'; name.textContent=p.name;
+      const num=document.createElement('div'); num.style.cssText='font-size:10px;color:#555;'; num.textContent=`#${p.num}`;
+      info.appendChild(name); info.appendChild(num);
+      const val=document.createElement('div'); val.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:20px;color:var(--rojo);'; val.textContent=p.val;
+      row.appendChild(pos); row.appendChild(av); row.appendChild(info); row.appendChild(val);
+      tmp.appendChild(row);
+    });
+    document.body.appendChild(tmp);
+    await new Promise(r=>setTimeout(r,200));
+    const canvas=await html2canvas(tmp,{backgroundColor:'#1a1a2e',scale:2,logging:false});
+    document.body.removeChild(tmp);
+    const link=document.createElement('a');
+    link.download=`mis-puntajes-aaaj-vs-${RIVAL.toLowerCase()}.png`;
+    link.href=canvas.toDataURL('image/png'); link.click();
+    showToast('¡Descargada! 🔴🤍');
+  }catch(e){showToast('No se pudo generar.');}
+};
 
 async function showScoresResults(){
   document.getElementById('scores-results-screen').style.display='flex';
