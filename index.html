@@ -473,7 +473,6 @@ function openApp(section) {
         const btn=document.getElementById('scores-confirm-btn');
         btn.textContent='Descargar puntajes';
         btn.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:17px;letter-spacing:1px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:12px;cursor:pointer;width:100%;margin-top:16px;opacity:1;';
-        showScoresResults();
       } else {
         renderScores();
       }
@@ -835,12 +834,14 @@ document.getElementById('scores-confirm-btn').addEventListener('click',async()=>
     });
     try{localStorage.setItem(LS_SCORES_KEY,'1');}catch(e){}
     // Transformar botón en "Descargar puntajes"
-    btn.textContent='Descargar puntajes';
-    btn.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:17px;letter-spacing:1px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:12px;cursor:pointer;width:100%;margin-top:16px;';
-    btn.classList.remove('ready');
-    await showScoresResults();
-  }catch(e){showToast('Error de conexión.');}
-});
+btn.textContent='Descargar puntajes';
+btn.style.cssText='font-family:...';
+btn.classList.remove('ready');
+btn.onclick = async()=>{
+  ...
+};
+}catch(e){showToast('Error de conexión.');}
+}); 
 
 async function showScoresResults(){
   document.getElementById('scores-results-screen').style.display='flex';
