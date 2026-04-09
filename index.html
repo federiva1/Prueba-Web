@@ -56,6 +56,26 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
 #tabla-fab .fab-icon { font-size: 16px; line-height: 1; }
 #tabla-fab .fab-label { font-family: 'Bebas Neue', sans-serif; font-size: 9px; color: var(--rojo); letter-spacing: 1px; text-align: center; line-height: 1.2; white-space: nowrap; }
 
+/* ===== BOTÓN FECHAS FLOTANTE ===== */
+#fecha-fab { position: fixed; top: 14px; left: 14px; z-index: 100; background: rgba(13,13,26,0.85); border: 1px solid rgba(255,255,255,0.25); border-radius: 10px; padding: 7px 10px; display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; backdrop-filter: blur(4px); transition: background 0.2s, transform 0.15s; }
+#fecha-fab:hover { background: rgba(255,255,255,0.12); transform: scale(1.05); }
+#fecha-fab .fab-icon { font-size: 16px; line-height: 1; }
+#fecha-fab .fab-label { font-family: 'Bebas Neue', sans-serif; font-size: 9px; color: rgba(255,255,255,0.6); letter-spacing: 1px; text-align: center; line-height: 1.2; white-space: nowrap; }
+
+/* ===== FECHA CARDS ===== */
+.fecha-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 12px; }
+.fecha-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+.fecha-card.current { border-color: var(--rojo); background: rgba(229,57,53,0.07); cursor: default; }
+.fecha-card.current:hover { background: rgba(229,57,53,0.1); }
+.fecha-num-badge { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: rgba(255,255,255,0.15); min-width: 40px; text-align: center; line-height: 1; }
+.fecha-card.current .fecha-num-badge { color: var(--rojo); }
+.fecha-card-info { flex: 1; }
+.fecha-card-rival { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: #fff; letter-spacing: 1px; }
+.fecha-card-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; letter-spacing: 1px; margin-top: 3px; text-transform: uppercase; }
+.fecha-card.current .fecha-card-sub { color: var(--rojo); }
+.fecha-card:not(.current) .fecha-card-sub { color: #555; }
+.fecha-card-arrow { font-size: 18px; color: rgba(255,255,255,0.25); }
+
 .carousel-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 3; }
 .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.3); transition: background 0.3s, transform 0.3s; }
 .dot.active { background: var(--rojo); transform: scale(1.3); }
@@ -201,10 +221,41 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
 </head>
 <body>
 
+<!-- BOTÓN FLOTANTE FECHAS -->
+<div id="fecha-fab" onclick="openFechaPanel()">
+  <span class="fab-icon">📅</span>
+  <span class="fab-label">FECHAS</span>
+</div>
+
 <!-- BOTÓN FLOTANTE TABLA -->
 <div id="tabla-fab" onclick="openTabla()">
   <span class="fab-icon">📊</span>
   <span class="fab-label">TABLA Y<br>SIMULADOR</span>
+</div>
+
+<!-- PANTALLA FECHAS -->
+<div id="fecha-screen" style="display:none; position:fixed; inset:0; z-index:200; background:var(--dark); overflow-y:auto;">
+<div style="background:var(--dark2);padding:12px;max-width:480px;margin:0 auto;min-height:100vh;">
+  <button class="back-btn" onclick="closeFechaPanel()">← Volver</button>
+  <div style="text-align:center;margin-bottom:18px;">
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:2px;">📅 Apertura 2026</h1>
+    <div style="font-size:11px;color:#888;margin-top:3px;">Seleccioná una fecha para ver resultados</div>
+  </div>
+  <div id="fechas-list"></div>
+</div>
+</div>
+
+<!-- PANTALLA FECHA ANTERIOR (resultados) -->
+<div id="prev-fecha-screen" style="display:none; position:fixed; inset:0; z-index:300; background:var(--dark); overflow-y:auto;">
+<div style="background:var(--dark2);padding:12px;max-width:480px;margin:0 auto;min-height:100vh;">
+  <button class="back-btn" id="back-prev-fecha-btn">← Volver</button>
+  <div id="prev-fecha-header" style="text-align:center;margin-bottom:14px;"></div>
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;color:#555;text-transform:uppercase;margin:14px 0 8px;">⚽ Formaciones de la gente</div>
+  <div id="prev-fecha-formations"><div style="text-align:center;color:#555;padding:20px;font-size:13px;">Cargando...</div></div>
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;color:#555;text-transform:uppercase;margin:20px 0 8px;">⭐ Puntajes de la gente</div>
+  <div id="prev-fecha-scores"><div style="text-align:center;color:#555;padding:20px;font-size:13px;">Cargando...</div></div>
+  <div style="height:24px;"></div>
+</div>
 </div>
 
 <!-- PANTALLA TABLA -->
@@ -257,7 +308,7 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
       <div class="carousel-track" id="track-left"></div>
     </div>
     <div class="panel-overlay">
-      <div class="panel-tag">⚽ vs Banfield</div>
+      <div class="panel-tag">⚽ vs Ind. Rivadavia</div>
       <div class="panel-title">ARMÁ TU FORMACIÓN</div>
       <div class="panel-sub">Elegí los 11 titulares que pondrías vos</div>
       <button class="panel-cta">ENTRAR →</button>
@@ -308,12 +359,12 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
   </div>
   <div id="header">
     <h1>⚽ Armá tu formación</h1>
-    <div class="rival-tag">AAAJ vs Banfield</div>
+    <div class="rival-tag">AAAJ vs Ind. Rivadavia</div>
     <p>Arrastrá jugadores del banco a la cancha · Soltá en el banco para quitar</p>
   </div>
   <div id="rival-toggle-bar">
     <button class="rival-toggle-btn" id="rival-btn" onclick="toggleRival()">
-      <span class="toggle-dot"></span>VER RIVAL (BANFIELD)
+      <span class="toggle-dot"></span>VER RIVAL (IND. RIVADAVIA)
     </button>
   </div>
   <div id="pitch-row">
@@ -369,7 +420,7 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
   <button class="back-btn" onclick="goHome()">← Volver</button>
   <div class="scores-header">
     <h1>⭐ Puntuá el partido</h1>
-    <div class="rival-tag">AAAJ vs Banfield</div>
+    <div class="rival-tag">AAAJ vs Ind. Rivadavia</div>
     <p>Poné tu nota del 1 al 10 a cada jugador</p>
   </div>
   <div id="scores-list"></div>
@@ -403,31 +454,48 @@ const SUPABASE_URL = 'https://igfencxdekvtfspsskwd.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlnZmVuY3hkZWt2dGZzcHNza3dkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5NTUyOTEsImV4cCI6MjA4OTUzMTI5MX0.KVpBNe_p7OLAtZPMFUTpTbKmLCl-G63f53gvFJreinc';
 
 // ============================================================
-// CAMBIAR CADA FECHA:
-const RIVAL = 'Banfield';
-const LS_KEY = 'aaaj_vs_banfield';
-const LS_FORMATION_KEY = 'aaaj_vs_banfield_formacion';
-const LS_SCORES_KEY = 'aaaj_vs_banfield_puntajes';
-const SCORES_ENABLED = true;
+// FECHA ACTUAL (actualizar cada fecha):
+const RIVAL = 'Independiente Rivadavia';
+const LS_KEY = 'aaaj_vs_ind_rivadavia';
+const LS_FORMATION_KEY = 'aaaj_vs_ind_rivadavia_formacion';
+const LS_SCORES_KEY = 'aaaj_vs_ind_rivadavia_puntajes';
+const SCORES_ENABLED = false; // se habilita cuando termina el partido
 
 const playedSquad = [
-  {num:25, name:'Cortés',      fid:424153,  tipo:'titular'},
-  {num:20, name:'Prieto',      fid:841913,  tipo:'titular'},
-  {num:6,  name:'Riquelme',    fid:1277345, tipo:'titular'},
-  {num:16, name:'Álvarez',     fid:920404,  tipo:'titular'},
-  {num:14, name:'Coronel',     fid:1575797, tipo:'titular'},
-  {num:11, name:'Oroz',        fid:543304,  tipo:'titular'},
-  {num:24, name:'Fattori',     fid:616508,  tipo:'titular'},
-  {num:29, name:'Viveros',     fid:1304246, tipo:'titular'},
-  {num:10, name:'Lescano',     fid:1342579, tipo:'titular'},
-  {num:23, name:'López',       fid:1037535, tipo:'titular'},
-  {num:30, name:'Morales',     fid:785840,  tipo:'titular'},
-  {num:27, name:'Molina',      fid:728323,  tipo:'suplente'},
-  {num:48, name:'Jainikoski',  fid:1843096, tipo:'suplente'},
-  {num:4,  name:'Godoy',       fid:316878,  tipo:'suplente'},
-  {num:8,  name:'Gómez',       fid:1609797, tipo:'suplente'},
+  // Se carga tras el partido vs Independiente Rivadavia
 ];
 // ============================================================
+
+// ===== HISTORIAL DE FECHAS =====
+const FECHAS = [
+  {
+    num: 14,
+    rival: 'Independiente Rivadavia',
+    isCurrent: true
+  },
+  {
+    num: 13,
+    rival: 'Banfield',
+    isCurrent: false,
+    playedSquad: [
+      {num:25, name:'Cortés',     fid:424153,  tipo:'titular'},
+      {num:20, name:'Prieto',     fid:841913,  tipo:'titular'},
+      {num:6,  name:'Riquelme',   fid:1277345, tipo:'titular'},
+      {num:16, name:'Álvarez',    fid:920404,  tipo:'titular'},
+      {num:14, name:'Coronel',    fid:1575797, tipo:'titular'},
+      {num:11, name:'Oroz',       fid:543304,  tipo:'titular'},
+      {num:24, name:'Fattori',    fid:616508,  tipo:'titular'},
+      {num:29, name:'Viveros',    fid:1304246, tipo:'titular'},
+      {num:10, name:'Lescano',    fid:1342579, tipo:'titular'},
+      {num:23, name:'López',      fid:1037535, tipo:'titular'},
+      {num:30, name:'Morales',    fid:785840,  tipo:'titular'},
+      {num:27, name:'Molina',     fid:728323,  tipo:'suplente'},
+      {num:48, name:'Jainikoski', fid:1843096, tipo:'suplente'},
+      {num:4,  name:'Godoy',      fid:316878,  tipo:'suplente'},
+      {num:8,  name:'Gómez',      fid:1609797, tipo:'suplente'},
+    ]
+  }
+];
 
 const FOTO = id => `/fotos/${id}.png`;
 const FOTO_B = id => `/fotosBanfield/${id}.png`;
@@ -472,18 +540,9 @@ const squad = [
   {num:50, name:'Rodríguez',   fid:186986},
 ].sort((a,b)=>a.num-b.num);
 
+// Rival squad (se actualiza cada fecha con posiciones x/y en la cancha)
 const banfieldSquad = [
-  {num:1,  name:'Sanguinetti', fid:1200037, x:50,    y:8},
-  {num:24, name:'López',       fid:1038763, x:14.66, y:33.39},
-  {num:27, name:'Abraham',     fid:1254641, x:85.21, y:33.98},
-  {num:6,  name:'Meriano',     fid:1299928, x:63,    y:24.39},
-  {num:2,  name:'Arboleda',    fid:857776,  x:37.37, y:24.20},
-  {num:10, name:'Gómez',       fid:1645972, x:85.06, y:64.35},
-  {num:5,  name:'Villegas',    fid:1246078, x:34.85, y:50.46},
-  {num:35, name:'Pais',        fid:1242942, x:63,    y:50.85},
-  {num:40, name:'Zalazar',     fid:1336106, x:14.46, y:63.57},
-  {num:17, name:'Perrotta',    fid:1778729, x:35.72, y:80.40},
-  {num:16, name:'Méndez',      fid:1054259, x:63.81, y:80.79},
+  // Independiente Rivadavia - se carga en el siguiente paso
 ];
 
 const GOALKEEPERS = [1,12,32,50];
@@ -538,6 +597,8 @@ initCarousel('track-right', 'dots-right', pSlides,  3800);
 // ===== NAVEGACIÓN =====
 function openApp(section) {
   document.getElementById('home-screen').style.display = 'none';
+  document.getElementById('fecha-fab').style.display = 'none';
+  document.getElementById('tabla-fab').style.display = 'none';
   if (section === 'formation') {
     document.getElementById('app-screen').style.display = 'block';
   } else {
@@ -560,6 +621,8 @@ function goHome() {
   document.getElementById('home-screen').style.display = 'flex';
   document.getElementById('app-screen').style.display = 'none';
   document.getElementById('scores-screen').style.display = 'none';
+  document.getElementById('fecha-fab').style.display = 'flex';
+  document.getElementById('tabla-fab').style.display = 'flex';
 }
 
 // ===== TAMAÑOS =====
@@ -808,7 +871,7 @@ async function showResults(){
   const totalEl=document.getElementById('total-votes');
   list.innerHTML='<div id="results-loading">Cargando...</div>'; totalEl.textContent='';
   try{
-    const res=await fetch(`${SUPABASE_URL}/rest/v1/formaciones?select=jugadores`,{headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}});
+    const res=await fetch(`${SUPABASE_URL}/rest/v1/formaciones?select=jugadores&rival=eq.${encodeURIComponent(RIVAL)}`,{headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}});
     const data=await res.json();
     const total=data.length;
     if(total===0){list.innerHTML='<div id="results-loading">Todavía no hay formaciones enviadas.</div>';return;}
@@ -1040,7 +1103,7 @@ async function showScoresResults(){
   const list=document.getElementById('scores-results-list');
   list.innerHTML='<div style="color:#555;text-align:center;padding:20px;">Cargando...</div>';
   try{
-    const res=await fetch(`${SUPABASE_URL}/rest/v1/puntajes?select=puntajes`,{headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}});
+    const res=await fetch(`${SUPABASE_URL}/rest/v1/puntajes?select=puntajes&rival=eq.${encodeURIComponent(RIVAL)}`,{headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}});
     const data=await res.json();
     if(!data.length){list.innerHTML='<div style="color:#555;text-align:center;padding:20px;">Sin resultados aún.</div>';document.getElementById('scores-total-votes').textContent='';return;}
     const totalVoters=data.length;
@@ -1221,7 +1284,7 @@ async function openFeed(){
 
   const deviceId=getDeviceId();
   try{
-    const res=await fetch(`${SUPABASE_URL}/rest/v1/formaciones?select=id,jugadores,likes,device_id,created_at&order=likes.desc,created_at.desc&limit=80`,{
+    const res=await fetch(`${SUPABASE_URL}/rest/v1/formaciones?select=id,jugadores,likes,device_id,created_at&order=likes.desc,created_at.desc&limit=80&rival=eq.${encodeURIComponent(RIVAL)}`,{
       headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}
     });
     const data=await res.json();
@@ -2135,11 +2198,13 @@ function renderEliminatoriaT(){
 function openTabla(){
   document.getElementById('tabla-screen').style.display='block';
   document.getElementById('tabla-fab').style.display='none';
+  document.getElementById('fecha-fab').style.display='none';
   if(!tablaData) loadTablaData();
 }
 function closeTabla(){
   document.getElementById('tabla-screen').style.display='none';
   document.getElementById('tabla-fab').style.display='flex';
+  document.getElementById('fecha-fab').style.display='flex';
 }
 
 async function loadTablaData(){
@@ -2217,6 +2282,153 @@ document.getElementById('sim-prev-inline').addEventListener('click',()=>{
 document.getElementById('sim-next-inline').addEventListener('click',()=>{
   const max=(FIXTURE_T[tablaZona]||[]).length-1;
   if(simFechaIdxT<max){simFechaIdxT++;renderTablaInlineMode();}
+});
+
+// ===== PANEL DE FECHAS =====
+function openFechaPanel(){
+  document.getElementById('fecha-screen').style.display='block';
+  renderFechasPanel();
+}
+function closeFechaPanel(){
+  document.getElementById('fecha-screen').style.display='none';
+}
+
+function renderFechasPanel(){
+  const list=document.getElementById('fechas-list');
+  list.innerHTML='';
+  FECHAS.forEach(f=>{
+    const card=document.createElement('div');
+    card.className='fecha-card'+(f.isCurrent?' current':'');
+    const numBadge=document.createElement('div');
+    numBadge.className='fecha-num-badge';
+    numBadge.textContent=f.num;
+    const info=document.createElement('div');
+    info.className='fecha-card-info';
+    const rival=document.createElement('div');
+    rival.className='fecha-card-rival';
+    rival.textContent='vs '+f.rival.toUpperCase();
+    const sub=document.createElement('div');
+    sub.className='fecha-card-sub';
+    sub.textContent=f.isCurrent?'✓ Fecha actual · Acceso completo':'Solo resultados';
+    info.appendChild(rival);info.appendChild(sub);
+    const arrow=document.createElement('div');
+    arrow.className='fecha-card-arrow';
+    arrow.textContent='›';
+    card.appendChild(numBadge);card.appendChild(info);
+    if(!f.isCurrent)card.appendChild(arrow);
+    if(f.isCurrent){
+      card.addEventListener('click',()=>closeFechaPanel());
+    } else {
+      card.addEventListener('click',()=>showPrevFechaResults(f));
+    }
+    list.appendChild(card);
+  });
+}
+
+async function showPrevFechaResults(fecha){
+  const screen=document.getElementById('prev-fecha-screen');
+  screen.style.display='block';
+  document.getElementById('prev-fecha-header').innerHTML=`
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:2px;">FECHA ${fecha.num}</h1>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--rojo);letter-spacing:1px;">AAAJ vs ${fecha.rival.toUpperCase()}</div>
+    <div style="font-size:11px;color:#888;margin-top:4px;">Resultados de votaciones</div>
+  `;
+  document.getElementById('prev-fecha-formations').innerHTML='<div style="text-align:center;color:#555;padding:20px;font-size:13px;">Cargando...</div>';
+  document.getElementById('prev-fecha-scores').innerHTML='<div style="text-align:center;color:#555;padding:20px;font-size:13px;">Cargando...</div>';
+  fetchPrevFormations(fecha);
+  fetchPrevScores(fecha);
+}
+
+async function fetchPrevFormations(fecha){
+  const container=document.getElementById('prev-fecha-formations');
+  try{
+    const res=await fetch(`${SUPABASE_URL}/rest/v1/formaciones?select=jugadores&rival=eq.${encodeURIComponent(fecha.rival)}`,{
+      headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}
+    });
+    const data=await res.json();
+    const total=data.length;
+    if(total===0){container.innerHTML='<div style="text-align:center;color:#555;padding:20px;font-size:13px;">Sin formaciones enviadas.</div>';return;}
+    const counts={};
+    data.forEach(row=>{(row.jugadores||[]).forEach(j=>{if(!counts[j.num]){const sq=squad.find(s=>s.num===j.num);counts[j.num]={num:j.num,name:j.name,fid:j.fid||sq?.fid||0,count:0};}counts[j.num].count++;});});
+    const players=Object.values(counts).map(p=>({...p,pct:Math.round((p.count/total)*100)})).sort((a,b)=>b.pct-a.pct);
+    container.innerHTML='';
+    const totalEl=document.createElement('div');
+    totalEl.style.cssText='font-size:11px;color:#555;text-align:center;margin-bottom:10px;';
+    totalEl.textContent=`${total} formación${total!==1?'es':''} enviada${total!==1?'s':''}`;
+    container.appendChild(totalEl);
+    const tiersBase=[
+      {cls:'tier-s',min:81,max:100},{cls:'tier-a',min:61,max:80},
+      {cls:'tier-b',min:41,max:60},{cls:'tier-c',min:21,max:40},{cls:'tier-d',min:0,max:20}
+    ];
+    const mergedTiers=[];
+    for(let i=0;i<tiersBase.length;i++){
+      const t=tiersBase[i];
+      const inT=players.filter(p=>p.pct>=t.min&&p.pct<=t.max);
+      if(!inT.length&&mergedTiers.length>0){mergedTiers[mergedTiers.length-1].min=Math.min(mergedTiers[mergedTiers.length-1].min,t.min);}
+      else{mergedTiers.push({...t});}
+    }
+    mergedTiers.forEach(tier=>{
+      const inTier=players.filter(p=>p.pct>=tier.min&&p.pct<=tier.max);
+      if(!inTier.length)return;
+      const row=document.createElement('div');row.className=`tier-row ${tier.cls}`;
+      const label=document.createElement('div');label.className='tier-label';
+      label.textContent=tier.min+'-'+tier.max+'%';
+      row.appendChild(label);
+      const pDiv=document.createElement('div');pDiv.className='tier-players';
+      inTier.forEach(p=>{
+        const wrap=document.createElement('div');wrap.className='tier-player';
+        wrap.appendChild(makeAvatar(FOTO(p.fid||0),p.num,36));
+        const inf=document.createElement('div');inf.style.cssText='display:flex;flex-direction:column;gap:1px;';
+        const nm=document.createElement('div');nm.className='tier-player-name';nm.style.maxWidth='none';nm.textContent=p.name;
+        const pct=document.createElement('div');pct.style.cssText='font-size:10px;color:var(--rojo);font-family:"Bebas Neue",sans-serif;';pct.textContent=p.pct+'%';
+        inf.appendChild(nm);inf.appendChild(pct);wrap.appendChild(inf);pDiv.appendChild(wrap);
+      });
+      row.appendChild(pDiv);container.appendChild(row);
+    });
+  }catch(e){container.innerHTML='<div style="text-align:center;color:var(--rojo);font-size:12px;padding:20px;">Error al cargar.</div>';}
+}
+
+async function fetchPrevScores(fecha){
+  const container=document.getElementById('prev-fecha-scores');
+  try{
+    const res=await fetch(`${SUPABASE_URL}/rest/v1/puntajes?select=puntajes&rival=eq.${encodeURIComponent(fecha.rival)}`,{
+      headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}
+    });
+    const data=await res.json();
+    if(!data.length){container.innerHTML='<div style="text-align:center;color:#555;padding:20px;font-size:13px;">Sin puntajes enviados.</div>';return;}
+    const totalVoters=data.length;
+    const totals={},counts2={};
+    data.forEach(row=>{Object.entries(row.puntajes||{}).forEach(([num,val])=>{totals[num]=(totals[num]||0)+Number(val);counts2[num]=(counts2[num]||0)+1;});});
+    const results=Object.keys(totals).map(num=>{
+      const p=fecha.playedSquad?.find(s=>s.num===Number(num));
+      return{num:Number(num),name:p?.name||`#${num}`,fid:p?.fid||0,avg:totals[num]/counts2[num]};
+    }).sort((a,b)=>b.avg-a.avg);
+    container.innerHTML='';
+    const totalEl=document.createElement('div');
+    totalEl.style.cssText='font-size:11px;color:#555;text-align:center;margin-bottom:8px;';
+    totalEl.textContent=`${totalVoters} hincha${totalVoters!==1?'s':''} votaron`;
+    container.appendChild(totalEl);
+    results.forEach((p,i)=>{
+      const row=document.createElement('div');
+      row.style.cssText='display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(255,255,255,0.04);border-radius:10px;margin-bottom:6px;border:1px solid rgba(255,255,255,0.06);';
+      const pos=document.createElement('span');
+      pos.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:14px;color:#555;min-width:18px;text-align:center;';
+      pos.textContent=i+1;row.appendChild(pos);
+      row.appendChild(makeAvatar(FOTO(p.fid),p.num,36));
+      const inf=document.createElement('div');inf.style.cssText='flex:1;';
+      const nm=document.createElement('div');nm.style.cssText='font-size:13px;color:#fff;';nm.textContent=p.name;
+      const num=document.createElement('div');num.style.cssText='font-size:11px;color:#555;';num.textContent=`#${p.num}`;
+      inf.appendChild(nm);inf.appendChild(num);row.appendChild(inf);
+      const val=document.createElement('div');
+      val.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:22px;color:var(--rojo);min-width:40px;text-align:right;';
+      val.textContent=p.avg.toFixed(1);row.appendChild(val);
+      container.appendChild(row);
+    });
+  }catch(e){container.innerHTML='<div style="text-align:center;color:var(--rojo);font-size:12px;padding:20px;">Error al cargar.</div>';}
+}
+
+document.getElementById('back-prev-fecha-btn').addEventListener('click',()=>{
+  document.getElementById('prev-fecha-screen').style.display='none';
 });
 </script>
 </body>
