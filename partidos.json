@@ -1,0 +1,110 @@
+[
+  {
+    "id": 5101880,
+    "fecha": "2026-01-26",
+    "rival": "Sarmiento",
+    "local": true,
+    "resultado": "1 - 0",
+    "url": "https://www.fotmob.com/matches/argentinos-juniors-vs-sarmiento/aem1p1z#5101880",
+    "page_url": "/matches/argentinos-juniors-vs-sarmiento/aem1p1z#5101880"
+  },
+  {
+    "id": 5101899,
+    "fecha": "2026-01-30",
+    "rival": "Estudiantes de Rio Cuarto",
+    "local": false,
+    "resultado": "0 - 0",
+    "url": "https://www.fotmob.com/matches/argentinos-juniors-vs-estudiantes-de-rio-cuarto/bhpw8vu#5101899",
+    "page_url": "/matches/argentinos-juniors-vs-estudiantes-de-rio-cuarto/bhpw8vu#5101899"
+  },
+  {
+    "id": 5101909,
+    "fecha": "2026-02-03",
+    "rival": "Belgrano",
+    "local": true,
+    "resultado": "0 - 0",
+    "url": "https://www.fotmob.com/matches/argentinos-juniors-vs-belgrano/3d7rp3#5101909",
+    "page_url": "/matches/argentinos-juniors-vs-belgrano/3d7rp3#5101909"
+  },
+  {
+    "id": 5101935,
+    "fecha": "2026-02-07",
+    "rival": "Racing Club",
+    "local": false,
+    "resultado": "2 - 1",
+    "url": "https://www.fotmob.com/matches/racing-club-vs-argentinos-juniors/3d2kwr#5101935",
+    "page_url": "/matches/racing-club-vs-argentinos-juniors/3d2kwr#5101935"
+  },
+  {
+    "id": 5101939,
+    "fecha": "2026-02-13",
+    "rival": "River Plate",
+    "local": true,
+    "resultado": "1 - 0",
+    "url": "https://www.fotmob.com/matches/river-plate-vs-argentinos-juniors/3d0uo9#5101939",
+    "page_url": "/matches/river-plate-vs-argentinos-juniors/3d0uo9#5101939"
+  },
+  {
+    "id": 5101984,
+    "fecha": "2026-03-01",
+    "rival": "Barracas Central",
+    "local": true,
+    "resultado": "1 - 1",
+    "url": "https://www.fotmob.com/matches/argentinos-juniors-vs-barracas-central/bhib0fc#5101984",
+    "page_url": "/matches/argentinos-juniors-vs-barracas-central/bhib0fc#5101984"
+  },
+  {
+    "id": 5102014,
+    "fecha": "2026-03-11",
+    "rival": "Rosario Central",
+    "local": true,
+    "resultado": "0 - 0",
+    "url": "https://www.fotmob.com/matches/rosario-central-vs-argentinos-juniors/3d4b5p#5102014",
+    "page_url": "/matches/rosario-central-vs-argentinos-juniors/3d4b5p#5102014"
+  },
+  {
+    "id": 5102042,
+    "fecha": "2026-03-16",
+    "rival": "Tigre",
+    "local": false,
+    "resultado": "1 - 1",
+    "url": "https://www.fotmob.com/matches/argentinos-juniors-vs-tigre/29u6yfn#5102042",
+    "page_url": "/matches/argentinos-juniors-vs-tigre/29u6yfn#5102042"
+  },
+  {
+    "id": 5102044,
+    "fecha": "2026-03-23",
+    "rival": "Club Atletico Platense",
+    "local": true,
+    "resultado": "1 - 0",
+    "url": "https://www.fotmob.com/matches/argentinos-juniors-vs-club-atletico-platense/3d6gzl#5102044",
+    "page_url": "/matches/argentinos-juniors-vs-club-atletico-platense/3d6gzl#5102044"
+  },
+  {
+    "id": 5101954,
+    "fecha": "2026-03-27",
+    "rival": "Lanus",
+    "local": true,
+    "resultado": "2 - 1",
+    "url": "https://www.fotmob.com/matches/lanus-vs-argentinos-juniors/3d3g16#5101954",
+    "page_url": "/matches/lanus-vs-argentinos-juniors/3d3g16#5101954"
+  },
+  {
+    "id": 5101969,
+    "fecha": "2026-03-31",
+    "rival": "Aldosivi",
+    "local": false,
+    "resultado": "0 - 2",
+    "url": "https://www.fotmob.com/matches/argentinos-juniors-vs-aldosivi/6s3vvhh#5101969",
+    "page_url": "/matches/argentinos-juniors-vs-aldosivi/6s3vvhh#5101969"
+  },
+  {
+    "id": 5102060,
+    "fecha": "2026-04-06",
+    "rival": "Banfield",
+    "local": true,
+    "resultado": "3 - 2",
+    "url": "https://www.fotmob.com/matches/argentinos-juniors-vs-banfield/3d5luq#5102060",
+    "page_url": "/matches/argentinos-juniors-vs-banfield/3d5luq#5102060"
+  }
+]

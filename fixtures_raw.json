@@ -1,0 +1,1412 @@
+{
+  "allFixtures": {
+    "fixtures": [
+      {
+        "id": 5073241,
+        "pageUrl": "/matches/boca-juniors-vs-argentinos-juniors/3d1a8c#5073241",
+        "opponent": {
+          "id": 10077,
+          "name": "Boca Juniors",
+          "score": 1
+        },
+        "home": {
+          "id": 10077,
+          "name": "Boca Juniors",
+          "score": 1
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "result": -1,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Clausura Playoff",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2025-11-30T21:30:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "1 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5121402,
+        "pageUrl": "/matches/argentinos-juniors-vs-ca-ferrocarril-midland/17oaqxhn#5121402",
+        "opponent": {
+          "id": 425965,
+          "name": "CA Ferrocarril Midland",
+          "score": 7
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 6
+        },
+        "away": {
+          "id": 425965,
+          "name": "CA Ferrocarril Midland",
+          "score": 7
+        },
+        "displayTournament": true,
+        "result": -1,
+        "notStarted": false,
+        "tournament": {
+          "name": "Copa Argentina",
+          "stage": "",
+          "leagueId": 9305
+        },
+        "status": {
+          "utcTime": "2026-01-22T00:15:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "1 - 1",
+          "reason": {
+            "short": "Pen",
+            "shortKey": "penalties_short",
+            "long": "After penalties",
+            "longKey": "afterpenalties"
+          }
+        }
+      },
+      {
+        "id": 5101880,
+        "pageUrl": "/matches/argentinos-juniors-vs-sarmiento/aem1p1z#5101880",
+        "opponent": {
+          "id": 202757,
+          "name": "Sarmiento",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 1
+        },
+        "away": {
+          "id": 202757,
+          "name": "Sarmiento",
+          "score": 0
+        },
+        "displayTournament": false,
+        "result": 1,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-01-26T00:00:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "1 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5101899,
+        "pageUrl": "/matches/argentinos-juniors-vs-estudiantes-de-rio-cuarto/bhpw8vu#5101899",
+        "opponent": {
+          "id": 213591,
+          "name": "Estudiantes de Rio Cuarto",
+          "score": 0
+        },
+        "home": {
+          "id": 213591,
+          "name": "Estudiantes de Rio Cuarto",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "result": 0,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-01-30T00:30:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "0 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5101909,
+        "pageUrl": "/matches/argentinos-juniors-vs-belgrano/3d7rp3#5101909",
+        "opponent": {
+          "id": 10092,
+          "name": "Belgrano",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "away": {
+          "id": 10092,
+          "name": "Belgrano",
+          "score": 0
+        },
+        "displayTournament": false,
+        "result": 0,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-02-03T01:00:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "0 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5101935,
+        "pageUrl": "/matches/racing-club-vs-argentinos-juniors/3d2kwr#5101935",
+        "opponent": {
+          "id": 10080,
+          "name": "Racing Club",
+          "score": 2
+        },
+        "home": {
+          "id": 10080,
+          "name": "Racing Club",
+          "score": 2
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 1
+        },
+        "displayTournament": false,
+        "result": -1,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-02-07T21:00:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "2 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5101939,
+        "pageUrl": "/matches/river-plate-vs-argentinos-juniors/3d0uo9#5101939",
+        "opponent": {
+          "id": 10076,
+          "name": "River Plate",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 1
+        },
+        "away": {
+          "id": 10076,
+          "name": "River Plate",
+          "score": 0
+        },
+        "displayTournament": false,
+        "result": 1,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-02-13T00:15:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "1 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5110785,
+        "pageUrl": "/matches/barcelona-sc-vs-argentinos-juniors/29fr73#5110785",
+        "opponent": {
+          "id": 6453,
+          "name": "Barcelona SC",
+          "score": 0
+        },
+        "home": {
+          "id": 6453,
+          "name": "Barcelona SC",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 1
+        },
+        "displayTournament": true,
+        "result": 1,
+        "notStarted": false,
+        "tournament": {
+          "name": "Copa Libertadores Qualification",
+          "stage": "",
+          "leagueId": 10618
+        },
+        "status": {
+          "utcTime": "2026-02-19T00:30:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "0 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5110787,
+        "pageUrl": "/matches/barcelona-sc-vs-argentinos-juniors/29fr73#5110787",
+        "opponent": {
+          "id": 6453,
+          "name": "Barcelona SC",
+          "score": 6
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 4
+        },
+        "away": {
+          "id": 6453,
+          "name": "Barcelona SC",
+          "score": 6
+        },
+        "displayTournament": true,
+        "result": -1,
+        "notStarted": false,
+        "tournament": {
+          "name": "Copa Libertadores Qualification",
+          "stage": "",
+          "leagueId": 10618
+        },
+        "status": {
+          "utcTime": "2026-02-26T00:30:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "0 - 1",
+          "reason": {
+            "short": "Pen",
+            "shortKey": "penalties_short",
+            "long": "After penalties",
+            "longKey": "afterpenalties"
+          }
+        }
+      },
+      {
+        "id": 5101984,
+        "pageUrl": "/matches/argentinos-juniors-vs-barracas-central/bhib0fc#5101984",
+        "opponent": {
+          "id": 213534,
+          "name": "Barracas Central",
+          "score": 1
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 1
+        },
+        "away": {
+          "id": 213534,
+          "name": "Barracas Central",
+          "score": 1
+        },
+        "displayTournament": false,
+        "result": 0,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-03-01T22:15:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "1 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5102014,
+        "pageUrl": "/matches/rosario-central-vs-argentinos-juniors/3d4b5p#5102014",
+        "opponent": {
+          "id": 10084,
+          "name": "Rosario Central",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "away": {
+          "id": 10084,
+          "name": "Rosario Central",
+          "score": 0
+        },
+        "displayTournament": false,
+        "result": 0,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-03-11T20:30:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "0 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5102042,
+        "pageUrl": "/matches/argentinos-juniors-vs-tigre/29u6yfn#5102042",
+        "opponent": {
+          "id": 89396,
+          "name": "Tigre",
+          "score": 1
+        },
+        "home": {
+          "id": 89396,
+          "name": "Tigre",
+          "score": 1
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 1
+        },
+        "displayTournament": false,
+        "result": 0,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-03-16T01:00:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "1 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5102044,
+        "pageUrl": "/matches/argentinos-juniors-vs-club-atletico-platense/3d6gzl#5102044",
+        "opponent": {
+          "id": 10089,
+          "name": "Club Atletico Platense",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 1
+        },
+        "away": {
+          "id": 10089,
+          "name": "Club Atletico Platense",
+          "score": 0
+        },
+        "displayTournament": false,
+        "result": 1,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-03-23T01:15:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "1 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5101954,
+        "pageUrl": "/matches/lanus-vs-argentinos-juniors/3d3g16#5101954",
+        "opponent": {
+          "id": 10082,
+          "name": "Lanus",
+          "score": 1
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 2
+        },
+        "away": {
+          "id": 10082,
+          "name": "Lanus",
+          "score": 1
+        },
+        "displayTournament": false,
+        "result": 1,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-03-27T00:00:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "2 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5101969,
+        "pageUrl": "/matches/argentinos-juniors-vs-aldosivi/6s3vvhh#5101969",
+        "opponent": {
+          "id": 161728,
+          "name": "Aldosivi",
+          "score": 0
+        },
+        "home": {
+          "id": 161728,
+          "name": "Aldosivi",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 2
+        },
+        "displayTournament": false,
+        "result": 1,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-03-31T17:00:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "0 - 2",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5102060,
+        "pageUrl": "/matches/argentinos-juniors-vs-banfield/3d5luq#5102060",
+        "opponent": {
+          "id": 10087,
+          "name": "Banfield",
+          "score": 2
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 3
+        },
+        "away": {
+          "id": 10087,
+          "name": "Banfield",
+          "score": 2
+        },
+        "displayTournament": false,
+        "result": 1,
+        "notStarted": false,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-04-06T22:00:00.000Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "3 - 2",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": 5102082,
+        "pageUrl": "/matches/argentinos-juniors-vs-independiente-rivadavia/6s3zk25#5102082",
+        "opponent": {
+          "id": 161729,
+          "name": "Independiente Rivadavia",
+          "score": 0
+        },
+        "home": {
+          "id": 161729,
+          "name": "Independiente Rivadavia",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-04-11T20:15:00.000Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5102090,
+        "pageUrl": "/matches/argentinos-juniors-vs-atletico-tucuman/6s3s6wu#5102090",
+        "opponent": {
+          "id": 161727,
+          "name": "Atletico Tucuman",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "away": {
+          "id": 161727,
+          "name": "Atletico Tucuman",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-04-19T00:45:00.000Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5102110,
+        "pageUrl": "/matches/huracan-vs-argentinos-juniors/3d30gy#5102110",
+        "opponent": {
+          "id": 10081,
+          "name": "Huracan",
+          "score": 0
+        },
+        "home": {
+          "id": 10081,
+          "name": "Huracan",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-04-28T00:00:00.000Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5102004,
+        "pageUrl": "/matches/argentinos-juniors-vs-gimnasia-lp/3dcj0q#5102004",
+        "opponent": {
+          "id": 10103,
+          "name": "Gimnasia LP",
+          "score": 0
+        },
+        "home": {
+          "id": 10103,
+          "name": "Gimnasia LP",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Apertura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-05-03T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5115886,
+        "pageUrl": "/matches/argentinos-juniors-vs-sarmiento/aem1p1z#5115886",
+        "opponent": {
+          "id": 202757,
+          "name": "Sarmiento",
+          "score": 0
+        },
+        "home": {
+          "id": 202757,
+          "name": "Sarmiento",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-07-26T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5115888,
+        "pageUrl": "/matches/argentinos-juniors-vs-estudiantes-de-rio-cuarto/bhpw8vu#5115888",
+        "opponent": {
+          "id": 213591,
+          "name": "Estudiantes de Rio Cuarto",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "away": {
+          "id": 213591,
+          "name": "Estudiantes de Rio Cuarto",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-07-29T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5115904,
+        "pageUrl": "/matches/argentinos-juniors-vs-belgrano/3d7rp3#5115904",
+        "opponent": {
+          "id": 10092,
+          "name": "Belgrano",
+          "score": 0
+        },
+        "home": {
+          "id": 10092,
+          "name": "Belgrano",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-08-02T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5115918,
+        "pageUrl": "/matches/racing-club-vs-argentinos-juniors/3d2kwr#5115918",
+        "opponent": {
+          "id": 10080,
+          "name": "Racing Club",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "away": {
+          "id": 10080,
+          "name": "Racing Club",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-08-09T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5115944,
+        "pageUrl": "/matches/river-plate-vs-argentinos-juniors/3d0uo9#5115944",
+        "opponent": {
+          "id": 10076,
+          "name": "River Plate",
+          "score": 0
+        },
+        "home": {
+          "id": 10076,
+          "name": "River Plate",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-08-16T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5115956,
+        "pageUrl": "/matches/lanus-vs-argentinos-juniors/3d3g16#5115956",
+        "opponent": {
+          "id": 10082,
+          "name": "Lanus",
+          "score": 0
+        },
+        "home": {
+          "id": 10082,
+          "name": "Lanus",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-08-23T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5115963,
+        "pageUrl": "/matches/argentinos-juniors-vs-aldosivi/6s3vvhh#5115963",
+        "opponent": {
+          "id": 161728,
+          "name": "Aldosivi",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "away": {
+          "id": 161728,
+          "name": "Aldosivi",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-08-30T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5115979,
+        "pageUrl": "/matches/argentinos-juniors-vs-barracas-central/bhib0fc#5115979",
+        "opponent": {
+          "id": 213534,
+          "name": "Barracas Central",
+          "score": 0
+        },
+        "home": {
+          "id": 213534,
+          "name": "Barracas Central",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-09-06T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5115993,
+        "pageUrl": "/matches/argentinos-juniors-vs-gimnasia-lp/3dcj0q#5115993",
+        "opponent": {
+          "id": 10103,
+          "name": "Gimnasia LP",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "away": {
+          "id": 10103,
+          "name": "Gimnasia LP",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-09-13T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5116019,
+        "pageUrl": "/matches/rosario-central-vs-argentinos-juniors/3d4b5p#5116019",
+        "opponent": {
+          "id": 10084,
+          "name": "Rosario Central",
+          "score": 0
+        },
+        "home": {
+          "id": 10084,
+          "name": "Rosario Central",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-09-20T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5116023,
+        "pageUrl": "/matches/argentinos-juniors-vs-tigre/29u6yfn#5116023",
+        "opponent": {
+          "id": 89396,
+          "name": "Tigre",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "away": {
+          "id": 89396,
+          "name": "Tigre",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-10-04T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5116045,
+        "pageUrl": "/matches/argentinos-juniors-vs-club-atletico-platense/3d6gzl#5116045",
+        "opponent": {
+          "id": 10089,
+          "name": "Club Atletico Platense",
+          "score": 0
+        },
+        "home": {
+          "id": 10089,
+          "name": "Club Atletico Platense",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-10-11T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5116054,
+        "pageUrl": "/matches/argentinos-juniors-vs-banfield/3d5luq#5116054",
+        "opponent": {
+          "id": 10087,
+          "name": "Banfield",
+          "score": 0
+        },
+        "home": {
+          "id": 10087,
+          "name": "Banfield",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-10-18T20:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5116069,
+        "pageUrl": "/matches/argentinos-juniors-vs-independiente-rivadavia/6s3zk25#5116069",
+        "opponent": {
+          "id": 161729,
+          "name": "Independiente Rivadavia",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "away": {
+          "id": 161729,
+          "name": "Independiente Rivadavia",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-10-25T21:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5116083,
+        "pageUrl": "/matches/argentinos-juniors-vs-atletico-tucuman/6s3s6wu#5116083",
+        "opponent": {
+          "id": 161727,
+          "name": "Atletico Tucuman",
+          "score": 0
+        },
+        "home": {
+          "id": 161727,
+          "name": "Atletico Tucuman",
+          "score": 0
+        },
+        "away": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-11-01T21:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": 5116099,
+        "pageUrl": "/matches/huracan-vs-argentinos-juniors/3d30gy#5116099",
+        "opponent": {
+          "id": 10081,
+          "name": "Huracan",
+          "score": 0
+        },
+        "home": {
+          "id": 10086,
+          "name": "Argentinos Juniors",
+          "score": 0
+        },
+        "away": {
+          "id": 10081,
+          "name": "Huracan",
+          "score": 0
+        },
+        "displayTournament": false,
+        "notStarted": true,
+        "tournament": {
+          "name": "Liga Profesional Clausura",
+          "stage": "",
+          "leagueId": 112
+        },
+        "status": {
+          "utcTime": "2026-11-08T21:00:00.000Z",
+          "matchDateTbd": true,
+          "matchTimeTbd": false,
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      }
+    ],
+    "nextMatch": {
+      "id": 5102082,
+      "pageUrl": "/matches/argentinos-juniors-vs-independiente-rivadavia/6s3zk25#5102082",
+      "opponent": {
+        "id": 161729,
+        "name": "Independiente Rivadavia",
+        "score": 0
+      },
+      "home": {
+        "id": 161729,
+        "name": "Independiente Rivadavia",
+        "score": 0
+      },
+      "away": {
+        "id": 10086,
+        "name": "Argentinos Juniors",
+        "score": 0
+      },
+      "displayTournament": false,
+      "notStarted": true,
+      "tournament": {
+        "name": "Liga Profesional Apertura",
+        "stage": "",
+        "leagueId": 112
+      },
+      "status": {
+        "utcTime": "2026-04-11T20:15:00.000Z",
+        "started": false,
+        "cancelled": false,
+        "finished": false
+      }
+    },
+    "lastMatch": {
+      "id": 5102060,
+      "pageUrl": "/matches/argentinos-juniors-vs-banfield/3d5luq#5102060",
+      "opponent": {
+        "id": 10087,
+        "name": "Banfield",
+        "score": 2
+      },
+      "home": {
+        "id": 10086,
+        "name": "Argentinos Juniors",
+        "score": 3
+      },
+      "away": {
+        "id": 10087,
+        "name": "Banfield",
+        "score": 2
+      },
+      "displayTournament": false,
+      "result": 1,
+      "notStarted": false,
+      "tournament": {
+        "name": "Liga Profesional Apertura",
+        "stage": "",
+        "leagueId": 112
+      },
+      "status": {
+        "utcTime": "2026-04-06T22:00:00.000Z",
+        "finished": true,
+        "started": true,
+        "cancelled": false,
+        "awarded": false,
+        "scoreStr": "3 - 2",
+        "reason": {
+          "short": "FT",
+          "shortKey": "fulltime_short",
+          "long": "Full-Time",
+          "longKey": "finished"
+        }
+      }
+    }
+  },
+  "primaryTournamentId": 112,
+  "previousFixturesUrl": "https://pub.fotmob.com/prod/db/api/team/10086/fixture-by-date?beforeTimestamp=1764538200",
+  "hasOngoingMatch": false
+}

@@ -1,0 +1,3491 @@
+{
+  "data": {
+    "events": [
+      {
+        "messageId": "2893158819",
+        "optaEventId": 2893158819,
+        "teamEvent": "away",
+        "type": "end 14",
+        "isSubstitution": false,
+        "text": "Match ends, Argentinos Juniors 1, Sarmiento 0.",
+        "time": null,
+        "clockIconType": "Fulltime",
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893158787",
+        "optaEventId": 2893158787,
+        "teamEvent": "away",
+        "type": "end 2",
+        "isSubstitution": false,
+        "text": "Second Half ends, Argentinos Juniors 1, Sarmiento 0.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+11"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 11,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893158701",
+        "optaEventId": 2893158701,
+        "teamEvent": "away",
+        "type": "attempt saved",
+        "isSubstitution": false,
+        "text": "Attempt saved. Carlos Villalba (Sarmiento) left footed shot from the centre of the box is saved in the centre of the goal by Brayan Cortés (Argentinos Juniors). Assisted by Brandon Márquez with a headed pass.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+10"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 10,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1020944,
+            "name": "Carlos Villalba",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1020944/carlos-villalba"
+          },
+          {
+            "id": 1649653,
+            "name": "Brandon Marquez",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1649653/brandon-marquez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893158651",
+        "optaEventId": 2893158651,
+        "teamEvent": "home",
+        "type": "YC",
+        "isSubstitution": false,
+        "title": {
+          "key": "yellow_card",
+          "value": "Yellow card"
+        },
+        "text": "Tomás Molina (Argentinos Juniors) is shown the yellow card for excessive celebration.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+9"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 9,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 728323,
+            "name": "Tomas Molina",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/728323/tomas-molina"
+          }
+        ]
+      },
+      {
+        "eventId": 13653108,
+        "messageId": "2893158585",
+        "optaEventId": 2893158585,
+        "teamEvent": "home",
+        "type": "G",
+        "isSubstitution": false,
+        "title": {
+          "key": "goal",
+          "value": "Goal!"
+        },
+        "text": "Goal! Argentinos Juniors 1, Sarmiento 0. Tomás Molina (Argentinos Juniors) header from the centre of the box to the top left corner. Assisted by Leandro Lozano with a cross.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+7"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 7,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 728323,
+            "name": "Tomas Molina",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/728323/tomas-molina"
+          }
+        ]
+      },
+      {
+        "messageId": "2893158489",
+        "optaEventId": 2893158489,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Leandro Fernández (Argentinos Juniors) wins a free kick in the attacking half.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+6"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 6,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 306126,
+            "name": "Leandro Fernández",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/306126/leandro-fernandez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893158499",
+        "optaEventId": 2893158499,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Gastón Arturia (Sarmiento).",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+6"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 6,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1293096,
+            "name": "Gaston Arturia",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1293096/gaston-arturia"
+          }
+        ]
+      },
+      {
+        "messageId": "2893158395",
+        "optaEventId": 2893158395,
+        "teamEvent": "home",
+        "type": "miss",
+        "isSubstitution": false,
+        "text": "Attempt missed. Leandro Lozano (Argentinos Juniors) right footed shot from outside the box is high and wide to the right.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+6"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 6,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1238138,
+            "name": "Leandro Lozano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1238138/leandro-lozano"
+          }
+        ]
+      },
+      {
+        "messageId": "2893158311",
+        "optaEventId": 2893158311,
+        "teamEvent": "away",
+        "type": "corner",
+        "isSubstitution": false,
+        "text": "Corner, Argentinos Juniors. Conceded by Javier Burrai.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+5"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 5,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 262597,
+            "name": "Javier Burrai",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/262597/javier-burrai"
+          }
+        ]
+      },
+      {
+        "messageId": "2893158317",
+        "optaEventId": 2893158317,
+        "teamEvent": "home",
+        "type": "attempt saved",
+        "isSubstitution": false,
+        "text": "Attempt saved. Tomás Molina (Argentinos Juniors) header from the centre of the box is saved in the top left corner by Javier Burrai (Sarmiento). Assisted by Leandro Lozano with a cross.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+5"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 5,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 728323,
+            "name": "Tomas Molina",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/728323/tomas-molina"
+          },
+          {
+            "id": 1238138,
+            "name": "Leandro Lozano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1238138/leandro-lozano"
+          }
+        ]
+      },
+      {
+        "messageId": "2893158293",
+        "optaEventId": 2893158293,
+        "teamEvent": "away",
+        "type": "corner",
+        "isSubstitution": false,
+        "text": "Corner, Argentinos Juniors. Conceded by Javier Burrai.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+4"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 4,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 262597,
+            "name": "Javier Burrai",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/262597/javier-burrai"
+          }
+        ]
+      },
+      {
+        "messageId": "2893158279",
+        "optaEventId": 2893158279,
+        "teamEvent": "home",
+        "type": "attempt saved",
+        "isSubstitution": false,
+        "text": "Attempt saved. Leandro Fernández (Argentinos Juniors) right footed shot from outside the box is saved in the top right corner by Javier Burrai (Sarmiento).",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+4"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 4,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 306126,
+            "name": "Leandro Fernández",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/306126/leandro-fernandez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893158165",
+        "optaEventId": 2893158165,
+        "teamEvent": "away",
+        "type": "YC",
+        "isSubstitution": false,
+        "title": {
+          "key": "yellow_card",
+          "value": "Yellow card"
+        },
+        "text": "Carlos Villalba (Sarmiento) is shown the yellow card for a bad foul.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+3"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 3,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1020944,
+            "name": "Carlos Villalba",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1020944/carlos-villalba"
+          }
+        ]
+      },
+      {
+        "messageId": "2893158163",
+        "optaEventId": 2893158163,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Tomás Molina (Argentinos Juniors) wins a free kick in the attacking half.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+3"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 3,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 728323,
+            "name": "Tomas Molina",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/728323/tomas-molina"
+          }
+        ]
+      },
+      {
+        "messageId": "2893158161",
+        "optaEventId": 2893158161,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Carlos Villalba (Sarmiento).",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+3"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 3,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1020944,
+            "name": "Carlos Villalba",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1020944/carlos-villalba"
+          }
+        ]
+      },
+      {
+        "messageId": "2893158121",
+        "optaEventId": 2893158121,
+        "teamEvent": "away",
+        "type": "added time",
+        "isSubstitution": false,
+        "text": "Fourth official has announced 4 minutes of added time.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+3"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 3,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893158021",
+        "optaEventId": 2893158021,
+        "teamEvent": "home",
+        "type": "miss",
+        "isSubstitution": false,
+        "text": "Attempt missed. Facundo Jainikoski (Argentinos Juniors) right footed shot from outside the box is close, but misses to the right.",
+        "time": {
+          "main": "90‎’‎",
+          "added": "+2"
+        },
+        "elapsed": 90,
+        "elapsedPlus": 2,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1843096,
+            "name": "Facundo Jainikoski",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1843096/facundo-jainikoski"
+          }
+        ]
+      },
+      {
+        "messageId": "2893157699",
+        "optaEventId": 2893157699,
+        "teamEvent": "home",
+        "type": "miss",
+        "isSubstitution": false,
+        "text": "Attempt missed. Facundo Jainikoski (Argentinos Juniors) right footed shot from outside the box is too high. Assisted by Leandro Lozano following a fast break.",
+        "time": {
+          "main": "89‎’‎",
+          "added": null
+        },
+        "elapsed": 89,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1843096,
+            "name": "Facundo Jainikoski",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1843096/facundo-jainikoski"
+          },
+          {
+            "id": 1238138,
+            "name": "Leandro Lozano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1238138/leandro-lozano"
+          }
+        ]
+      },
+      {
+        "messageId": "2893157559",
+        "optaEventId": 2893157559,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Facundo Jainikoski (Argentinos Juniors) wins a free kick in the defensive half.",
+        "time": {
+          "main": "88‎’‎",
+          "added": null
+        },
+        "elapsed": 88,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1843096,
+            "name": "Facundo Jainikoski",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1843096/facundo-jainikoski"
+          }
+        ]
+      },
+      {
+        "messageId": "2893157557",
+        "optaEventId": 2893157557,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Yair Arismendi (Sarmiento).",
+        "time": {
+          "main": "88‎’‎",
+          "added": null
+        },
+        "elapsed": 88,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 845709,
+            "name": "Yair Arismendi",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/845709/yair-arismendi"
+          }
+        ]
+      },
+      {
+        "messageId": "2893157419",
+        "optaEventId": 2893157419,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Leandro Fernández (Argentinos Juniors) wins a free kick in the defensive half.",
+        "time": {
+          "main": "87‎’‎",
+          "added": null
+        },
+        "elapsed": 87,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 306126,
+            "name": "Leandro Fernández",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/306126/leandro-fernandez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893157421",
+        "optaEventId": 2893157421,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Manuel García (Sarmiento).",
+        "time": {
+          "main": "87‎’‎",
+          "added": null
+        },
+        "elapsed": 87,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1238746,
+            "name": "Manuel Garcia",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1238746/manuel-garcia"
+          }
+        ]
+      },
+      {
+        "messageId": "2893157303",
+        "optaEventId": 2893157303,
+        "teamEvent": "home",
+        "type": "corner",
+        "isSubstitution": false,
+        "text": "Corner, Sarmiento. Conceded by Tobías Ramírez.",
+        "time": {
+          "main": "86‎’‎",
+          "added": null
+        },
+        "elapsed": 86,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1607568,
+            "name": "Tobias Ramirez",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1607568/tobias-ramirez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893157293",
+        "optaEventId": 2893157293,
+        "teamEvent": "away",
+        "type": "attempt blocked",
+        "isSubstitution": false,
+        "text": "Attempt blocked. Carlos Villalba (Sarmiento) right footed shot from outside the box is blocked.",
+        "time": {
+          "main": "86‎’‎",
+          "added": null
+        },
+        "elapsed": 86,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1020944,
+            "name": "Carlos Villalba",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1020944/carlos-villalba"
+          }
+        ]
+      },
+      {
+        "messageId": "2893157165",
+        "optaEventId": 2893157165,
+        "teamEvent": "home",
+        "type": "SI",
+        "isSubstitution": true,
+        "title": {
+          "key": "player_substitution",
+          "value": "Substitution"
+        },
+        "text": "Substitution, Argentinos Juniors. Facundo Jainikoski replaces Francisco Álvarez.",
+        "time": {
+          "main": "84‎’‎",
+          "added": null
+        },
+        "elapsed": 84,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1843096,
+            "name": "Facundo Jainikoski",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1843096/facundo-jainikoski"
+          },
+          {
+            "id": 920404,
+            "name": "Francisco Alvarez",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/920404/francisco-alvarez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893157041",
+        "optaEventId": 2893157041,
+        "teamEvent": "away",
+        "type": "SI",
+        "isSubstitution": true,
+        "title": {
+          "key": "player_substitution",
+          "value": "Substitution"
+        },
+        "text": "Substitution, Sarmiento. Ulises Delgado replaces Diego Churín because of an injury.",
+        "time": {
+          "main": "84‎’‎",
+          "added": null
+        },
+        "elapsed": 84,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1897644,
+            "name": "Ulises Delgado",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1897644/ulises-delgado"
+          },
+          {
+            "id": 113608,
+            "name": "Diego Churin",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/113608/diego-churin"
+          }
+        ]
+      },
+      {
+        "messageId": "2893157053",
+        "optaEventId": 2893157053,
+        "teamEvent": "away",
+        "type": "end delay",
+        "isSubstitution": false,
+        "text": "Delay over. They are ready to continue.",
+        "time": {
+          "main": "83‎’‎",
+          "added": null
+        },
+        "elapsed": 83,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893156897",
+        "optaEventId": 2893156897,
+        "teamEvent": "away",
+        "type": "start delay",
+        "isSubstitution": false,
+        "text": "Delay in match because of an injury Diego Churín (Sarmiento).",
+        "time": {
+          "main": "82‎’‎",
+          "added": null
+        },
+        "elapsed": 82,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893156787",
+        "optaEventId": 2893156787,
+        "teamEvent": "home",
+        "type": "attempt saved",
+        "isSubstitution": false,
+        "text": "Attempt saved. Alan Lescano (Argentinos Juniors) left footed shot from outside the box is saved in the top centre of the goal by Javier Burrai (Sarmiento). Assisted by Federico Fattori.",
+        "time": {
+          "main": "82‎’‎",
+          "added": null
+        },
+        "elapsed": 82,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1342579,
+            "name": "Alan Lescano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1342579/alan-lescano"
+          },
+          {
+            "id": 616508,
+            "name": "Federico Fattori",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/616508/federico-fattori"
+          }
+        ]
+      },
+      {
+        "messageId": "2893156603",
+        "optaEventId": 2893156603,
+        "teamEvent": "away",
+        "type": "corner",
+        "isSubstitution": false,
+        "text": "Corner, Argentinos Juniors. Conceded by Julián Contrera.",
+        "time": {
+          "main": "81‎’‎",
+          "added": null
+        },
+        "elapsed": 81,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1504098,
+            "name": "Julian Contrera",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1504098/julian-contrera"
+          }
+        ]
+      },
+      {
+        "messageId": "2893156589",
+        "optaEventId": 2893156589,
+        "teamEvent": "home",
+        "type": "attempt blocked",
+        "isSubstitution": false,
+        "text": "Attempt blocked. Federico Fattori (Argentinos Juniors) right footed shot from outside the box is blocked. Assisted by Lautaro Giaccone.",
+        "time": {
+          "main": "81‎’‎",
+          "added": null
+        },
+        "elapsed": 81,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 616508,
+            "name": "Federico Fattori",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/616508/federico-fattori"
+          },
+          {
+            "id": 1220657,
+            "name": "Lautaro Giaccone",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1220657/lautaro-giaccone"
+          }
+        ]
+      },
+      {
+        "messageId": "2893156525",
+        "optaEventId": 2893156525,
+        "teamEvent": "away",
+        "type": "offside",
+        "isSubstitution": false,
+        "text": "Offside, Sarmiento. Julián Contrera is caught offside.",
+        "time": {
+          "main": "80‎’‎",
+          "added": null
+        },
+        "elapsed": 80,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1649653,
+            "name": "Brandon Marquez",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1649653/brandon-marquez"
+          },
+          {
+            "id": 1504098,
+            "name": "Julian Contrera",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1504098/julian-contrera"
+          }
+        ]
+      },
+      {
+        "messageId": "2893157011",
+        "optaEventId": 2893157011,
+        "teamEvent": "home",
+        "type": "miss",
+        "isSubstitution": false,
+        "text": "Attempt missed. Tobías Ramírez (Argentinos Juniors) right footed shot from a difficult angle on the right is high and wide to the right following a corner.",
+        "time": {
+          "main": "78‎’‎",
+          "added": null
+        },
+        "elapsed": 78,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1607568,
+            "name": "Tobias Ramirez",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1607568/tobias-ramirez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893156227",
+        "optaEventId": 2893156227,
+        "teamEvent": "away",
+        "type": "corner",
+        "isSubstitution": false,
+        "text": "Corner, Argentinos Juniors. Conceded by Santiago Salle.",
+        "time": {
+          "main": "78‎’‎",
+          "added": null
+        },
+        "elapsed": 78,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1439529,
+            "name": "Santiago Salle",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1439529/santiago-salle"
+          }
+        ]
+      },
+      {
+        "messageId": "2893156127",
+        "optaEventId": 2893156127,
+        "teamEvent": "away",
+        "type": "end delay",
+        "isSubstitution": false,
+        "text": "Delay over. They are ready to continue.",
+        "time": {
+          "main": "77‎’‎",
+          "added": null
+        },
+        "elapsed": 77,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893156097",
+        "optaEventId": 2893156097,
+        "teamEvent": "away",
+        "type": "start delay",
+        "isSubstitution": false,
+        "text": "Delay in match because of an injury Diego Porcel (Argentinos Juniors).",
+        "time": {
+          "main": "77‎’‎",
+          "added": null
+        },
+        "elapsed": 77,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893155969",
+        "optaEventId": 2893155969,
+        "teamEvent": "home",
+        "type": "attempt blocked",
+        "isSubstitution": false,
+        "text": "Attempt blocked. Tomás Molina (Argentinos Juniors) right footed shot from the centre of the box is blocked.",
+        "time": {
+          "main": "76‎’‎",
+          "added": null
+        },
+        "elapsed": 76,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 728323,
+            "name": "Tomas Molina",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/728323/tomas-molina"
+          }
+        ]
+      },
+      {
+        "messageId": "2893155965",
+        "optaEventId": 2893155965,
+        "teamEvent": "home",
+        "type": "attempt saved",
+        "isSubstitution": false,
+        "text": "Attempt saved. Ryoga Kida (Argentinos Juniors) right footed shot from outside the box is saved in the bottom left corner by Javier Burrai (Sarmiento). Assisted by Leandro Fernández.",
+        "time": {
+          "main": "76‎’‎",
+          "added": null
+        },
+        "elapsed": 76,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1383188,
+            "name": "Ryoga Kida",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1383188/ryoga-kida"
+          },
+          {
+            "id": 306126,
+            "name": "Leandro Fernández",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/306126/leandro-fernandez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893155755",
+        "optaEventId": 2893155755,
+        "teamEvent": "away",
+        "type": "SI",
+        "isSubstitution": true,
+        "title": {
+          "key": "player_substitution",
+          "value": "Substitution"
+        },
+        "text": "Substitution, Sarmiento. Gastón Arturia replaces Cristian Zabala.",
+        "time": {
+          "main": "75‎’‎",
+          "added": null
+        },
+        "elapsed": 75,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1293096,
+            "name": "Gaston Arturia",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1293096/gaston-arturia"
+          },
+          {
+            "id": 1135817,
+            "name": "Cristian Zabala",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1135817/cristian-zabala"
+          }
+        ]
+      },
+      {
+        "messageId": "2893155757",
+        "optaEventId": 2893155757,
+        "teamEvent": "away",
+        "type": "end delay",
+        "isSubstitution": false,
+        "text": "Delay over. They are ready to continue.",
+        "time": {
+          "main": "75‎’‎",
+          "added": null
+        },
+        "elapsed": 75,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893155559",
+        "optaEventId": 2893155559,
+        "teamEvent": "home",
+        "type": "SI",
+        "isSubstitution": true,
+        "title": {
+          "key": "player_substitution",
+          "value": "Substitution"
+        },
+        "text": "Substitution, Argentinos Juniors. Ryoga Kida replaces Nicolás Oroz.",
+        "time": {
+          "main": "73‎’‎",
+          "added": null
+        },
+        "elapsed": 73,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1383188,
+            "name": "Ryoga Kida",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1383188/ryoga-kida"
+          },
+          {
+            "id": 543304,
+            "name": "Nicolas Oroz",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/543304/nicolas-oroz"
+          }
+        ]
+      },
+      {
+        "messageId": "2893155551",
+        "optaEventId": 2893155551,
+        "teamEvent": "away",
+        "type": "start delay",
+        "isSubstitution": false,
+        "text": "Delay in match because of an injury Javier Burrai (Sarmiento).",
+        "time": {
+          "main": "73‎’‎",
+          "added": null
+        },
+        "elapsed": 73,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893155309",
+        "optaEventId": 2893155309,
+        "teamEvent": "home",
+        "type": "attempt saved",
+        "isSubstitution": false,
+        "text": "Attempt saved. Diego Porcel (Argentinos Juniors) right footed shot from the right side of the box is saved in the top centre of the goal by Javier Burrai (Sarmiento). Assisted by Alan Lescano.",
+        "time": {
+          "main": "72‎’‎",
+          "added": null
+        },
+        "elapsed": 72,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1648046,
+            "name": "Diego Porcel",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1648046/diego-porcel"
+          },
+          {
+            "id": 1342579,
+            "name": "Alan Lescano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1342579/alan-lescano"
+          }
+        ]
+      },
+      {
+        "messageId": "2893154719",
+        "optaEventId": 2893154719,
+        "teamEvent": "home",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Francisco Álvarez (Argentinos Juniors).",
+        "time": {
+          "main": "69‎’‎",
+          "added": null
+        },
+        "elapsed": 69,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 920404,
+            "name": "Francisco Alvarez",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/920404/francisco-alvarez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893154721",
+        "optaEventId": 2893154721,
+        "teamEvent": "away",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Diego Churín (Sarmiento) wins a free kick in the defensive half.",
+        "time": {
+          "main": "69‎’‎",
+          "added": null
+        },
+        "elapsed": 69,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 113608,
+            "name": "Diego Churin",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/113608/diego-churin"
+          }
+        ]
+      },
+      {
+        "messageId": "2893154281",
+        "optaEventId": 2893154281,
+        "teamEvent": "home",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Tobías Ramírez (Argentinos Juniors).",
+        "time": {
+          "main": "68‎’‎",
+          "added": null
+        },
+        "elapsed": 68,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1607568,
+            "name": "Tobias Ramirez",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1607568/tobias-ramirez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893154289",
+        "optaEventId": 2893154289,
+        "teamEvent": "away",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Diego Churín (Sarmiento) wins a free kick in the attacking half.",
+        "time": {
+          "main": "68‎’‎",
+          "added": null
+        },
+        "elapsed": 68,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 113608,
+            "name": "Diego Churin",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/113608/diego-churin"
+          }
+        ]
+      },
+      {
+        "messageId": "2893154131",
+        "optaEventId": 2893154131,
+        "teamEvent": "home",
+        "type": "post",
+        "isSubstitution": false,
+        "text": "Alan Lescano (Argentinos Juniors) hits the left post with a right footed shot from the centre of the box. Assisted by Nicolás Oroz with a through ball following a fast break.",
+        "time": {
+          "main": "67‎’‎",
+          "added": null
+        },
+        "elapsed": 67,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1342579,
+            "name": "Alan Lescano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1342579/alan-lescano"
+          },
+          {
+            "id": 543304,
+            "name": "Nicolas Oroz",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/543304/nicolas-oroz"
+          }
+        ]
+      },
+      {
+        "messageId": "2893153831",
+        "optaEventId": 2893153831,
+        "teamEvent": "away",
+        "type": "offside",
+        "isSubstitution": false,
+        "text": "Offside, Sarmiento. Brandon Márquez is caught offside.",
+        "time": {
+          "main": "66‎’‎",
+          "added": null
+        },
+        "elapsed": 66,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1504098,
+            "name": "Julian Contrera",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1504098/julian-contrera"
+          },
+          {
+            "id": 1649653,
+            "name": "Brandon Marquez",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1649653/brandon-marquez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893153653",
+        "optaEventId": 2893153653,
+        "teamEvent": "home",
+        "type": "SI",
+        "isSubstitution": true,
+        "title": {
+          "key": "player_substitution",
+          "value": "Substitution"
+        },
+        "text": "Substitution, Argentinos Juniors. Leandro Fernández replaces Sebastián Prieto.",
+        "time": {
+          "main": "65‎’‎",
+          "added": null
+        },
+        "elapsed": 65,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 306126,
+            "name": "Leandro Fernández",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/306126/leandro-fernandez"
+          },
+          {
+            "id": 841913,
+            "name": "Sebastian Prieto",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/841913/sebastian-prieto"
+          }
+        ]
+      },
+      {
+        "messageId": "2893153229",
+        "optaEventId": 2893153229,
+        "teamEvent": "away",
+        "type": "contentious referee decisions",
+        "isSubstitution": false,
+        "text": "VAR Decision: No card change Brandon Márquez (Sarmiento).",
+        "time": {
+          "main": "63‎’‎",
+          "added": null
+        },
+        "elapsed": 63,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1649653,
+            "name": "Brandon Marquez",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1649653/brandon-marquez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893153073",
+        "optaEventId": 2893153073,
+        "teamEvent": "away",
+        "type": "YC",
+        "isSubstitution": false,
+        "title": {
+          "key": "yellow_card",
+          "value": "Yellow card"
+        },
+        "text": "Brandon Márquez (Sarmiento) is shown the yellow card for a bad foul.",
+        "time": {
+          "main": "62‎’‎",
+          "added": null
+        },
+        "elapsed": 62,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1649653,
+            "name": "Brandon Marquez",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1649653/brandon-marquez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893153059",
+        "optaEventId": 2893153059,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Leandro Lozano (Argentinos Juniors) wins a free kick in the defensive half.",
+        "time": {
+          "main": "62‎’‎",
+          "added": null
+        },
+        "elapsed": 62,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1238138,
+            "name": "Leandro Lozano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1238138/leandro-lozano"
+          }
+        ]
+      },
+      {
+        "messageId": "2893153051",
+        "optaEventId": 2893153051,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Brandon Márquez (Sarmiento).",
+        "time": {
+          "main": "62‎’‎",
+          "added": null
+        },
+        "elapsed": 62,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1649653,
+            "name": "Brandon Marquez",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1649653/brandon-marquez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893152603",
+        "optaEventId": 2893152603,
+        "teamEvent": "away",
+        "type": "RC",
+        "isSubstitution": false,
+        "title": {
+          "key": "red_card",
+          "value": "Red Card!"
+        },
+        "text": "Juan Insaurralde (Sarmiento) is shown the red card.",
+        "time": {
+          "main": "60‎’‎",
+          "added": null
+        },
+        "elapsed": 60,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 147620,
+            "name": "Juan Manuel Insaurralde",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/147620/juan-manuel-insaurralde"
+          }
+        ]
+      },
+      {
+        "messageId": "2893152383",
+        "optaEventId": 2893152383,
+        "teamEvent": "away",
+        "type": "contentious referee decisions",
+        "isSubstitution": false,
+        "text": "VAR Decision: Card upgraded Juan Insaurralde (Sarmiento).",
+        "time": {
+          "main": "59‎’‎",
+          "added": null
+        },
+        "elapsed": 59,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 147620,
+            "name": "Juan Manuel Insaurralde",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/147620/juan-manuel-insaurralde"
+          }
+        ]
+      },
+      {
+        "messageId": "2893152181",
+        "optaEventId": 2893152181,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Diego Porcel (Argentinos Juniors) wins a free kick in the attacking half.",
+        "time": {
+          "main": "58‎’‎",
+          "added": null
+        },
+        "elapsed": 58,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1648046,
+            "name": "Diego Porcel",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1648046/diego-porcel"
+          }
+        ]
+      },
+      {
+        "messageId": "2893152189",
+        "optaEventId": 2893152189,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Juan Insaurralde (Sarmiento).",
+        "time": {
+          "main": "58‎’‎",
+          "added": null
+        },
+        "elapsed": 58,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 147620,
+            "name": "Juan Manuel Insaurralde",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/147620/juan-manuel-insaurralde"
+          }
+        ]
+      },
+      {
+        "messageId": "2893152163",
+        "optaEventId": 2893152163,
+        "teamEvent": "away",
+        "type": "SI",
+        "isSubstitution": true,
+        "title": {
+          "key": "player_substitution",
+          "value": "Substitution"
+        },
+        "text": "Substitution, Sarmiento. Brandon Márquez replaces Jhon Rentería.",
+        "time": {
+          "main": "57‎’‎",
+          "added": null
+        },
+        "elapsed": 57,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1649653,
+            "name": "Brandon Marquez",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1649653/brandon-marquez"
+          },
+          {
+            "id": 1741920,
+            "name": "Jhon Renteria",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1741920/jhon-renteria"
+          }
+        ]
+      },
+      {
+        "messageId": "2893152283",
+        "optaEventId": 2893152283,
+        "teamEvent": "away",
+        "type": "SI",
+        "isSubstitution": true,
+        "title": {
+          "key": "player_substitution",
+          "value": "Substitution"
+        },
+        "text": "Substitution, Sarmiento. Carlos Villalba replaces Junior Marabel.",
+        "time": {
+          "main": "57‎’‎",
+          "added": null
+        },
+        "elapsed": 57,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1020944,
+            "name": "Carlos Villalba",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1020944/carlos-villalba"
+          },
+          {
+            "id": 883281,
+            "name": "Junior Marabel",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/883281/junior-marabel"
+          }
+        ]
+      },
+      {
+        "messageId": "2893151859",
+        "optaEventId": 2893151859,
+        "teamEvent": "home",
+        "type": "attempt saved",
+        "isSubstitution": false,
+        "text": "Attempt saved. Tobías Ramírez (Argentinos Juniors) header from the centre of the box is saved in the centre of the goal by Javier Burrai (Sarmiento). Assisted by Nicolás Oroz with a cross.",
+        "time": {
+          "main": "56‎’‎",
+          "added": null
+        },
+        "elapsed": 56,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1607568,
+            "name": "Tobias Ramirez",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1607568/tobias-ramirez"
+          },
+          {
+            "id": 543304,
+            "name": "Nicolas Oroz",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/543304/nicolas-oroz"
+          }
+        ]
+      },
+      {
+        "messageId": "2893332427",
+        "optaEventId": 2893332427,
+        "teamEvent": "away",
+        "type": "YC",
+        "isSubstitution": false,
+        "title": {
+          "key": "yellow_card",
+          "value": "Yellow card"
+        },
+        "text": "Renzo Orihuela (Sarmiento) is shown the yellow card.",
+        "time": {
+          "main": "55‎’‎",
+          "added": null
+        },
+        "elapsed": 55,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1139354,
+            "name": "Renzo Orihuela",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1139354/renzo-orihuela"
+          }
+        ]
+      },
+      {
+        "messageId": "2893151515",
+        "optaEventId": 2893151515,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Alan Lescano (Argentinos Juniors) wins a free kick on the left wing.",
+        "time": {
+          "main": "55‎’‎",
+          "added": null
+        },
+        "elapsed": 55,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1342579,
+            "name": "Alan Lescano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1342579/alan-lescano"
+          }
+        ]
+      },
+      {
+        "messageId": "2893151529",
+        "optaEventId": 2893151529,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Renzo Orihuela (Sarmiento).",
+        "time": {
+          "main": "55‎’‎",
+          "added": null
+        },
+        "elapsed": 55,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1139354,
+            "name": "Renzo Orihuela",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1139354/renzo-orihuela"
+          }
+        ]
+      },
+      {
+        "messageId": "2893151183",
+        "optaEventId": 2893151183,
+        "teamEvent": "away",
+        "type": "corner",
+        "isSubstitution": false,
+        "text": "Corner, Argentinos Juniors. Conceded by Jhon Rentería.",
+        "time": {
+          "main": "54‎’‎",
+          "added": null
+        },
+        "elapsed": 54,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1741920,
+            "name": "Jhon Renteria",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1741920/jhon-renteria"
+          }
+        ]
+      },
+      {
+        "messageId": "2893151053",
+        "optaEventId": 2893151053,
+        "teamEvent": "away",
+        "type": "corner",
+        "isSubstitution": false,
+        "text": "Corner, Argentinos Juniors. Conceded by Juan Insaurralde.",
+        "time": {
+          "main": "53‎’‎",
+          "added": null
+        },
+        "elapsed": 53,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 147620,
+            "name": "Juan Manuel Insaurralde",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/147620/juan-manuel-insaurralde"
+          }
+        ]
+      },
+      {
+        "messageId": "2893150793",
+        "optaEventId": 2893150793,
+        "teamEvent": "away",
+        "type": "YC",
+        "isSubstitution": false,
+        "title": {
+          "key": "yellow_card",
+          "value": "Yellow card"
+        },
+        "text": "Jhon Rentería (Sarmiento) is shown the yellow card for a bad foul.",
+        "time": {
+          "main": "52‎’‎",
+          "added": null
+        },
+        "elapsed": 52,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1741920,
+            "name": "Jhon Renteria",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1741920/jhon-renteria"
+          }
+        ]
+      },
+      {
+        "messageId": "2893150795",
+        "optaEventId": 2893150795,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Diego Porcel (Argentinos Juniors) wins a free kick in the defensive half.",
+        "time": {
+          "main": "52‎’‎",
+          "added": null
+        },
+        "elapsed": 52,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1648046,
+            "name": "Diego Porcel",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1648046/diego-porcel"
+          }
+        ]
+      },
+      {
+        "messageId": "2893150785",
+        "optaEventId": 2893150785,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Jhon Rentería (Sarmiento).",
+        "time": {
+          "main": "52‎’‎",
+          "added": null
+        },
+        "elapsed": 52,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1741920,
+            "name": "Jhon Renteria",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1741920/jhon-renteria"
+          }
+        ]
+      },
+      {
+        "messageId": "2893150645",
+        "optaEventId": 2893150645,
+        "teamEvent": "home",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Tomás Molina (Argentinos Juniors).",
+        "time": {
+          "main": "51‎’‎",
+          "added": null
+        },
+        "elapsed": 51,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 728323,
+            "name": "Tomas Molina",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/728323/tomas-molina"
+          }
+        ]
+      },
+      {
+        "messageId": "2893150643",
+        "optaEventId": 2893150643,
+        "teamEvent": "away",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Manuel García (Sarmiento) wins a free kick in the attacking half.",
+        "time": {
+          "main": "51‎’‎",
+          "added": null
+        },
+        "elapsed": 51,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1238746,
+            "name": "Manuel Garcia",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1238746/manuel-garcia"
+          }
+        ]
+      },
+      {
+        "messageId": "2893150493",
+        "optaEventId": 2893150493,
+        "teamEvent": "home",
+        "type": "miss",
+        "isSubstitution": false,
+        "text": "Attempt missed. Tomás Molina (Argentinos Juniors) left footed shot from the centre of the box is close, but misses to the left. Assisted by Sebastián Prieto with a cross following a fast break.",
+        "time": {
+          "main": "50‎’‎",
+          "added": null
+        },
+        "elapsed": 50,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 728323,
+            "name": "Tomas Molina",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/728323/tomas-molina"
+          },
+          {
+            "id": 841913,
+            "name": "Sebastian Prieto",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/841913/sebastian-prieto"
+          }
+        ]
+      },
+      {
+        "messageId": "2893150171",
+        "optaEventId": 2893150171,
+        "teamEvent": "away",
+        "type": "corner",
+        "isSubstitution": false,
+        "text": "Corner, Argentinos Juniors. Conceded by Juan Insaurralde.",
+        "time": {
+          "main": "49‎’‎",
+          "added": null
+        },
+        "elapsed": 49,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 147620,
+            "name": "Juan Manuel Insaurralde",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/147620/juan-manuel-insaurralde"
+          }
+        ]
+      },
+      {
+        "messageId": "2893149835",
+        "optaEventId": 2893149835,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Alan Lescano (Argentinos Juniors) wins a free kick in the defensive half.",
+        "time": {
+          "main": "48‎’‎",
+          "added": null
+        },
+        "elapsed": 48,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1342579,
+            "name": "Alan Lescano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1342579/alan-lescano"
+          }
+        ]
+      },
+      {
+        "messageId": "2893149825",
+        "optaEventId": 2893149825,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Manuel García (Sarmiento).",
+        "time": {
+          "main": "48‎’‎",
+          "added": null
+        },
+        "elapsed": 48,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1238746,
+            "name": "Manuel Garcia",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1238746/manuel-garcia"
+          }
+        ]
+      },
+      {
+        "messageId": "2893149473",
+        "optaEventId": 2893149473,
+        "teamEvent": "away",
+        "type": "corner",
+        "isSubstitution": false,
+        "text": "Corner, Argentinos Juniors. Conceded by Cristian Zabala.",
+        "time": {
+          "main": "46‎’‎",
+          "added": null
+        },
+        "elapsed": 46,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1135817,
+            "name": "Cristian Zabala",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1135817/cristian-zabala"
+          }
+        ]
+      },
+      {
+        "messageId": "2893149399",
+        "optaEventId": 2893149399,
+        "teamEvent": "away",
+        "type": "SI",
+        "isSubstitution": true,
+        "title": {
+          "key": "player_substitution",
+          "value": "Substitution"
+        },
+        "text": "Substitution, Sarmiento. Julián Contrera replaces Juan Manuel Cabrera.",
+        "time": {
+          "main": "46‎’‎",
+          "added": null
+        },
+        "elapsed": 46,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1504098,
+            "name": "Julian Contrera",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1504098/julian-contrera"
+          },
+          {
+            "id": 1252447,
+            "name": "Juan Cabrera",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1252447/juan-cabrera"
+          }
+        ]
+      },
+      {
+        "messageId": "2893149233",
+        "optaEventId": 2893149233,
+        "teamEvent": "away",
+        "type": "start",
+        "isSubstitution": false,
+        "text": "Second Half begins Argentinos Juniors 0, Sarmiento 0.",
+        "time": {
+          "main": "46‎’‎",
+          "added": null
+        },
+        "elapsed": 46,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893145593",
+        "optaEventId": 2893145593,
+        "teamEvent": "away",
+        "type": "end 1",
+        "isSubstitution": false,
+        "text": "First Half ends, Argentinos Juniors 0, Sarmiento 0.",
+        "time": {
+          "main": "45‎’‎",
+          "added": "+2"
+        },
+        "elapsed": 45,
+        "elapsedPlus": 2,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893145611",
+        "optaEventId": 2893145611,
+        "teamEvent": "away",
+        "type": "added time",
+        "isSubstitution": false,
+        "text": "Fourth official has announced 1 minutes of added time.",
+        "time": {
+          "main": "45‎’‎",
+          "added": null
+        },
+        "elapsed": 45,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893144951",
+        "optaEventId": 2893144951,
+        "teamEvent": "home",
+        "type": "attempt saved",
+        "isSubstitution": false,
+        "text": "Attempt saved. Lautaro Giaccone (Argentinos Juniors) left footed shot from the right side of the box is saved in the centre of the goal by Javier Burrai (Sarmiento). Assisted by Nicolás Oroz.",
+        "time": {
+          "main": "45‎’‎",
+          "added": null
+        },
+        "elapsed": 45,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1220657,
+            "name": "Lautaro Giaccone",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1220657/lautaro-giaccone"
+          },
+          {
+            "id": 543304,
+            "name": "Nicolas Oroz",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/543304/nicolas-oroz"
+          }
+        ]
+      },
+      {
+        "messageId": "2893143583",
+        "optaEventId": 2893143583,
+        "teamEvent": "home",
+        "type": "corner",
+        "isSubstitution": false,
+        "text": "Corner, Sarmiento. Conceded by Federico Fattori.",
+        "time": {
+          "main": "41‎’‎",
+          "added": null
+        },
+        "elapsed": 41,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 616508,
+            "name": "Federico Fattori",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/616508/federico-fattori"
+          }
+        ]
+      },
+      {
+        "messageId": "2893143069",
+        "optaEventId": 2893143069,
+        "teamEvent": "home",
+        "type": "YC",
+        "isSubstitution": false,
+        "title": {
+          "key": "yellow_card",
+          "value": "Yellow card"
+        },
+        "text": "Francisco Álvarez (Argentinos Juniors) is shown the yellow card for a bad foul.",
+        "time": {
+          "main": "39‎’‎",
+          "added": null
+        },
+        "elapsed": 39,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 920404,
+            "name": "Francisco Alvarez",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/920404/francisco-alvarez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893143061",
+        "optaEventId": 2893143061,
+        "teamEvent": "home",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Francisco Álvarez (Argentinos Juniors).",
+        "time": {
+          "main": "39‎’‎",
+          "added": null
+        },
+        "elapsed": 39,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 920404,
+            "name": "Francisco Alvarez",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/920404/francisco-alvarez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893143063",
+        "optaEventId": 2893143063,
+        "teamEvent": "away",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Yair Arismendi (Sarmiento) wins a free kick in the attacking half.",
+        "time": {
+          "main": "39‎’‎",
+          "added": null
+        },
+        "elapsed": 39,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 845709,
+            "name": "Yair Arismendi",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/845709/yair-arismendi"
+          }
+        ]
+      },
+      {
+        "messageId": "2893142775",
+        "optaEventId": 2893142775,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Alan Lescano (Argentinos Juniors) wins a free kick in the defensive half.",
+        "time": {
+          "main": "38‎’‎",
+          "added": null
+        },
+        "elapsed": 38,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1342579,
+            "name": "Alan Lescano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1342579/alan-lescano"
+          }
+        ]
+      },
+      {
+        "messageId": "2893142783",
+        "optaEventId": 2893142783,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Manuel García (Sarmiento).",
+        "time": {
+          "main": "38‎’‎",
+          "added": null
+        },
+        "elapsed": 38,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1238746,
+            "name": "Manuel Garcia",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1238746/manuel-garcia"
+          }
+        ]
+      },
+      {
+        "messageId": "2893142231",
+        "optaEventId": 2893142231,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Handball by Santiago Salle (Sarmiento).",
+        "time": {
+          "main": "36‎’‎",
+          "added": null
+        },
+        "elapsed": 36,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1439529,
+            "name": "Santiago Salle",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1439529/santiago-salle"
+          }
+        ]
+      },
+      {
+        "messageId": "2893141525",
+        "optaEventId": 2893141525,
+        "teamEvent": "away",
+        "type": "YC",
+        "isSubstitution": false,
+        "title": {
+          "key": "yellow_card",
+          "value": "Yellow card"
+        },
+        "text": "Juan Manuel Cabrera (Sarmiento) is shown the yellow card for a bad foul.",
+        "time": {
+          "main": "33‎’‎",
+          "added": null
+        },
+        "elapsed": 33,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1252447,
+            "name": "Juan Cabrera",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1252447/juan-cabrera"
+          }
+        ]
+      },
+      {
+        "messageId": "2893141503",
+        "optaEventId": 2893141503,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Sebastián Prieto (Argentinos Juniors) wins a free kick in the defensive half.",
+        "time": {
+          "main": "33‎’‎",
+          "added": null
+        },
+        "elapsed": 33,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 841913,
+            "name": "Sebastian Prieto",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/841913/sebastian-prieto"
+          }
+        ]
+      },
+      {
+        "messageId": "2893141521",
+        "optaEventId": 2893141521,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Juan Manuel Cabrera (Sarmiento).",
+        "time": {
+          "main": "33‎’‎",
+          "added": null
+        },
+        "elapsed": 33,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1252447,
+            "name": "Juan Cabrera",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1252447/juan-cabrera"
+          }
+        ]
+      },
+      {
+        "messageId": "2893141299",
+        "optaEventId": 2893141299,
+        "teamEvent": "home",
+        "type": "miss",
+        "isSubstitution": false,
+        "text": "Attempt missed. Lautaro Giaccone (Argentinos Juniors) left footed shot from outside the box is high and wide to the left. Assisted by Nicolás Oroz following a fast break.",
+        "time": {
+          "main": "32‎’‎",
+          "added": null
+        },
+        "elapsed": 32,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1220657,
+            "name": "Lautaro Giaccone",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1220657/lautaro-giaccone"
+          },
+          {
+            "id": 543304,
+            "name": "Nicolas Oroz",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/543304/nicolas-oroz"
+          }
+        ]
+      },
+      {
+        "messageId": "2893140961",
+        "optaEventId": 2893140961,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Diego Porcel (Argentinos Juniors) wins a free kick in the defensive half.",
+        "time": {
+          "main": "31‎’‎",
+          "added": null
+        },
+        "elapsed": 31,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1648046,
+            "name": "Diego Porcel",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1648046/diego-porcel"
+          }
+        ]
+      },
+      {
+        "messageId": "2893140965",
+        "optaEventId": 2893140965,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Juan Manuel Cabrera (Sarmiento).",
+        "time": {
+          "main": "31‎’‎",
+          "added": null
+        },
+        "elapsed": 31,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1252447,
+            "name": "Juan Cabrera",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1252447/juan-cabrera"
+          }
+        ]
+      },
+      {
+        "messageId": "2893140519",
+        "optaEventId": 2893140519,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Diego Porcel (Argentinos Juniors) wins a free kick in the defensive half.",
+        "time": {
+          "main": "29‎’‎",
+          "added": null
+        },
+        "elapsed": 29,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1648046,
+            "name": "Diego Porcel",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1648046/diego-porcel"
+          }
+        ]
+      },
+      {
+        "messageId": "2893140515",
+        "optaEventId": 2893140515,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Juan Manuel Cabrera (Sarmiento).",
+        "time": {
+          "main": "29‎’‎",
+          "added": null
+        },
+        "elapsed": 29,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1252447,
+            "name": "Juan Cabrera",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1252447/juan-cabrera"
+          }
+        ]
+      },
+      {
+        "messageId": "2893140307",
+        "optaEventId": 2893140307,
+        "teamEvent": "away",
+        "type": "end delay",
+        "isSubstitution": false,
+        "text": "Delay over. They are ready to continue.",
+        "time": {
+          "main": "29‎’‎",
+          "added": null
+        },
+        "elapsed": 29,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893140283",
+        "optaEventId": 2893140283,
+        "teamEvent": "away",
+        "type": "start delay",
+        "isSubstitution": false,
+        "text": "Delay in match because of an injury Diego Churín (Sarmiento).",
+        "time": {
+          "main": "28‎’‎",
+          "added": null
+        },
+        "elapsed": 28,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893140041",
+        "optaEventId": 2893140041,
+        "teamEvent": "home",
+        "type": "YC",
+        "isSubstitution": false,
+        "title": {
+          "key": "yellow_card",
+          "value": "Yellow card"
+        },
+        "text": "Tobías Ramírez (Argentinos Juniors) is shown the yellow card for a bad foul.",
+        "time": {
+          "main": "27‎’‎",
+          "added": null
+        },
+        "elapsed": 27,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1607568,
+            "name": "Tobias Ramirez",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1607568/tobias-ramirez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893140027",
+        "optaEventId": 2893140027,
+        "teamEvent": "home",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Tobías Ramírez (Argentinos Juniors).",
+        "time": {
+          "main": "27‎’‎",
+          "added": null
+        },
+        "elapsed": 27,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1607568,
+            "name": "Tobias Ramirez",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1607568/tobias-ramirez"
+          }
+        ]
+      },
+      {
+        "messageId": "2893140007",
+        "optaEventId": 2893140007,
+        "teamEvent": "away",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Diego Churín (Sarmiento) wins a free kick in the defensive half.",
+        "time": {
+          "main": "27‎’‎",
+          "added": null
+        },
+        "elapsed": 27,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 113608,
+            "name": "Diego Churin",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/113608/diego-churin"
+          }
+        ]
+      },
+      {
+        "messageId": "2893139937",
+        "optaEventId": 2893139937,
+        "teamEvent": "home",
+        "type": "attempt blocked",
+        "isSubstitution": false,
+        "text": "Attempt blocked. Diego Porcel (Argentinos Juniors) right footed shot from outside the box is blocked. Assisted by Alan Lescano.",
+        "time": {
+          "main": "27‎’‎",
+          "added": null
+        },
+        "elapsed": 27,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1648046,
+            "name": "Diego Porcel",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1648046/diego-porcel"
+          },
+          {
+            "id": 1342579,
+            "name": "Alan Lescano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1342579/alan-lescano"
+          }
+        ]
+      },
+      {
+        "messageId": "2893139317",
+        "optaEventId": 2893139317,
+        "teamEvent": "home",
+        "type": "miss",
+        "isSubstitution": false,
+        "text": "Attempt missed. Tomás Molina (Argentinos Juniors) header from the centre of the box misses to the right. Assisted by Sebastián Prieto with a cross following a corner.",
+        "time": {
+          "main": "25‎’‎",
+          "added": null
+        },
+        "elapsed": 25,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 728323,
+            "name": "Tomas Molina",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/728323/tomas-molina"
+          },
+          {
+            "id": 841913,
+            "name": "Sebastian Prieto",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/841913/sebastian-prieto"
+          }
+        ]
+      },
+      {
+        "messageId": "2893139065",
+        "optaEventId": 2893139065,
+        "teamEvent": "away",
+        "type": "corner",
+        "isSubstitution": false,
+        "text": "Corner, Argentinos Juniors. Conceded by Javier Burrai.",
+        "time": {
+          "main": "24‎’‎",
+          "added": null
+        },
+        "elapsed": 24,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 262597,
+            "name": "Javier Burrai",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/262597/javier-burrai"
+          }
+        ]
+      },
+      {
+        "messageId": "2893139059",
+        "optaEventId": 2893139059,
+        "teamEvent": "home",
+        "type": "attempt saved",
+        "isSubstitution": false,
+        "text": "Attempt saved. Lautaro Giaccone (Argentinos Juniors) left footed shot from outside the box is saved in the centre of the goal by Javier Burrai (Sarmiento). Assisted by Leandro Lozano.",
+        "time": {
+          "main": "24‎’‎",
+          "added": null
+        },
+        "elapsed": 24,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1220657,
+            "name": "Lautaro Giaccone",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1220657/lautaro-giaccone"
+          },
+          {
+            "id": 1238138,
+            "name": "Leandro Lozano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1238138/leandro-lozano"
+          }
+        ]
+      },
+      {
+        "messageId": "2893138539",
+        "optaEventId": 2893138539,
+        "teamEvent": "away",
+        "type": "YC",
+        "isSubstitution": false,
+        "title": {
+          "key": "yellow_card",
+          "value": "Yellow card"
+        },
+        "text": "Juan Insaurralde (Sarmiento) is shown the yellow card for a bad foul.",
+        "time": {
+          "main": "22‎’‎",
+          "added": null
+        },
+        "elapsed": 22,
+        "elapsedPlus": -1,
+        "onlyText": false,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 147620,
+            "name": "Juan Manuel Insaurralde",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/147620/juan-manuel-insaurralde"
+          }
+        ]
+      },
+      {
+        "messageId": "2893138533",
+        "optaEventId": 2893138533,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Diego Porcel (Argentinos Juniors) wins a free kick in the attacking half.",
+        "time": {
+          "main": "22‎’‎",
+          "added": null
+        },
+        "elapsed": 22,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1648046,
+            "name": "Diego Porcel",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1648046/diego-porcel"
+          }
+        ]
+      },
+      {
+        "messageId": "2893138523",
+        "optaEventId": 2893138523,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Juan Insaurralde (Sarmiento).",
+        "time": {
+          "main": "22‎’‎",
+          "added": null
+        },
+        "elapsed": 22,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 147620,
+            "name": "Juan Manuel Insaurralde",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/147620/juan-manuel-insaurralde"
+          }
+        ]
+      },
+      {
+        "messageId": "2893137967",
+        "optaEventId": 2893137967,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Alan Lescano (Argentinos Juniors) wins a free kick in the defensive half.",
+        "time": {
+          "main": "20‎’‎",
+          "added": null
+        },
+        "elapsed": 20,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1342579,
+            "name": "Alan Lescano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1342579/alan-lescano"
+          }
+        ]
+      },
+      {
+        "messageId": "2893137955",
+        "optaEventId": 2893137955,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Diego Churín (Sarmiento).",
+        "time": {
+          "main": "20‎’‎",
+          "added": null
+        },
+        "elapsed": 20,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 113608,
+            "name": "Diego Churin",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/113608/diego-churin"
+          }
+        ]
+      },
+      {
+        "messageId": "2893137639",
+        "optaEventId": 2893137639,
+        "teamEvent": "home",
+        "type": "miss",
+        "isSubstitution": false,
+        "text": "Attempt missed. Tomás Molina (Argentinos Juniors) header from the centre of the box is high and wide to the left. Assisted by Nicolás Oroz with a cross following a set piece situation.",
+        "time": {
+          "main": "19‎’‎",
+          "added": null
+        },
+        "elapsed": 19,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 728323,
+            "name": "Tomas Molina",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/728323/tomas-molina"
+          },
+          {
+            "id": 543304,
+            "name": "Nicolas Oroz",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/543304/nicolas-oroz"
+          }
+        ]
+      },
+      {
+        "messageId": "2893137403",
+        "optaEventId": 2893137403,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Nicolás Oroz (Argentinos Juniors) wins a free kick in the attacking half.",
+        "time": {
+          "main": "18‎’‎",
+          "added": null
+        },
+        "elapsed": 18,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 543304,
+            "name": "Nicolas Oroz",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/543304/nicolas-oroz"
+          }
+        ]
+      },
+      {
+        "messageId": "2893137399",
+        "optaEventId": 2893137399,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Manuel García (Sarmiento).",
+        "time": {
+          "main": "18‎’‎",
+          "added": null
+        },
+        "elapsed": 18,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1238746,
+            "name": "Manuel Garcia",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1238746/manuel-garcia"
+          }
+        ]
+      },
+      {
+        "messageId": "2893136787",
+        "optaEventId": 2893136787,
+        "teamEvent": "home",
+        "type": "attempt saved",
+        "isSubstitution": false,
+        "text": "Attempt saved. Alan Lescano (Argentinos Juniors) left footed shot from the right side of the box is saved in the top centre of the goal by Javier Burrai (Sarmiento).",
+        "time": {
+          "main": "16‎’‎",
+          "added": null
+        },
+        "elapsed": 16,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1342579,
+            "name": "Alan Lescano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1342579/alan-lescano"
+          }
+        ]
+      },
+      {
+        "messageId": "2893136771",
+        "optaEventId": 2893136771,
+        "teamEvent": "home",
+        "type": "attempt blocked",
+        "isSubstitution": false,
+        "text": "Attempt blocked. Alan Lescano (Argentinos Juniors) right footed shot from the right side of the box is blocked. Assisted by Lautaro Giaccone.",
+        "time": {
+          "main": "16‎’‎",
+          "added": null
+        },
+        "elapsed": 16,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1342579,
+            "name": "Alan Lescano",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1342579/alan-lescano"
+          },
+          {
+            "id": 1220657,
+            "name": "Lautaro Giaccone",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1220657/lautaro-giaccone"
+          }
+        ]
+      },
+      {
+        "messageId": "2893136525",
+        "optaEventId": 2893136525,
+        "teamEvent": "home",
+        "type": "miss",
+        "isSubstitution": false,
+        "text": "Attempt missed. Tomás Molina (Argentinos Juniors) left footed shot from the left side of the six yard box misses to the left.",
+        "time": {
+          "main": "15‎’‎",
+          "added": null
+        },
+        "elapsed": 15,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 728323,
+            "name": "Tomas Molina",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/728323/tomas-molina"
+          }
+        ]
+      },
+      {
+        "messageId": "2893135883",
+        "optaEventId": 2893135883,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Diego Porcel (Argentinos Juniors) wins a free kick on the left wing.",
+        "time": {
+          "main": "13‎’‎",
+          "added": null
+        },
+        "elapsed": 13,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1648046,
+            "name": "Diego Porcel",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1648046/diego-porcel"
+          }
+        ]
+      },
+      {
+        "messageId": "2893135895",
+        "optaEventId": 2893135895,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Juan Manuel Cabrera (Sarmiento).",
+        "time": {
+          "main": "13‎’‎",
+          "added": null
+        },
+        "elapsed": 13,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1252447,
+            "name": "Juan Cabrera",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1252447/juan-cabrera"
+          }
+        ]
+      },
+      {
+        "messageId": "2893135317",
+        "optaEventId": 2893135317,
+        "teamEvent": "home",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Sebastián Prieto (Argentinos Juniors).",
+        "time": {
+          "main": "11‎’‎",
+          "added": null
+        },
+        "elapsed": 11,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 841913,
+            "name": "Sebastian Prieto",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/841913/sebastian-prieto"
+          }
+        ]
+      },
+      {
+        "messageId": "2893135285",
+        "optaEventId": 2893135285,
+        "teamEvent": "away",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Jhon Rentería (Sarmiento) wins a free kick in the defensive half.",
+        "time": {
+          "main": "11‎’‎",
+          "added": null
+        },
+        "elapsed": 11,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1741920,
+            "name": "Jhon Renteria",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1741920/jhon-renteria"
+          }
+        ]
+      },
+      {
+        "messageId": "2893136023",
+        "optaEventId": 2893136023,
+        "teamEvent": "away",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Yair Arismendi (Sarmiento) wins a free kick on the left wing.",
+        "time": {
+          "main": "10‎’‎",
+          "added": null
+        },
+        "elapsed": 10,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 845709,
+            "name": "Yair Arismendi",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/845709/yair-arismendi"
+          }
+        ]
+      },
+      {
+        "messageId": "2893135135",
+        "optaEventId": 2893135135,
+        "teamEvent": "home",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Lautaro Giaccone (Argentinos Juniors).",
+        "time": {
+          "main": "10‎’‎",
+          "added": null
+        },
+        "elapsed": 10,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1220657,
+            "name": "Lautaro Giaccone",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1220657/lautaro-giaccone"
+          }
+        ]
+      },
+      {
+        "messageId": "2893134211",
+        "optaEventId": 2893134211,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Tomás Molina (Argentinos Juniors) wins a free kick in the defensive half.",
+        "time": {
+          "main": "7‎’‎",
+          "added": null
+        },
+        "elapsed": 7,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 728323,
+            "name": "Tomas Molina",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/728323/tomas-molina"
+          }
+        ]
+      },
+      {
+        "messageId": "2893134207",
+        "optaEventId": 2893134207,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Renzo Orihuela (Sarmiento).",
+        "time": {
+          "main": "7‎’‎",
+          "added": null
+        },
+        "elapsed": 7,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1139354,
+            "name": "Renzo Orihuela",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1139354/renzo-orihuela"
+          }
+        ]
+      },
+      {
+        "messageId": "2893133943",
+        "optaEventId": 2893133943,
+        "teamEvent": "home",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Tomás Molina (Argentinos Juniors).",
+        "time": {
+          "main": "6‎’‎",
+          "added": null
+        },
+        "elapsed": 6,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 728323,
+            "name": "Tomas Molina",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/728323/tomas-molina"
+          }
+        ]
+      },
+      {
+        "messageId": "2893133941",
+        "optaEventId": 2893133941,
+        "teamEvent": "away",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Renzo Orihuela (Sarmiento) wins a free kick in the defensive half.",
+        "time": {
+          "main": "6‎’‎",
+          "added": null
+        },
+        "elapsed": 6,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1139354,
+            "name": "Renzo Orihuela",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1139354/renzo-orihuela"
+          }
+        ]
+      },
+      {
+        "messageId": "2893133709",
+        "optaEventId": 2893133709,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Lautaro Giaccone (Argentinos Juniors) wins a free kick in the attacking half.",
+        "time": {
+          "main": "5‎’‎",
+          "added": null
+        },
+        "elapsed": 5,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1220657,
+            "name": "Lautaro Giaccone",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/1220657/lautaro-giaccone"
+          }
+        ]
+      },
+      {
+        "messageId": "2893133699",
+        "optaEventId": 2893133699,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Manuel García (Sarmiento).",
+        "time": {
+          "main": "5‎’‎",
+          "added": null
+        },
+        "elapsed": 5,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1238746,
+            "name": "Manuel Garcia",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1238746/manuel-garcia"
+          }
+        ]
+      },
+      {
+        "messageId": "2893133077",
+        "optaEventId": 2893133077,
+        "teamEvent": "away",
+        "type": "offside",
+        "isSubstitution": false,
+        "text": "Offside, Sarmiento. Junior Marabel is caught offside.",
+        "time": {
+          "main": "2‎’‎",
+          "added": null
+        },
+        "elapsed": 2,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1135817,
+            "name": "Cristian Zabala",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1135817/cristian-zabala"
+          },
+          {
+            "id": 883281,
+            "name": "Junior Marabel",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/883281/junior-marabel"
+          }
+        ]
+      },
+      {
+        "messageId": "2893132887",
+        "optaEventId": 2893132887,
+        "teamEvent": "away",
+        "type": "free kick lost",
+        "isSubstitution": false,
+        "text": "Foul by Juan Manuel Cabrera (Sarmiento).",
+        "time": {
+          "main": "1‎’‎",
+          "added": null
+        },
+        "elapsed": 1,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 1252447,
+            "name": "Juan Cabrera",
+            "teamId": 202757,
+            "teamName": "Sarmiento",
+            "profileUrl": "/players/1252447/juan-cabrera"
+          }
+        ]
+      },
+      {
+        "messageId": "2893132895",
+        "optaEventId": 2893132895,
+        "teamEvent": "home",
+        "type": "free kick won",
+        "isSubstitution": false,
+        "text": "Sebastián Prieto (Argentinos Juniors) wins a free kick on the left wing.",
+        "time": {
+          "main": "1‎’‎",
+          "added": null
+        },
+        "elapsed": 1,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": [
+          {
+            "id": 841913,
+            "name": "Sebastian Prieto",
+            "teamId": 10086,
+            "teamName": "Argentinos Juniors",
+            "profileUrl": "/players/841913/sebastian-prieto"
+          }
+        ]
+      },
+      {
+        "messageId": "2893132723",
+        "optaEventId": 2893132723,
+        "teamEvent": "away",
+        "type": "start",
+        "isSubstitution": false,
+        "text": "First Half begins.",
+        "time": {
+          "main": "1‎’‎",
+          "added": null
+        },
+        "elapsed": 1,
+        "elapsedPlus": -1,
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      },
+      {
+        "messageId": "2893121747",
+        "optaEventId": 2893121747,
+        "teamEvent": "away",
+        "type": "lineup",
+        "isSubstitution": false,
+        "text": "Lineups are announced and players are warming up.",
+        "time": null,
+        "clockIconType": "Empty",
+        "onlyText": true,
+        "reactionInfo": null,
+        "players": []
+      }
+    ],
+    "isAutoCommentary": true,
+    "pulseUrls": null,
+    "pulseItems": [],
+    "latestItem": {
+      "messageId": "2893158819",
+      "optaEventId": 2893158819,
+      "teamEvent": "away",
+      "type": "end 14",
+      "isSubstitution": false,
+      "text": "Match ends, Argentinos Juniors 1, Sarmiento 0.",
+      "time": null,
+      "clockIconType": "Fulltime",
+      "onlyText": true,
+      "reactionInfo": null,
+      "players": []
+    },
+    "latestMessageId": "2893158819",
+    "elapsed": -1,
+    "elapsedPlus": -1,
+    "source": "opta/feeds/ltc/commentary-384-2026-2612794-en.xml",
+    "lang": "en",
+    "hasUrl": true
+  },
+  "url": "https://www.fotmob.com/api/data/ltc?ltcUrl=http%3A%2F%2Fdata.fotmob.com%2Fwebcl%2Fltc%2Fgsm%2F5101880_en_gen.json.gz&teams=%5B%22Argentinos+Juniors%22%2C%22Sarmiento%22%5D"
+}

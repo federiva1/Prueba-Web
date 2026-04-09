@@ -1,0 +1,852 @@
+{
+  "data": {
+    "leagueName": "Liga Profesional",
+    "playoff": null,
+    "matchesInRound": [
+      {
+        "id": "5101879",
+        "roundName": "1",
+        "home": {
+          "id": "161728",
+          "name": "Aldosivi",
+          "shortName": "Aldosivi"
+        },
+        "away": {
+          "id": "161730",
+          "name": "Defensa y Justicia",
+          "shortName": "Defensa y Justicia"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202601222000",
+        "utcTime": "2026-01-22T20:00:00Z",
+        "status": {
+          "utcTime": "2026-01-22T20:00:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "0 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101881",
+        "roundName": "1",
+        "home": {
+          "id": "10087",
+          "name": "Banfield",
+          "shortName": "Banfield"
+        },
+        "away": {
+          "id": "10081",
+          "name": "Huracan",
+          "shortName": "Huracan"
+        },
+        "homeScore": 1,
+        "awayScore": 1,
+        "matchDate": "202601222300",
+        "utcTime": "2026-01-22T23:00:00Z",
+        "status": {
+          "utcTime": "2026-01-22T23:00:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "1 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101893",
+        "roundName": "1",
+        "home": {
+          "id": "10096",
+          "name": "Union",
+          "shortName": "Union"
+        },
+        "away": {
+          "id": "10089",
+          "name": "Club Atletico Platense",
+          "shortName": "Club Atletico Platense"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202601222300",
+        "utcTime": "2026-01-22T23:00:00Z",
+        "status": {
+          "utcTime": "2026-01-22T23:00:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "0 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101884",
+        "roundName": "1",
+        "home": {
+          "id": "213596",
+          "name": "Central Cordoba de Santiago",
+          "shortName": "Central Cordoba de Santiago"
+        },
+        "away": {
+          "id": "568727",
+          "name": "Gimnasia Mendoza",
+          "shortName": "Gimnasia Mendoza"
+        },
+        "homeScore": 0,
+        "awayScore": 1,
+        "matchDate": "202601230115",
+        "utcTime": "2026-01-23T01:15:00Z",
+        "status": {
+          "utcTime": "2026-01-23T01:15:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "0 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101888",
+        "roundName": "1",
+        "home": {
+          "id": "10090",
+          "name": "Instituto",
+          "shortName": "Instituto"
+        },
+        "away": {
+          "id": "10079",
+          "name": "Velez Sarsfield",
+          "shortName": "Velez Sarsfield"
+        },
+        "homeScore": 0,
+        "awayScore": 1,
+        "matchDate": "202601230115",
+        "utcTime": "2026-01-23T01:15:00Z",
+        "status": {
+          "utcTime": "2026-01-23T01:15:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "0 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101890",
+        "roundName": "1",
+        "home": {
+          "id": "10083",
+          "name": "San Lorenzo",
+          "shortName": "San Lorenzo"
+        },
+        "away": {
+          "id": "10082",
+          "name": "Lanus",
+          "shortName": "Lanus"
+        },
+        "homeScore": 2,
+        "awayScore": 3,
+        "matchDate": "202601232200",
+        "utcTime": "2026-01-23T22:00:00Z",
+        "status": {
+          "utcTime": "2026-01-23T22:00:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "2 - 3",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101886",
+        "roundName": "1",
+        "home": {
+          "id": "10078",
+          "name": "Independiente",
+          "shortName": "Independiente"
+        },
+        "away": {
+          "id": "10094",
+          "name": "Estudiantes",
+          "shortName": "Estudiantes"
+        },
+        "homeScore": 1,
+        "awayScore": 1,
+        "matchDate": "202601232300",
+        "utcTime": "2026-01-23T23:00:00Z",
+        "status": {
+          "utcTime": "2026-01-23T23:00:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "1 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101887",
+        "roundName": "1",
+        "home": {
+          "id": "161729",
+          "name": "Independiente Rivadavia",
+          "shortName": "Independiente Rivadavia"
+        },
+        "away": {
+          "id": "161727",
+          "name": "Atletico Tucuman",
+          "shortName": "Atletico Tucuman"
+        },
+        "homeScore": 2,
+        "awayScore": 1,
+        "matchDate": "202601240115",
+        "utcTime": "2026-01-24T01:15:00Z",
+        "status": {
+          "utcTime": "2026-01-24T01:15:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "2 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101891",
+        "roundName": "1",
+        "home": {
+          "id": "10101",
+          "name": "Talleres",
+          "shortName": "Talleres"
+        },
+        "away": {
+          "id": "10201",
+          "name": "Newell's Old Boys",
+          "shortName": "Newell's Old Boys"
+        },
+        "homeScore": 2,
+        "awayScore": 1,
+        "matchDate": "202601240115",
+        "utcTime": "2026-01-24T01:15:00Z",
+        "status": {
+          "utcTime": "2026-01-24T01:15:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "2 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101882",
+        "roundName": "1",
+        "home": {
+          "id": "213534",
+          "name": "Barracas Central",
+          "shortName": "Barracas Central"
+        },
+        "away": {
+          "id": "10076",
+          "name": "River Plate",
+          "shortName": "River Plate"
+        },
+        "homeScore": 0,
+        "awayScore": 1,
+        "matchDate": "202601242000",
+        "utcTime": "2026-01-24T20:00:00Z",
+        "status": {
+          "utcTime": "2026-01-24T20:00:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "0 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101885",
+        "roundName": "1",
+        "home": {
+          "id": "10103",
+          "name": "Gimnasia LP",
+          "shortName": "Gimnasia LP"
+        },
+        "away": {
+          "id": "10080",
+          "name": "Racing Club",
+          "shortName": "Racing Club"
+        },
+        "homeScore": 2,
+        "awayScore": 1,
+        "matchDate": "202601242230",
+        "utcTime": "2026-01-24T22:30:00Z",
+        "status": {
+          "utcTime": "2026-01-24T22:30:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "2 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101889",
+        "roundName": "1",
+        "home": {
+          "id": "10084",
+          "name": "Rosario Central",
+          "shortName": "Rosario Central"
+        },
+        "away": {
+          "id": "10092",
+          "name": "Belgrano",
+          "shortName": "Belgrano"
+        },
+        "homeScore": 1,
+        "awayScore": 2,
+        "matchDate": "202601250100",
+        "utcTime": "2026-01-25T01:00:00Z",
+        "status": {
+          "utcTime": "2026-01-25T01:00:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "1 - 2",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101883",
+        "roundName": "1",
+        "home": {
+          "id": "10077",
+          "name": "Boca Juniors",
+          "shortName": "Boca Juniors"
+        },
+        "away": {
+          "id": "298629",
+          "name": "Deportivo Riestra",
+          "shortName": "Deportivo Riestra"
+        },
+        "homeScore": 1,
+        "awayScore": 0,
+        "matchDate": "202601252130",
+        "utcTime": "2026-01-25T21:30:00Z",
+        "status": {
+          "utcTime": "2026-01-25T21:30:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "1 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101880",
+        "roundName": "1",
+        "home": {
+          "id": "10086",
+          "name": "Argentinos Juniors",
+          "shortName": "Argentinos Juniors"
+        },
+        "away": {
+          "id": "202757",
+          "name": "Sarmiento",
+          "shortName": "Sarmiento"
+        },
+        "homeScore": 1,
+        "awayScore": 0,
+        "matchDate": "202601260000",
+        "utcTime": "2026-01-26T00:00:00Z",
+        "status": {
+          "utcTime": "2026-01-26T00:00:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "1 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5101892",
+        "roundName": "1",
+        "home": {
+          "id": "89396",
+          "name": "Tigre",
+          "shortName": "Tigre"
+        },
+        "away": {
+          "id": "213591",
+          "name": "Estudiantes de Rio Cuarto",
+          "shortName": "Estudiantes de Rio Cuarto"
+        },
+        "homeScore": 2,
+        "awayScore": 0,
+        "matchDate": "202601260000",
+        "utcTime": "2026-01-26T00:00:00Z",
+        "status": {
+          "utcTime": "2026-01-26T00:00:00Z",
+          "finished": true,
+          "started": true,
+          "cancelled": false,
+          "awarded": false,
+          "scoreStr": "2 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
+        }
+      },
+      {
+        "id": "5115873",
+        "roundName": "1",
+        "home": {
+          "id": "161727",
+          "name": "Atletico Tucuman",
+          "shortName": "Atletico Tucuman"
+        },
+        "away": {
+          "id": "161729",
+          "name": "Independiente Rivadavia",
+          "shortName": "Independiente Rivadavia"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115874",
+        "roundName": "1",
+        "home": {
+          "id": "10092",
+          "name": "Belgrano",
+          "shortName": "Belgrano"
+        },
+        "away": {
+          "id": "10084",
+          "name": "Rosario Central",
+          "shortName": "Rosario Central"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115883",
+        "roundName": "1",
+        "home": {
+          "id": "10089",
+          "name": "Club Atletico Platense",
+          "shortName": "Club Atletico Platense"
+        },
+        "away": {
+          "id": "10096",
+          "name": "Union",
+          "shortName": "Union"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115875",
+        "roundName": "1",
+        "home": {
+          "id": "161730",
+          "name": "Defensa y Justicia",
+          "shortName": "Defensa y Justicia"
+        },
+        "away": {
+          "id": "161728",
+          "name": "Aldosivi",
+          "shortName": "Aldosivi"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115876",
+        "roundName": "1",
+        "home": {
+          "id": "298629",
+          "name": "Deportivo Riestra",
+          "shortName": "Deportivo Riestra"
+        },
+        "away": {
+          "id": "10077",
+          "name": "Boca Juniors",
+          "shortName": "Boca Juniors"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115877",
+        "roundName": "1",
+        "home": {
+          "id": "10094",
+          "name": "Estudiantes",
+          "shortName": "Estudiantes"
+        },
+        "away": {
+          "id": "10078",
+          "name": "Independiente",
+          "shortName": "Independiente"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115878",
+        "roundName": "1",
+        "home": {
+          "id": "213591",
+          "name": "Estudiantes de Rio Cuarto",
+          "shortName": "Estudiantes de Rio Cuarto"
+        },
+        "away": {
+          "id": "89396",
+          "name": "Tigre",
+          "shortName": "Tigre"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115879",
+        "roundName": "1",
+        "home": {
+          "id": "568727",
+          "name": "Gimnasia Mendoza",
+          "shortName": "Gimnasia Mendoza"
+        },
+        "away": {
+          "id": "213596",
+          "name": "Central Cordoba de Santiago",
+          "shortName": "Central Cordoba de Santiago"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115880",
+        "roundName": "1",
+        "home": {
+          "id": "10081",
+          "name": "Huracan",
+          "shortName": "Huracan"
+        },
+        "away": {
+          "id": "10087",
+          "name": "Banfield",
+          "shortName": "Banfield"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115881",
+        "roundName": "1",
+        "home": {
+          "id": "10082",
+          "name": "Lanus",
+          "shortName": "Lanus"
+        },
+        "away": {
+          "id": "10083",
+          "name": "San Lorenzo",
+          "shortName": "San Lorenzo"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115882",
+        "roundName": "1",
+        "home": {
+          "id": "10201",
+          "name": "Newell's Old Boys",
+          "shortName": "Newell's Old Boys"
+        },
+        "away": {
+          "id": "10101",
+          "name": "Talleres",
+          "shortName": "Talleres"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115884",
+        "roundName": "1",
+        "home": {
+          "id": "10080",
+          "name": "Racing Club",
+          "shortName": "Racing Club"
+        },
+        "away": {
+          "id": "10103",
+          "name": "Gimnasia LP",
+          "shortName": "Gimnasia LP"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115885",
+        "roundName": "1",
+        "home": {
+          "id": "10076",
+          "name": "River Plate",
+          "shortName": "River Plate"
+        },
+        "away": {
+          "id": "213534",
+          "name": "Barracas Central",
+          "shortName": "Barracas Central"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115886",
+        "roundName": "1",
+        "home": {
+          "id": "202757",
+          "name": "Sarmiento",
+          "shortName": "Sarmiento"
+        },
+        "away": {
+          "id": "10086",
+          "name": "Argentinos Juniors",
+          "shortName": "Argentinos Juniors"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      },
+      {
+        "id": "5115887",
+        "roundName": "1",
+        "home": {
+          "id": "10079",
+          "name": "Velez Sarsfield",
+          "shortName": "Velez Sarsfield"
+        },
+        "away": {
+          "id": "10090",
+          "name": "Instituto",
+          "shortName": "Instituto"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "matchDate": "202607262000",
+        "utcTime": "2026-07-26T20:00:00Z",
+        "status": {
+          "utcTime": "2026-07-26T20:00:00Z",
+          "started": false,
+          "cancelled": false,
+          "finished": false
+        }
+      }
+    ],
+    "seasonName": "2026",
+    "isCurrentSeason": true,
+    "tableUrl": "https://data.fotmob.com/tables.ext.112.fot.gz",
+    "currentRound": "1"
+  }
+}
