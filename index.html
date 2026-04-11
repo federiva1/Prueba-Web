@@ -1087,6 +1087,34 @@ function checkScoresReady(){
   scoresWasReady=isReady;
 }
 
+function makeScoreCard(p, rank, avatarSize=44, noMedal=false){
+  const medals=['🥇','🥈','🥉'];
+  const card=document.createElement('div');
+  card.style.cssText='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:5px;position:relative;';
+  if(!noMedal && rank===0) card.style.borderColor='rgba(229,57,53,0.4)';
+  const rankEl=document.createElement('div');
+  rankEl.style.cssText='position:absolute;top:6px;left:8px;font-family:"Bebas Neue",sans-serif;font-size:11px;color:rgba(255,255,255,0.3);';
+  rankEl.textContent=(!noMedal && rank<3)?medals[rank]:`${rank+1}°`;
+  card.appendChild(rankEl);
+  card.appendChild(makeAvatar(FOTO(p.fid),p.num,avatarSize));
+  const nameEl=document.createElement('div');
+  nameEl.style.cssText='font-size:11px;color:#ccc;text-align:center;line-height:1.2;';
+  nameEl.textContent=p.name;
+  card.appendChild(nameEl);
+  const valEl=document.createElement('div');
+  valEl.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:22px;color:var(--rojo);line-height:1;';
+  valEl.textContent=typeof p.avg!=='undefined'?p.avg.toFixed(1):p.val;
+  card.appendChild(valEl);
+  return card;
+}
+
+function addGrid(container, players, cols, startRank, avatarSize, noMedal=false){
+  const grid=document.createElement('div');
+  grid.style.cssText=`display:grid;grid-template-columns:repeat(${cols},1fr);gap:6px;margin-bottom:6px;`;
+  players.forEach((p,i)=>grid.appendChild(makeScoreCard(p,startRank+i,avatarSize,noMedal)));
+  container.appendChild(grid);
+}
+
 async function downloadMyScores(){
   try{
     const tmp=document.createElement('div');
@@ -1098,23 +1126,28 @@ async function downloadMyScores(){
     sub.style.cssText='font-size:11px;color:#666;text-align:center;margin-bottom:12px;';
     sub.textContent=`AAAJ vs ${RIVAL}`;
     tmp.appendChild(title); tmp.appendChild(sub);
+
+    const suplNums=new Set(playedSquad.filter(s=>s.tipo==='suplente').map(s=>s.num));
     const sorted=Object.entries(userScores).map(([num,val])=>{
       const p=playedSquad.find(s=>s.num===Number(num));
       return {num:Number(num),name:p?.name||`#${num}`,fid:p?.fid||0,val:Number(val)};
     }).sort((a,b)=>b.val-a.val);
-    sorted.forEach((p,i)=>{
-      const row=document.createElement('div');
-      row.style.cssText='display:flex;align-items:center;gap:8px;padding:6px 8px;background:rgba(255,255,255,0.04);border-radius:8px;margin-bottom:4px;';
-      const pos=document.createElement('span'); pos.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:13px;color:#555;min-width:16px;'; pos.textContent=i+1;
-      const av=makeAvatar(FOTO(p.fid),p.num,32);
-      const info=document.createElement('div'); info.style.cssText='flex:1;';
-      const name=document.createElement('div'); name.style.cssText='font-size:12px;color:#fff;'; name.textContent=p.name;
-      const num=document.createElement('div'); num.style.cssText='font-size:10px;color:#555;'; num.textContent=`#${p.num}`;
-      info.appendChild(name); info.appendChild(num);
-      const val=document.createElement('div'); val.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:20px;color:#e53935;'; val.textContent=p.val;
-      row.appendChild(pos); row.appendChild(av); row.appendChild(info); row.appendChild(val);
-      tmp.appendChild(row);
-    });
+    const titSorted=sorted.filter(p=>!suplNums.has(p.num));
+    const suplSorted=sorted.filter(p=>suplNums.has(p.num));
+
+    if(titSorted[0])               addGrid(tmp,[titSorted[0]],1,0,52);
+    if(titSorted.slice(1,3).length) addGrid(tmp,titSorted.slice(1,3),2,1,44);
+    if(titSorted.slice(3,7).length) addGrid(tmp,titSorted.slice(3,7),4,3,36);
+    if(titSorted.slice(7).length)   addGrid(tmp,titSorted.slice(7),4,7,36);
+
+    if(suplSorted.length){
+      const sep=document.createElement('div');
+      sep.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:13px;color:#555;letter-spacing:2px;text-align:center;margin:10px 0 6px;';
+      sep.textContent='SUPLENTES';
+      tmp.appendChild(sep);
+      addGrid(tmp,suplSorted,3,0,36,true);
+    }
+
     document.body.appendChild(tmp);
     await new Promise(r=>setTimeout(r,200));
     const canvas=await html2canvas(tmp,{backgroundColor:'#1a1a2e',scale:2,logging:false});
@@ -1168,43 +1201,11 @@ async function showScoresResults(){
     const titResults=results.filter(p=>!suplNums.has(p.num));
     const suplResults=results.filter(p=>suplNums.has(p.num));
 
-    function makeScoreCard(p, rank, avatarSize=44){
-      const medals=['🥇','🥈','🥉'];
-      const card=document.createElement('div');
-      card.style.cssText='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:5px;position:relative;';
-      if(rank===0) card.style.borderColor='rgba(229,57,53,0.4)';
-      // Posición
-      const rankEl=document.createElement('div');
-      rankEl.style.cssText='position:absolute;top:6px;left:8px;font-family:"Bebas Neue",sans-serif;font-size:11px;color:rgba(255,255,255,0.3);';
-      rankEl.textContent=rank<3?medals[rank]:`${rank+1}°`;
-      card.appendChild(rankEl);
-      // Avatar
-      card.appendChild(makeAvatar(FOTO(p.fid),p.num,avatarSize));
-      // Nombre
-      const nameEl=document.createElement('div');
-      nameEl.style.cssText='font-size:11px;color:#ccc;text-align:center;line-height:1.2;';
-      nameEl.textContent=p.name;
-      card.appendChild(nameEl);
-      // Puntaje
-      const val=document.createElement('div');
-      val.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:22px;color:var(--rojo);line-height:1;';
-      val.textContent=p.avg.toFixed(1);
-      card.appendChild(val);
-      return card;
-    }
-
-    function addGrid(players, cols, startRank, avatarSize){
-      const grid=document.createElement('div');
-      grid.style.cssText=`display:grid;grid-template-columns:repeat(${cols},1fr);gap:6px;margin-bottom:6px;`;
-      players.forEach((p,i)=>grid.appendChild(makeScoreCard(p,startRank+i,avatarSize)));
-      list.appendChild(grid);
-    }
-
     // Titulares: 1 / 2 / 4 / 4
-    if(titResults[0]) addGrid([titResults[0]], 1, 0, 52);
-    if(titResults.slice(1,3).length) addGrid(titResults.slice(1,3), 2, 1, 44);
-    if(titResults.slice(3,7).length) addGrid(titResults.slice(3,7), 4, 3, 36);
-    if(titResults.slice(7).length)   addGrid(titResults.slice(7),   4, 7, 36);
+    if(titResults[0])               addGrid(list,[titResults[0]],1,0,52);
+    if(titResults.slice(1,3).length) addGrid(list,titResults.slice(1,3),2,1,44);
+    if(titResults.slice(3,7).length) addGrid(list,titResults.slice(3,7),4,3,36);
+    if(titResults.slice(7).length)   addGrid(list,titResults.slice(7),4,7,36);
 
     // Suplentes
     if(suplResults.length){
@@ -1213,7 +1214,7 @@ async function showScoresResults(){
       sepLabel.style.marginTop='10px';
       sepLabel.textContent='SUPLENTES';
       list.appendChild(sepLabel);
-      addGrid(suplResults, 3, 0, 36);
+      addGrid(list,suplResults,3,0,36,true);
     }
   }catch(e){list.innerHTML='<div style="color:#555">Error al cargar.</div>';}
 }
