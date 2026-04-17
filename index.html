@@ -673,7 +673,7 @@ function updatePlayerSizes() {
 const ro = new ResizeObserver(() => updatePlayerSizes());
 ro.observe(pitch); updatePlayerSizes();
 
-function showToast(msg) { toast.textContent=msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),3000); }
+function showToast(msg, duration=3000) { toast.textContent=msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),duration); }
 
 function updateCounter() {
   const n=onPitch.length;
@@ -909,8 +909,21 @@ document.getElementById('confirm-btn').addEventListener('click',async()=>{
     if(res.ok||res.status===201){
       try{localStorage.setItem(LS_KEY,'1');localStorage.setItem(LS_FORMATION_KEY,JSON.stringify(jugadores));}catch(e){}
       if(rivalVisible){ rivalElements.forEach(el=>el.remove()); rivalElements=[]; rivalVisible=false; document.getElementById('rival-btn').classList.remove('active'); }
-      showToast('¡Formación enviada! Gracias, Bicho 🔴🤍');
       updateCounter();
+      try{
+        const allRes=await fetch(`${SUPABASE_URL}/rest/v1/formaciones?select=jugadores&rival=eq.${encodeURIComponent(RIVAL)}`,{headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}});
+        const allData=await allRes.json();
+        if(Array.isArray(allData)&&allData.length>=2){
+          const counts={};
+          allData.forEach(row=>{(row.jugadores||[]).forEach(j=>{counts[j.num]=(counts[j.num]||0)+1;});});
+          const top11=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,11).map(([n])=>Number(n));
+          const matches=jugadores.filter(j=>top11.includes(j.num)).length;
+          const pct=Math.round((matches/11)*100);
+          showToast(`¡Enviada! Tu coincidencia con la gente: ${pct}% 🔴🤍`,5000);
+        } else {
+          showToast('¡Formación enviada! Gracias, Bicho 🔴🤍');
+        }
+      }catch(e){ showToast('¡Formación enviada! Gracias, Bicho 🔴🤍'); }
     } else showToast('Error al guardar. Intentá de nuevo.');
   }catch(e){showToast('Error de conexión.');}
   finally{sending=false;}
@@ -939,33 +952,17 @@ async function showResults(){
     totalEl.textContent=`${total} formación${total!==1?'es':''} enviada${total!==1?'s':''}`;
     list.innerHTML='';
     const tiersBase=[
-      {cls:'tier-s', min:81, max:100},
-      {cls:'tier-a', min:61, max:80},
-      {cls:'tier-b', min:41, max:60},
-      {cls:'tier-c', min:21, max:40},
-      {cls:'tier-d', min:0,  max:20},
+      {label:'81-100%', cls:'tier-s', min:81, max:100},
+      {label:'61-80%',  cls:'tier-a', min:61, max:80},
+      {label:'41-60%',  cls:'tier-b', min:41, max:60},
+      {label:'21-40%',  cls:'tier-c', min:21, max:40},
+      {label:'0-20%',   cls:'tier-d', min:0,  max:20},
     ];
-    // Fusionar tiers vacíos con el anterior
-    const mergedTiers=[];
-    for(let i=0;i<tiersBase.length;i++){
-      const t=tiersBase[i];
-      const inT=players.filter(p=>p.pct>=t.min&&p.pct<=t.max);
-      if(!inT.length&&mergedTiers.length>0){
-        mergedTiers[mergedTiers.length-1].min=Math.min(mergedTiers[mergedTiers.length-1].min,t.min);
-      } else {
-        mergedTiers.push({...t});
-      }
-    }
-    function tierLabel(min,max){
-      if(min===81&&max===100) return '81-100%';
-      if(max===100) return min+'%+';
-      return min+'-'+max+'%';
-    }
-    mergedTiers.forEach(tier=>{
+    tiersBase.forEach(tier=>{
       const inTier=players.filter(p=>p.pct>=tier.min&&p.pct<=tier.max);
       if(!inTier.length) return;
       const row=document.createElement('div'); row.className=`tier-row ${tier.cls}`;
-      const label=document.createElement('div'); label.className='tier-label'; label.textContent=tierLabel(tier.min,tier.max);
+      const label=document.createElement('div'); label.className='tier-label'; label.textContent=tier.label;
       row.appendChild(label);
       const pDiv=document.createElement('div'); pDiv.className='tier-players';
       inTier.forEach(p=>{
@@ -1253,13 +1250,16 @@ async function toggleLike(rowId, curLikes){
   if(wasLiked){delete liked[rowId];nl=Math.max(0,nl-1);}
   else{liked[rowId]=true;nl++;}
   saveFeedLikes(liked);
-  try{
-    await fetch(`${SUPABASE_URL}/rest/v1/formaciones?id=eq.${rowId}`,{
-      method:'PATCH',
-      headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Prefer':'return=minimal'},
-      body:JSON.stringify({likes:nl})
-    });
-  }catch(e){}
+  if(rowId!=='local'){
+    try{
+      const r=await fetch(`${SUPABASE_URL}/rest/v1/formaciones?id=eq.${rowId}`,{
+        method:'PATCH',
+        headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Prefer':'return=minimal'},
+        body:JSON.stringify({likes:nl})
+      });
+      if(!r.ok) console.error('Like PATCH falló:',r.status,await r.text());
+    }catch(e){console.error('Like error:',e);}
+  }
   return{likes:nl,isLiked:!!liked[rowId]};
 }
 
@@ -2462,22 +2462,15 @@ async function fetchPrevFormations(fecha){
     totalEl.textContent=`${total} formación${total!==1?'es':''} enviada${total!==1?'s':''}`;
     container.appendChild(totalEl);
     const tiersBase=[
-      {cls:'tier-s',min:81,max:100},{cls:'tier-a',min:61,max:80},
-      {cls:'tier-b',min:41,max:60},{cls:'tier-c',min:21,max:40},{cls:'tier-d',min:0,max:20}
+      {label:'81-100%',cls:'tier-s',min:81,max:100},{label:'61-80%',cls:'tier-a',min:61,max:80},
+      {label:'41-60%',cls:'tier-b',min:41,max:60},{label:'21-40%',cls:'tier-c',min:21,max:40},{label:'0-20%',cls:'tier-d',min:0,max:20}
     ];
-    const mergedTiers=[];
-    for(let i=0;i<tiersBase.length;i++){
-      const t=tiersBase[i];
-      const inT=players.filter(p=>p.pct>=t.min&&p.pct<=t.max);
-      if(!inT.length&&mergedTiers.length>0){mergedTiers[mergedTiers.length-1].min=Math.min(mergedTiers[mergedTiers.length-1].min,t.min);}
-      else{mergedTiers.push({...t});}
-    }
-    mergedTiers.forEach(tier=>{
+    tiersBase.forEach(tier=>{
       const inTier=players.filter(p=>p.pct>=tier.min&&p.pct<=tier.max);
       if(!inTier.length)return;
       const row=document.createElement('div');row.className=`tier-row ${tier.cls}`;
       const label=document.createElement('div');label.className='tier-label';
-      label.textContent=tier.min+'-'+tier.max+'%';
+      label.textContent=tier.label;
       row.appendChild(label);
       const pDiv=document.createElement('div');pDiv.className='tier-players';
       inTier.forEach(p=>{
