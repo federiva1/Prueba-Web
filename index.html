@@ -428,16 +428,16 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
     <p>Poné tu nota del 1 al 10 a cada jugador</p>
   </div>
   <div id="scores-list"></div>
-  <div id="scores-action-bar" style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;">
-    <div id="scores-counter" style="font-size:12px;color:#888;">Puntuados: <b id="scores-count" style="color:var(--rojo);font-size:15px;">0</b>/<span id="scores-total">0</span></div>
+  <div id="scores-action-bar" style="display:flex;flex-direction:column;gap:6px;margin-top:10px;">
+    <div id="scores-counter" style="font-size:12px;color:#888;text-align:center;">Puntuados: <b id="scores-count" style="color:var(--rojo);font-size:15px;">0</b>/<span id="scores-total">0</span></div>
     <div style="display:flex;gap:6px;">
-      <button id="scores-download-btn" style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:9px 14px;cursor:not-allowed;opacity:0.3;transition:opacity 0.3s;" disabled>Descargar</button>
-      <button id="scores-confirm-btn" style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;background:var(--rojo);color:#fff;border:none;border-radius:8px;padding:9px 14px;cursor:not-allowed;opacity:0.3;transition:opacity 0.3s;" disabled>Enviar a encuesta</button>
+      <button id="scores-mis-puntajes-btn" style="flex:1;font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;background:transparent;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:9px;cursor:pointer;">Ver mis puntajes</button>
+      <button id="scores-download-btn" style="flex:1;font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:9px;cursor:not-allowed;opacity:0.3;transition:opacity 0.3s;" disabled>Descargar</button>
     </div>
-  </div>
-  <div style="margin-top:6px;display:flex;flex-direction:column;gap:6px;">
-    <button id="scores-mis-puntajes-btn" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;background:transparent;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:8px;cursor:pointer;width:100%;">⭐ Ver mis puntajes</button>
-    <button id="scores-ver-resultados-btn" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;background:transparent;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:8px;cursor:pointer;width:100%;">Ver resultados →</button>
+    <div style="display:flex;gap:6px;">
+      <button id="scores-confirm-btn" style="flex:1;font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;background:var(--rojo);color:#fff;border:none;border-radius:8px;padding:9px;cursor:not-allowed;opacity:0.3;transition:opacity 0.3s;" disabled>Enviar a encuesta</button>
+      <button id="scores-ver-resultados-btn" style="flex:1;font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1px;background:transparent;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:9px;cursor:pointer;">Ver resultados →</button>
+    </div>
   </div>
   <div id="scores-success">
     <h2>¡Gracias, Bicho!</h2>
