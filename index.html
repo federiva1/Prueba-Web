@@ -2808,8 +2808,9 @@ async function loadTablaData(){
     renderPromediosT(tablaData[3],document.getElementById('promedios-content'));
     initPlayoff();
   }catch(e){
+    console.error('[tabla] error al cargar:', e);
     ['tabla-content','anual-content','promedios-content'].forEach(id=>{
-      document.getElementById(id).innerHTML='<div style="text-align:center;color:var(--rojo);font-size:12px;padding:20px;">Error al cargar. Intentá de nuevo.</div>';
+      document.getElementById(id).innerHTML='<div style="text-align:center;color:var(--rojo);font-size:12px;padding:20px;">Error al cargar. Intentá de nuevo.<br><span style="font-size:10px;color:#888;">'+(e?.message||e)+'</span></div>';
     });
   }
 }
