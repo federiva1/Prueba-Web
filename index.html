@@ -1572,7 +1572,7 @@ function renderMisPuntajesContent(){
     c.innerHTML='<div style="color:#555;text-align:center;padding:20px;font-size:13px;">Todavía no cargaste puntajes en esta sesión.</div>';
     return;
   }
-  if(misPuntajesView==='cancha') buildMisPuntajesCancha(c,true);
+  if(misPuntajesView==='cancha') buildMisPuntajesCancha(c,false);
   else buildMyScoresCards(c);
 }
 
