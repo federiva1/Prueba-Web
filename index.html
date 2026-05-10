@@ -1230,7 +1230,7 @@ function checkScoresReady(){
   scoresWasReady=isReady;
 }
 
-function makeScoreCard(p, rank, avatarSize=44, noMedal=false){
+function makeScoreCard(p, rank, avatarSize=44, noMedal=false, figureFid=null){
   const medals=['🥇','🥈','🥉'];
   const card=document.createElement('div');
   card.style.cssText='background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:5px;position:relative;';
@@ -1239,6 +1239,12 @@ function makeScoreCard(p, rank, avatarSize=44, noMedal=false){
   rankEl.style.cssText='position:absolute;top:6px;left:8px;font-family:"Bebas Neue",sans-serif;font-size:11px;color:rgba(255,255,255,0.3);';
   rankEl.textContent=(!noMedal && rank<3)?medals[rank]:`${rank+1}°`;
   card.appendChild(rankEl);
+  if(figureFid!=null && p.fid===figureFid){
+    const star=document.createElement('div');
+    star.style.cssText='position:absolute;top:6px;right:8px;color:#ffc107;font-size:14px;line-height:1;text-shadow:0 0 4px rgba(255,193,7,0.6);';
+    star.textContent='★';
+    card.appendChild(star);
+  }
   card.appendChild(makeAvatar(FOTO(p.fid),p.num,avatarSize));
   const nameEl=document.createElement('div');
   nameEl.style.cssText='font-size:11px;color:#ccc;text-align:center;line-height:1.2;';
@@ -1251,10 +1257,10 @@ function makeScoreCard(p, rank, avatarSize=44, noMedal=false){
   return card;
 }
 
-function addGrid(container, players, cols, startRank, avatarSize, noMedal=false){
+function addGrid(container, players, cols, startRank, avatarSize, noMedal=false, figureFid=null){
   const grid=document.createElement('div');
   grid.style.cssText=`display:grid;grid-template-columns:repeat(${cols},1fr);gap:6px;margin-bottom:6px;`;
-  players.forEach((p,i)=>grid.appendChild(makeScoreCard(p,startRank+i,avatarSize,noMedal)));
+  players.forEach((p,i)=>grid.appendChild(makeScoreCard(p,startRank+i,avatarSize,noMedal,figureFid)));
   container.appendChild(grid);
 }
 
@@ -1285,17 +1291,17 @@ async function downloadMyScores(){
     const suplSorted=sorted.filter(p=>suplNums.has(p.num));
     const dtSorted=sorted.filter(p=>dtNums.has(p.num));
 
-    if(titSorted[0])               addGrid(tmp,[titSorted[0]],1,0,52);
-    if(titSorted.slice(1,3).length) addGrid(tmp,titSorted.slice(1,3),2,1,44);
-    if(titSorted.slice(3,7).length) addGrid(tmp,titSorted.slice(3,7),4,3,36);
-    if(titSorted.slice(7).length)   addGrid(tmp,titSorted.slice(7),4,7,36);
+    if(titSorted[0])               addGrid(tmp,[titSorted[0]],1,0,52,false,userFigure);
+    if(titSorted.slice(1,3).length) addGrid(tmp,titSorted.slice(1,3),2,1,44,false,userFigure);
+    if(titSorted.slice(3,7).length) addGrid(tmp,titSorted.slice(3,7),4,3,36,false,userFigure);
+    if(titSorted.slice(7).length)   addGrid(tmp,titSorted.slice(7),4,7,36,false,userFigure);
 
     if(suplSorted.length){
       const sep=document.createElement('div');
       sep.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:13px;color:#555;letter-spacing:2px;text-align:center;margin:10px 0 6px;';
       sep.textContent='SUPLENTES';
       tmp.appendChild(sep);
-      addGrid(tmp,suplSorted,3,0,36,true);
+      addGrid(tmp,suplSorted,3,0,36,true,userFigure);
     }
     if(dtSorted.length){
       const sep=document.createElement('div');
@@ -1360,8 +1366,9 @@ async function showScoresResults(){
     const suplResults=results.filter(p=>suplNums.has(p.num));
     const dtResults=results.filter(p=>dtNums.has(p.num));
 
-    // Titulares: 1 / 2 / 4 / 4
-    if(titResults[0])               addGrid(list,[titResults[0]],1,0,52);
+    // Titulares: 1 / 2 / 4 / 4 (estrella en el primer titular = figura del global)
+    const globalFigFid=titResults[0]?.fid??null;
+    if(titResults[0])               addGrid(list,[titResults[0]],1,0,52,false,globalFigFid);
     if(titResults.slice(1,3).length) addGrid(list,titResults.slice(1,3),2,1,44);
     if(titResults.slice(3,7).length) addGrid(list,titResults.slice(3,7),4,3,36);
     if(titResults.slice(7).length)   addGrid(list,titResults.slice(7),4,7,36);
@@ -2674,6 +2681,12 @@ async function fetchPrevScores(fecha){
       row.appendChild(makeAvatar(FOTO(p.fid),p.num,36));
       const inf=document.createElement('div');inf.style.cssText='flex:1;';
       const nm=document.createElement('div');nm.style.cssText='font-size:13px;color:#fff;';nm.textContent=p.name;
+      if(i===0){
+        const star=document.createElement('span');
+        star.style.cssText='color:#ffc107;font-size:13px;margin-left:5px;text-shadow:0 0 4px rgba(255,193,7,0.6);';
+        star.textContent='★';
+        nm.appendChild(star);
+      }
       const num=document.createElement('div');num.style.cssText='font-size:11px;color:#555;';num.textContent=p?.tipo==='dt'?'DT':`#${p.num}`;
       inf.appendChild(nm);inf.appendChild(num);row.appendChild(inf);
       const val=document.createElement('div');
