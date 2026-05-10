@@ -216,12 +216,13 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
 .mp-pitch .pc { position: absolute; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.5); }
 .mp-player { position: absolute; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; z-index: 10; cursor: grab; touch-action: none; }
 .mp-player:active { cursor: grabbing; }
-.mp-player-bubble { width: 38px; height: 38px; border-radius: 50%; border: 2px solid #fff; overflow: hidden; background: var(--rojo); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.5); position: relative; }
+.mp-player-top { position: relative; }
+.mp-player-bubble { width: 38px; height: 38px; border-radius: 50%; border: 2px solid #fff; overflow: hidden; background: var(--rojo); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.5); }
 .mp-player-bubble img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 .mp-player-bubble .fallback-num { font-family: 'Bebas Neue', sans-serif; font-size: 13px; color: #fff; }
 .mp-player-name { font-size: 9px; color: #fff; background: rgba(0,0,0,0.65); padding: 1px 5px; border-radius: 4px; margin-top: 2px; white-space: nowrap; max-width: 78px; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; }
-.mp-player-score { position: absolute; bottom: -4px; right: -8px; font-family: 'Bebas Neue', sans-serif; font-size: 11px; color: #fff; padding: 0 5px; border-radius: 5px; border: 1.5px solid #fff; line-height: 1.4; box-shadow: 0 1px 3px rgba(0,0,0,0.5); min-width: 18px; text-align: center; }
-.mp-player-figure { position: absolute; top: -4px; right: -6px; color: #ffc107; font-size: 13px; line-height: 1; text-shadow: 0 0 4px rgba(255,193,7,0.8); }
+.mp-player-score { position: absolute; left: calc(100% + 4px); top: 50%; transform: translateY(-50%); font-family: 'Bebas Neue', sans-serif; font-size: 13px; color: #fff; padding: 2px 7px; border-radius: 5px; border: 1.5px solid #fff; line-height: 1.2; box-shadow: 0 1px 3px rgba(0,0,0,0.5); min-width: 22px; text-align: center; }
+.mp-player-figure { position: absolute; top: -5px; right: -7px; color: #ffc107; font-size: 13px; line-height: 1; text-shadow: 0 0 4px rgba(255,193,7,0.8); z-index: 2; }
 .mp-section-label { font-family: 'Bebas Neue', sans-serif; font-size: 12px; color: #555; letter-spacing: 2px; text-align: center; margin: 10px 0 6px; }
 .mp-bench-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
 .mp-bench-item { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 6px 8px; }
@@ -731,19 +732,19 @@ let userScores={}, scoresWasReady=false;
 let userFigure=(()=>{try{const v=localStorage.getItem(LS_SCORES_KEY+'_figura');return v?Number(v):null;}catch(e){return null;}})();
 let misPuntajesView=(()=>{try{return localStorage.getItem(LS_SCORES_KEY+'_view')||'planilla';}catch(e){return 'planilla';}})();
 
-// Posiciones de los AAAJ titulares (4-3-3 inicial; ajustar con botón POS dentro de "Mis puntajes" → Cancha)
+// Posiciones de los AAAJ titulares — Playoff 1 vs Lanús
 const playedSquadPositions = [
-  {fid:424153,  x:50, y:8},   // Cortés (GK)
-  {fid:1238138, x:85, y:25},  // Lozano
-  {fid:1277345, x:62, y:25},  // Riquelme
-  {fid:920404,  x:38, y:25},  // Álvarez
-  {fid:841913,  x:15, y:25},  // Prieto
-  {fid:1342579, x:70, y:50},  // Lescano
-  {fid:616508,  x:50, y:50},  // Fattori
-  {fid:543304,  x:30, y:50},  // Oroz
-  {fid:728323,  x:75, y:75},  // Molina
-  {fid:1843096, x:50, y:78},  // Jainikoski
-  {fid:1037535, x:25, y:75},  // López
+  {fid:424153,  name:'Cortés',     x:50,   y:8},
+  {fid:1238138, name:'Lozano',     x:13.4, y:31},
+  {fid:920404,  name:'Álvarez',    x:38,   y:25},
+  {fid:1277345, name:'Riquelme',   x:62,   y:25},
+  {fid:841913,  name:'Prieto',     x:84.5, y:30.1},
+  {fid:1342579, name:'Lescano',    x:27.5, y:56.7},
+  {fid:616508,  name:'Fattori',    x:50.2, y:46.2},
+  {fid:543304,  name:'Oroz',       x:70.2, y:56.9},
+  {fid:1037535, name:'López',      x:24.6, y:74.1},
+  {fid:728323,  name:'Molina',     x:50.4, y:85.3},
+  {fid:1843096, name:'Jainikoski', x:76.6, y:73.5},
 ];
 
 function scoreColor(val){
@@ -1493,6 +1494,9 @@ function buildMisPuntajesCancha(container, includePos=true){
     wrap.style.top=pos.y+'%';
     wrap.dataset.fid=p.fid;
 
+    const top=document.createElement('div');
+    top.className='mp-player-top';
+
     const bubble=document.createElement('div');
     bubble.className='mp-player-bubble';
     const img=document.createElement('img'); img.src=FOTO(p.fid);
@@ -1500,6 +1504,7 @@ function buildMisPuntajesCancha(container, includePos=true){
     img.onload=()=>{fb.style.display='none';};
     img.onerror=()=>{img.style.display='none';};
     bubble.appendChild(img); bubble.appendChild(fb);
+    top.appendChild(bubble);
 
     const score=userScores[p.num];
     if(score!=null){
@@ -1507,20 +1512,20 @@ function buildMisPuntajesCancha(container, includePos=true){
       scoreBadge.className='mp-player-score';
       scoreBadge.style.background=scoreColor(score);
       scoreBadge.textContent=score;
-      bubble.appendChild(scoreBadge);
+      top.appendChild(scoreBadge);
     }
     if(userFigure===p.fid){
       const star=document.createElement('div');
       star.className='mp-player-figure';
       star.textContent='★';
-      bubble.appendChild(star);
+      top.appendChild(star);
     }
 
     const name=document.createElement('div');
     name.className='mp-player-name';
     name.textContent=p.name;
 
-    wrap.appendChild(bubble);
+    wrap.appendChild(top);
     wrap.appendChild(name);
     pitch.appendChild(wrap);
   });
