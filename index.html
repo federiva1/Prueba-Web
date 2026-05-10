@@ -203,6 +203,9 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
 .score-btn.selected { background: var(--rojo); border-color: var(--rojo); color: #fff; }
 .score-btn.skip { color: #555; font-size: 9px; letter-spacing: 0.5px; }
 .score-btn.skip.selected { background: #333; border-color: #666; color: #aaa; }
+.figure-star { background: transparent; border: none; color: rgba(255,255,255,0.25); font-size: 16px; cursor: pointer; padding: 0 2px; line-height: 1; transition: color 0.15s, transform 0.15s; }
+.figure-star:hover { color: #ffc107; }
+.figure-star.active { color: #ffc107; transform: scale(1.15); text-shadow: 0 0 6px rgba(255,193,7,0.5); }
 #scores-confirm-btn { font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 1px; background: var(--rojo); color: #fff; border: none; border-radius: 8px; padding: 12px; cursor: pointer; width: 100%; margin-top: 16px; opacity: 0.3; transition: opacity 0.3s; }
 #scores-confirm-btn.ready { opacity: 1; animation: pulse-btn 1s ease-in-out 3; }
 #scores-success { display: none; position: absolute; inset: 0; background: rgba(15,15,30,0.97); flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 20px; text-align: center; z-index: 50; }
@@ -683,6 +686,7 @@ let onPitch=[], draggingNew=null, activePitchDrag=null;
 let dragOffX=0, dragOffY=0, sending=false, wasReady=false;
 let rivalVisible=false, rivalElements=[];
 let userScores={}, scoresWasReady=false;
+let userFigure=(()=>{try{const v=localStorage.getItem(LS_SCORES_KEY+'_figura');return v?Number(v):null;}catch(e){return null;}})();
 
 const pitch = document.getElementById('pitch');
 const grid = document.getElementById('player-grid');
@@ -1163,8 +1167,31 @@ function renderScores(){
       avWrap.appendChild(img); avWrap.appendChild(fb); row.appendChild(avWrap);
       const info=document.createElement('div'); info.className='score-player-info';
       const numEl=document.createElement('div'); numEl.className='score-player-num'; numEl.textContent=p.tipo==='dt'?'DT':`#${p.num}`;
+      const nameRow=document.createElement('div'); nameRow.style.cssText='display:flex;align-items:center;gap:6px;';
       const nameEl=document.createElement('div'); nameEl.className='score-player-name'; nameEl.textContent=p.name;
-      info.appendChild(numEl); info.appendChild(nameEl); row.appendChild(info);
+      nameRow.appendChild(nameEl);
+      if(p.tipo!=='dt'){
+        const star=document.createElement('button');
+        star.className='figure-star'+(userFigure===p.fid?' active':'');
+        star.dataset.fid=p.fid;
+        star.title='Marcar como figura del partido';
+        star.textContent=userFigure===p.fid?'★':'☆';
+        star.addEventListener('click',e=>{
+          e.stopPropagation();
+          userFigure=(userFigure===p.fid)?null:p.fid;
+          try{
+            if(userFigure===null) localStorage.removeItem(LS_SCORES_KEY+'_figura');
+            else localStorage.setItem(LS_SCORES_KEY+'_figura',String(userFigure));
+          }catch(_){}
+          document.querySelectorAll('.figure-star').forEach(s=>{
+            const isActive=Number(s.dataset.fid)===userFigure;
+            s.classList.toggle('active',isActive);
+            s.textContent=isActive?'★':'☆';
+          });
+        });
+        nameRow.appendChild(star);
+      }
+      info.appendChild(numEl); info.appendChild(nameRow); row.appendChild(info);
       const btns=document.createElement('div'); btns.className='score-btns';
       for(let i=1;i<=10;i++){
         const btn=document.createElement('button'); btn.className='score-btn'; btn.textContent=i;
