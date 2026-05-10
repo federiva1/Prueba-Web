@@ -206,6 +206,30 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
 .figure-star { background: transparent; border: none; color: rgba(255,255,255,0.25); font-size: 16px; cursor: pointer; padding: 0 2px; line-height: 1; transition: color 0.15s, transform 0.15s; }
 .figure-star:hover { color: #ffc107; }
 .figure-star.active { color: #ffc107; transform: scale(1.15); text-shadow: 0 0 6px rgba(255,193,7,0.5); }
+.mp-toggle { display: flex; gap: 0; margin: 0 auto 12px; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; width: fit-content; }
+.mp-toggle-btn { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 1px; background: transparent; color: rgba(255,255,255,0.4); border: none; padding: 7px 18px; cursor: pointer; transition: all 0.2s; }
+.mp-toggle-btn.active { background: var(--rojo); color: #fff; }
+.mp-pitch { width: 100%; aspect-ratio: 0.82; background: #2d7a3a; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); position: relative; overflow: hidden; margin-bottom: 10px; touch-action: none; }
+.mp-pitch .stripe { position: absolute; top: 0; bottom: 0; width: 12.5%; }
+.mp-pitch .stripe:nth-child(odd) { background: rgba(0,0,0,0.07); }
+.mp-pitch .pl { position: absolute; border: 1.5px solid rgba(255,255,255,0.5); }
+.mp-pitch .pc { position: absolute; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.5); }
+.mp-player { position: absolute; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; z-index: 10; cursor: grab; touch-action: none; }
+.mp-player:active { cursor: grabbing; }
+.mp-player-bubble { width: 38px; height: 38px; border-radius: 50%; border: 2px solid #fff; overflow: hidden; background: var(--rojo); display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.5); position: relative; }
+.mp-player-bubble img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.mp-player-bubble .fallback-num { font-family: 'Bebas Neue', sans-serif; font-size: 13px; color: #fff; }
+.mp-player-name { font-size: 9px; color: #fff; background: rgba(0,0,0,0.65); padding: 1px 5px; border-radius: 4px; margin-top: 2px; white-space: nowrap; max-width: 78px; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; }
+.mp-player-score { position: absolute; bottom: -4px; right: -8px; font-family: 'Bebas Neue', sans-serif; font-size: 11px; color: #fff; padding: 0 5px; border-radius: 5px; border: 1.5px solid #fff; line-height: 1.4; box-shadow: 0 1px 3px rgba(0,0,0,0.5); min-width: 18px; text-align: center; }
+.mp-player-figure { position: absolute; top: -4px; right: -6px; color: #ffc107; font-size: 13px; line-height: 1; text-shadow: 0 0 4px rgba(255,193,7,0.8); }
+.mp-section-label { font-family: 'Bebas Neue', sans-serif; font-size: 12px; color: #555; letter-spacing: 2px; text-align: center; margin: 10px 0 6px; }
+.mp-bench-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+.mp-bench-item { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 6px 8px; }
+.mp-bench-avatar { width: 28px; height: 28px; border-radius: 50%; overflow: hidden; background: var(--rojo); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.mp-bench-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.mp-bench-avatar .fallback-num { font-family: 'Bebas Neue', sans-serif; font-size: 11px; color: #fff; }
+.mp-bench-name { flex: 1; font-size: 12px; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mp-bench-score { font-family: 'Bebas Neue', sans-serif; font-size: 13px; padding: 2px 7px; border-radius: 5px; color: #fff; min-width: 26px; text-align: center; line-height: 1.2; }
 #scores-success { display: none; position: absolute; inset: 0; background: rgba(15,15,30,0.97); flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 20px; text-align: center; z-index: 50; }
 #scores-success h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--rojo); letter-spacing: 3px; }
 #scores-success p { font-size: 13px; color: #ccc; line-height: 1.6; }
@@ -454,7 +478,12 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
   <div id="mis-puntajes-screen">
     <h2>⭐ Mis puntajes</h2>
     <div class="subtitle">Tus notas</div>
-    <div id="mis-puntajes-list"></div>
+    <div class="mp-toggle">
+      <button class="mp-toggle-btn active" data-view="planilla">Planilla</button>
+      <button class="mp-toggle-btn" data-view="cancha">Cancha</button>
+    </div>
+    <div id="mis-puntajes-content"></div>
+    <button id="download-mis-puntajes-btn" style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;background:#2e7d32;color:#fff;border:none;border-radius:8px;padding:10px;cursor:pointer;width:100%;margin-top:8px;">⬇ Descargar</button>
     <button id="back-mis-puntajes-btn" style="font-family:'Bebas Neue',sans-serif;font-size:15px;color:#aaa;background:none;border:1px solid #333;border-radius:8px;padding:8px 20px;cursor:pointer;width:100%;margin-top:8px;">← Volver</button>
   </div>
   <div class="locked-overlay" id="scores-locked">
@@ -700,6 +729,29 @@ let dragOffX=0, dragOffY=0, sending=false, wasReady=false;
 let rivalVisible=false, rivalElements=[];
 let userScores={}, scoresWasReady=false;
 let userFigure=(()=>{try{const v=localStorage.getItem(LS_SCORES_KEY+'_figura');return v?Number(v):null;}catch(e){return null;}})();
+let misPuntajesView=(()=>{try{return localStorage.getItem(LS_SCORES_KEY+'_view')||'planilla';}catch(e){return 'planilla';}})();
+
+// Posiciones de los AAAJ titulares (4-3-3 inicial; ajustar con botón POS dentro de "Mis puntajes" → Cancha)
+const playedSquadPositions = [
+  {fid:424153,  x:50, y:8},   // Cortés (GK)
+  {fid:1238138, x:85, y:25},  // Lozano
+  {fid:1277345, x:62, y:25},  // Riquelme
+  {fid:920404,  x:38, y:25},  // Álvarez
+  {fid:841913,  x:15, y:25},  // Prieto
+  {fid:1342579, x:70, y:50},  // Lescano
+  {fid:616508,  x:50, y:50},  // Fattori
+  {fid:543304,  x:30, y:50},  // Oroz
+  {fid:728323,  x:75, y:75},  // Molina
+  {fid:1843096, x:50, y:78},  // Jainikoski
+  {fid:1037535, x:25, y:75},  // López
+];
+
+function scoreColor(val){
+  if(val>=10) return '#ffc107';
+  if(val>=8) return '#1976d2';
+  if(val>=5) return '#43a047';
+  return '#e53935';
+}
 
 const pitch = document.getElementById('pitch');
 const grid = document.getElementById('player-grid');
@@ -1324,21 +1376,211 @@ function buildMyScoresCards(container){
   }
 }
 
-function showMyScoresOnScreen(){
-  const list=document.getElementById('mis-puntajes-list');
-  list.innerHTML='';
-  if(!Object.keys(userScores).filter(k=>userScores[k]!==null).length){
-    list.innerHTML='<div style="color:#555;text-align:center;padding:20px;font-size:13px;">Todavía no cargaste puntajes en esta sesión.</div>';
+function makeBenchItem(p){
+  const item=document.createElement('div'); item.className='mp-bench-item';
+  const av=document.createElement('div'); av.className='mp-bench-avatar';
+  const img=document.createElement('img'); img.src=FOTO(p.fid);
+  const fb=document.createElement('span'); fb.className='fallback-num'; fb.textContent=p.tipo==='dt'?'DT':p.num;
+  img.onload=()=>{fb.style.display='none';};
+  img.onerror=()=>{img.style.display='none';};
+  av.appendChild(img); av.appendChild(fb);
+  const name=document.createElement('div'); name.className='mp-bench-name';
+  name.textContent=p.name + (userFigure===p.fid?' ★':'');
+  if(userFigure===p.fid) name.style.color='#ffc107';
+  const score=userScores[p.num];
+  const scoreEl=document.createElement('div'); scoreEl.className='mp-bench-score';
+  if(score!=null){
+    scoreEl.style.background=scoreColor(score);
+    scoreEl.textContent=score;
   } else {
-    buildMyScoresCards(list);
+    scoreEl.style.background='rgba(255,255,255,0.08)';
+    scoreEl.textContent='—';
+    scoreEl.style.color='#666';
   }
+  item.appendChild(av); item.appendChild(name); item.appendChild(scoreEl);
+  return item;
+}
+
+function attachMpDrag(pitch){
+  let dragEl=null, offX=0, offY=0;
+  pitch.querySelectorAll('.mp-player').forEach(el=>{
+    el.addEventListener('pointerdown',e=>{
+      e.preventDefault();
+      dragEl=el;
+      el.setPointerCapture(e.pointerId);
+      const rect=pitch.getBoundingClientRect();
+      const cx=e.clientX-rect.left;
+      const cy=e.clientY-rect.top;
+      const px=(parseFloat(el.style.left)/100)*rect.width;
+      const py=(parseFloat(el.style.top)/100)*rect.height;
+      offX=cx-px; offY=cy-py;
+    });
+    el.addEventListener('pointermove',e=>{
+      if(dragEl!==el) return;
+      const rect=pitch.getBoundingClientRect();
+      let x=((e.clientX-rect.left-offX)/rect.width)*100;
+      let y=((e.clientY-rect.top-offY)/rect.height)*100;
+      x=Math.max(2,Math.min(98,x));
+      y=Math.max(2,Math.min(98,y));
+      el.style.left=x+'%';
+      el.style.top=y+'%';
+      const fid=Number(el.dataset.fid);
+      const p=playedSquadPositions.find(pp=>pp.fid===fid);
+      if(p){p.x=Math.round(x*10)/10; p.y=Math.round(y*10)/10;}
+    });
+    el.addEventListener('pointerup',e=>{ if(dragEl===el){el.releasePointerCapture(e.pointerId); dragEl=null;} });
+    el.addEventListener('pointercancel',()=>{ dragEl=null; });
+  });
+}
+
+function showPlayedPositions(){
+  const titulares=playedSquad.filter(p=>p.tipo==='titular');
+  const lines=titulares.map(p=>{
+    const pos=playedSquadPositions.find(pp=>pp.fid===p.fid);
+    return `  {fid:${p.fid}, name:'${p.name}', x:${pos?pos.x:50}, y:${pos?pos.y:50}},`;
+  }).join('\n');
+  const overlay=document.createElement('div');
+  overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;';
+  const box=document.createElement('div');
+  box.style.cssText='background:#1a1a2e;border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:16px;max-width:420px;width:100%;';
+  const title=document.createElement('div');
+  title.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:16px;color:#fff;margin-bottom:8px;letter-spacing:1px;';
+  title.textContent='Posiciones AAAJ titulares';
+  const ta=document.createElement('textarea');
+  ta.value=lines;
+  ta.style.cssText='width:100%;height:200px;background:#0d0d1a;color:#64b5f6;font-family:monospace;font-size:11px;border:1px solid #333;border-radius:6px;padding:8px;resize:none;';
+  const closeBtn=document.createElement('button');
+  closeBtn.textContent='Cerrar';
+  closeBtn.style.cssText='margin-top:10px;font-family:"Bebas Neue",sans-serif;font-size:14px;background:var(--rojo);color:#fff;border:none;border-radius:6px;padding:8px 16px;cursor:pointer;width:100%;';
+  closeBtn.addEventListener('click',()=>document.body.removeChild(overlay));
+  box.appendChild(title);box.appendChild(ta);box.appendChild(closeBtn);
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+  ta.select();
+}
+
+function buildMisPuntajesCancha(container, includePos=true){
+  const titulares=playedSquad.filter(p=>p.tipo==='titular');
+  const suplentes=playedSquad.filter(p=>p.tipo==='suplente');
+  const dt=playedSquad.filter(p=>p.tipo==='dt');
+
+  const pitch=document.createElement('div');
+  pitch.className='mp-pitch';
+  pitch.innerHTML=`
+    <div class="stripe" style="left:0%"></div><div class="stripe" style="left:12.5%"></div>
+    <div class="stripe" style="left:25%"></div><div class="stripe" style="left:37.5%"></div>
+    <div class="stripe" style="left:50%"></div><div class="stripe" style="left:62.5%"></div>
+    <div class="stripe" style="left:75%"></div><div class="stripe" style="left:87.5%"></div>
+    <div class="pl" style="left:5%;right:5%;top:0;border-top:1.5px solid rgba(255,255,255,0.5);border-left:none;border-right:none;border-bottom:none;height:0"></div>
+    <div class="pl" style="left:5%;right:5%;bottom:0;border-bottom:1.5px solid rgba(255,255,255,0.5);border-left:none;border-right:none;border-top:none;height:0"></div>
+    <div class="pl" style="left:5%;top:0;bottom:0;width:0;border-left:1.5px solid rgba(255,255,255,0.5);"></div>
+    <div class="pl" style="right:5%;top:0;bottom:0;width:0;border-left:1.5px solid rgba(255,255,255,0.5);"></div>
+    <div class="pl" style="left:5%;right:5%;top:50%;height:0;border-top:1.5px solid rgba(255,255,255,0.5);"></div>
+    <div class="pc" style="left:50%;top:50%;width:18%;padding-top:18%;transform:translate(-50%,-50%);"></div>
+    <div class="pc" style="left:50%;top:50%;width:3%;padding-top:3%;transform:translate(-50%,-50%);background:rgba(255,255,255,0.5);border:none;"></div>
+    <div class="pl" style="left:21%;right:21%;top:0;height:18%;border:1.5px solid rgba(255,255,255,0.5);border-top:none;"></div>
+    <div class="pl" style="left:21%;right:21%;bottom:0;height:18%;border:1.5px solid rgba(255,255,255,0.5);border-bottom:none;"></div>
+    <div class="pl" style="left:33%;right:33%;top:0;height:9%;border:1.5px solid rgba(255,255,255,0.5);border-top:none;"></div>
+    <div class="pl" style="left:33%;right:33%;bottom:0;height:9%;border:1.5px solid rgba(255,255,255,0.5);border-bottom:none;"></div>
+  `;
+
+  titulares.forEach(p=>{
+    const pos=playedSquadPositions.find(pp=>pp.fid===p.fid);
+    if(!pos) return;
+    const wrap=document.createElement('div');
+    wrap.className='mp-player';
+    wrap.style.left=pos.x+'%';
+    wrap.style.top=pos.y+'%';
+    wrap.dataset.fid=p.fid;
+
+    const bubble=document.createElement('div');
+    bubble.className='mp-player-bubble';
+    const img=document.createElement('img'); img.src=FOTO(p.fid);
+    const fb=document.createElement('span'); fb.className='fallback-num'; fb.textContent=p.num;
+    img.onload=()=>{fb.style.display='none';};
+    img.onerror=()=>{img.style.display='none';};
+    bubble.appendChild(img); bubble.appendChild(fb);
+
+    const score=userScores[p.num];
+    if(score!=null){
+      const scoreBadge=document.createElement('div');
+      scoreBadge.className='mp-player-score';
+      scoreBadge.style.background=scoreColor(score);
+      scoreBadge.textContent=score;
+      bubble.appendChild(scoreBadge);
+    }
+    if(userFigure===p.fid){
+      const star=document.createElement('div');
+      star.className='mp-player-figure';
+      star.textContent='★';
+      bubble.appendChild(star);
+    }
+
+    const name=document.createElement('div');
+    name.className='mp-player-name';
+    name.textContent=p.name;
+
+    wrap.appendChild(bubble);
+    wrap.appendChild(name);
+    pitch.appendChild(wrap);
+  });
+
+  container.appendChild(pitch);
+  if(includePos) attachMpDrag(pitch);
+
+  if(includePos){
+    const posBtn=document.createElement('button');
+    posBtn.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:12px;letter-spacing:1px;background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 12px;cursor:pointer;display:block;margin:0 auto 10px;';
+    posBtn.textContent='📋 POS (titulares)';
+    posBtn.addEventListener('click',showPlayedPositions);
+    container.appendChild(posBtn);
+  }
+
+  if(suplentes.length){
+    const sep=document.createElement('div'); sep.className='mp-section-label'; sep.textContent='SUPLENTES';
+    container.appendChild(sep);
+    const grid=document.createElement('div'); grid.className='mp-bench-list';
+    suplentes.forEach(p=>grid.appendChild(makeBenchItem(p)));
+    container.appendChild(grid);
+  }
+  if(dt.length){
+    const sep=document.createElement('div'); sep.className='mp-section-label'; sep.textContent='DIRECTOR TÉCNICO';
+    container.appendChild(sep);
+    const grid=document.createElement('div'); grid.className='mp-bench-list'; grid.style.gridTemplateColumns='1fr';
+    dt.forEach(p=>grid.appendChild(makeBenchItem(p)));
+    container.appendChild(grid);
+  }
+}
+
+function setMisPuntajesView(v){
+  misPuntajesView=v;
+  try{localStorage.setItem(LS_SCORES_KEY+'_view',v);}catch(_){}
+  document.querySelectorAll('.mp-toggle-btn').forEach(b=>b.classList.toggle('active',b.dataset.view===v));
+  renderMisPuntajesContent();
+}
+
+function renderMisPuntajesContent(){
+  const c=document.getElementById('mis-puntajes-content');
+  c.innerHTML='';
+  const hasScores=Object.keys(userScores).filter(k=>userScores[k]!==null).length>0;
+  if(!hasScores){
+    c.innerHTML='<div style="color:#555;text-align:center;padding:20px;font-size:13px;">Todavía no cargaste puntajes en esta sesión.</div>';
+    return;
+  }
+  if(misPuntajesView==='cancha') buildMisPuntajesCancha(c,true);
+  else buildMyScoresCards(c);
+}
+
+function showMyScoresOnScreen(){
+  document.querySelectorAll('.mp-toggle-btn').forEach(b=>b.classList.toggle('active',b.dataset.view===misPuntajesView));
+  renderMisPuntajesContent();
   document.getElementById('mis-puntajes-screen').style.display='flex';
 }
 
 async function downloadMyScores(){
   try{
     const tmp=document.createElement('div');
-    tmp.style.cssText='background:#1a1a2e;padding:16px;width:320px;position:fixed;left:-9999px;top:0;';
+    tmp.style.cssText='background:#1a1a2e;padding:16px;width:340px;position:fixed;left:-9999px;top:0;';
     const title=document.createElement('div');
     title.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:20px;color:#fff;text-align:center;margin-bottom:4px;letter-spacing:2px;';
     title.textContent='MIS PUNTAJES';
@@ -1347,14 +1589,15 @@ async function downloadMyScores(){
     sub.textContent=`AAAJ vs ${RIVAL}`;
     tmp.appendChild(title); tmp.appendChild(sub);
 
-    buildMyScoresCards(tmp);
+    if(misPuntajesView==='cancha') buildMisPuntajesCancha(tmp,false);
+    else buildMyScoresCards(tmp);
 
     document.body.appendChild(tmp);
-    await new Promise(r=>setTimeout(r,200));
-    const canvas=await html2canvas(tmp,{backgroundColor:'#1a1a2e',scale:2,logging:false});
+    await new Promise(r=>setTimeout(r,300));
+    const canvas=await html2canvas(tmp,{backgroundColor:'#1a1a2e',scale:2,logging:false,useCORS:true});
     document.body.removeChild(tmp);
     const link=document.createElement('a');
-    link.download=`mis-puntajes-aaaj-vs-${RIVAL.toLowerCase()}.png`;
+    link.download=`mis-puntajes-aaaj-vs-${RIVAL.toLowerCase()}-${misPuntajesView}.png`;
     link.href=canvas.toDataURL('image/png'); link.click();
     showToast('Descargada!');
   }catch(e){showToast('No se pudo generar.');}
@@ -1442,6 +1685,18 @@ document.getElementById('back-scores-results-btn').addEventListener('click',()=>
 
 document.getElementById('back-mis-puntajes-btn').addEventListener('click',()=>{
   document.getElementById('mis-puntajes-screen').style.display='none';
+});
+
+document.querySelectorAll('.mp-toggle-btn').forEach(b=>{
+  b.addEventListener('click',()=>setMisPuntajesView(b.dataset.view));
+});
+
+document.getElementById('download-mis-puntajes-btn').addEventListener('click',()=>{
+  if(!Object.keys(userScores).filter(k=>userScores[k]!==null).length){
+    showToast('Todavía no cargaste puntajes');
+    return;
+  }
+  downloadMyScores();
 });
 
 renderGrid(); updateCounter();
