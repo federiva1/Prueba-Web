@@ -259,7 +259,7 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
 <!-- BOTÓN FLOTANTE TABLA -->
 <div id="tabla-fab" onclick="openTabla()">
   <span class="fab-icon">📊</span>
-  <span class="fab-label">TABLA Y<br>SIMULADOR</span>
+  <span class="fab-label">TABLA</span>
 </div>
 
 <!-- PANTALLA FECHAS -->
@@ -304,16 +304,6 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
     <div style="display:flex;gap:6px;margin-bottom:8px;align-items:center;">
       <button class="zona-btn" data-zona="A" style="flex:1;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);border-radius:8px;padding:8px;cursor:pointer;">Zona A</button>
       <button class="zona-btn active" data-zona="B" style="flex:1;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;background:rgba(229,57,53,0.15);border:1px solid var(--rojo);color:#fff;border-radius:8px;padding:8px;cursor:pointer;">Zona B</button>
-      <button id="sim-inline-btn" style="font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:1px;background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);border-radius:8px;padding:8px 10px;cursor:pointer;white-space:nowrap;">⚡ Simular</button>
-    </div>
-    <!-- Navegador de fechas del simulador (oculto por defecto) -->
-    <div id="sim-fecha-nav-inline" style="display:none;align-items:center;justify-content:space-between;margin-bottom:8px;background:rgba(255,255,255,0.04);border-radius:8px;padding:6px 10px;">
-      <button id="sim-prev-inline" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">‹</button>
-      <div style="text-align:center;">
-        <div id="sim-fecha-inline-label" style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:#fff;">FECHA 15</div>
-        <div id="sim-fecha-inline-sub" style="font-size:10px;color:#666;"></div>
-      </div>
-      <button id="sim-next-inline" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">›</button>
     </div>
     <div id="tabla-content"><div style="text-align:center;color:#555;padding:30px;font-size:13px;">Cargando...</div></div>
     <!-- PLAYOFF BRACKET -->
@@ -2794,44 +2784,6 @@ document.querySelectorAll('.zona-btn').forEach(btn=>{
     if(simModeActive&&simStateT){renderTablaInlineMode();}
     else if(tablaData){renderTablaT(tablaData[tablaZona==='A'?0:1],document.getElementById('tabla-content'),tablaNextRival||{});}
   });
-});
-
-// Botón simular inline
-document.getElementById('sim-inline-btn').addEventListener('click',()=>{
-  if(!tablaData)return;
-  simModeActive=!simModeActive;
-  const btn=document.getElementById('sim-inline-btn');
-  const nav=document.getElementById('sim-fecha-nav-inline');
-  if(simModeActive){
-    btn.textContent='✕ Salir';
-    btn.style.background='rgba(229,57,53,0.2)';btn.style.borderColor='var(--rojo)';btn.style.color='#fff';
-    nav.style.display='flex';
-    selectedTeamsT=[];
-    simFechaIdxT=0;
-    // Init simStateT
-    simStateT={
-      A:tablaData[0].map(t=>({id:t.team.id,name:NOMBRE_CORTO_T[t.team.id]||t.team.name,pts:t.points,ptsBase:t.points,form:t.form||'DDDDD'})),
-      B:tablaData[1].map(t=>({id:t.team.id,name:NOMBRE_CORTO_T[t.team.id]||t.team.name,pts:t.points,ptsBase:t.points,form:t.form||'DDDDD'})),
-      resultados:{A:{},B:{}}
-    };
-    renderTablaInlineMode();
-  } else {
-    btn.textContent='⚡ Simular';
-    btn.style.background='transparent';btn.style.borderColor='rgba(255,255,255,0.15)';btn.style.color='rgba(255,255,255,0.5)';
-    nav.style.display='none';
-    simStateT=null;selectedTeamsT=[];
-    renderTablaT(tablaData[tablaZona==='A'?0:1],document.getElementById('tabla-content'),tablaNextRival||{});
-    resetPlayoffToBase();
-  }
-});
-
-// Navegador de fechas inline
-document.getElementById('sim-prev-inline').addEventListener('click',()=>{
-  if(simFechaIdxT>0){simFechaIdxT--;renderTablaInlineMode();}
-});
-document.getElementById('sim-next-inline').addEventListener('click',()=>{
-  const max=(FIXTURE_T[tablaZona]||[]).length-1;
-  if(simFechaIdxT<max){simFechaIdxT++;renderTablaInlineMode();}
 });
 
 // ===== PANEL DE FECHAS =====
