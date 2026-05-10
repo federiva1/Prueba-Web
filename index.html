@@ -1616,7 +1616,7 @@ document.getElementById('scores-confirm-btn').addEventListener('click',async()=>
     await fetch(`${SUPABASE_URL}/rest/v1/puntajes`,{
       method:'POST',
       headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Prefer':'return=minimal'},
-      body:JSON.stringify({rival:RIVAL,puntajes:puntajesFiltered})
+      body:JSON.stringify({rival:RIVAL,puntajes:puntajesFiltered,figura:userFigure})
     });
     try{localStorage.setItem(LS_SCORES_KEY,'1');}catch(e){}
     checkScoresReady();
@@ -1638,13 +1638,18 @@ async function showScoresResults(){
   const list=document.getElementById('scores-results-list');
   list.innerHTML='<div style="color:#555;text-align:center;padding:20px;">Cargando...</div>';
   try{
-    const res=await fetch(`${SUPABASE_URL}/rest/v1/puntajes?select=puntajes&rival=eq.${encodeURIComponent(RIVAL)}`,{headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}});
+    const res=await fetch(`${SUPABASE_URL}/rest/v1/puntajes?select=puntajes,figura&rival=eq.${encodeURIComponent(RIVAL)}`,{headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}});
     const data=await res.json();
     if(!data.length){list.innerHTML='<div style="color:#555;text-align:center;padding:20px;">Sin resultados aún.</div>';document.getElementById('scores-total-votes').textContent='';return;}
     const totalVoters=data.length;
     document.getElementById('scores-total-votes').textContent=`${totalVoters} hincha${totalVoters!==1?'s':''} votaron`;
-    const totals={},counts2={};
-    data.forEach(row=>{ Object.entries(row.puntajes||{}).forEach(([num,val])=>{ totals[num]=(totals[num]||0)+Number(val); counts2[num]=(counts2[num]||0)+1; }); });
+    const totals={},counts2={},figureVotes={};
+    data.forEach(row=>{
+      Object.entries(row.puntajes||{}).forEach(([num,val])=>{ totals[num]=(totals[num]||0)+Number(val); counts2[num]=(counts2[num]||0)+1; });
+      if(row.figura!=null) figureVotes[row.figura]=(figureVotes[row.figura]||0)+1;
+    });
+    const topFigure=Object.entries(figureVotes).sort((a,b)=>b[1]-a[1])[0];
+    const globalFigFid=topFigure?Number(topFigure[0]):null;
     const results=Object.keys(totals).map(num=>{
       const p=playedSquad.find(s=>s.num===Number(num));
       return {num:Number(num),name:p?.name||`#${num}`,fid:p?.fid||0,avg:totals[num]/counts2[num]};
@@ -1656,12 +1661,11 @@ async function showScoresResults(){
     const suplResults=results.filter(p=>suplNums.has(p.num));
     const dtResults=results.filter(p=>dtNums.has(p.num));
 
-    // Titulares: 1 / 2 / 4 / 4 (estrella en el primer titular = figura del global)
-    const globalFigFid=titResults[0]?.fid??null;
+    // Titulares: 1 / 2 / 4 / 4 (estrella en la figura más votada del global)
     if(titResults[0])               addGrid(list,[titResults[0]],1,0,52,false,globalFigFid);
-    if(titResults.slice(1,3).length) addGrid(list,titResults.slice(1,3),2,1,44);
-    if(titResults.slice(3,7).length) addGrid(list,titResults.slice(3,7),4,3,36);
-    if(titResults.slice(7).length)   addGrid(list,titResults.slice(7),4,7,36);
+    if(titResults.slice(1,3).length) addGrid(list,titResults.slice(1,3),2,1,44,false,globalFigFid);
+    if(titResults.slice(3,7).length) addGrid(list,titResults.slice(3,7),4,3,36,false,globalFigFid);
+    if(titResults.slice(7).length)   addGrid(list,titResults.slice(7),4,7,36,false,globalFigFid);
 
     if(suplResults.length){
       const sepLabel=document.createElement('div');
@@ -1669,7 +1673,7 @@ async function showScoresResults(){
       sepLabel.style.marginTop='10px';
       sepLabel.textContent='SUPLENTES';
       list.appendChild(sepLabel);
-      addGrid(list,suplResults,3,0,36,true);
+      addGrid(list,suplResults,3,0,36,true,globalFigFid);
     }
     if(dtResults.length){
       const sepLabel=document.createElement('div');
@@ -2961,14 +2965,19 @@ async function fetchPrevFormations(fecha){
 async function fetchPrevScores(fecha){
   const container=document.getElementById('prev-fecha-scores');
   try{
-    const res=await fetch(`${SUPABASE_URL}/rest/v1/puntajes?select=puntajes&rival=eq.${encodeURIComponent(fecha.rival)}`,{
+    const res=await fetch(`${SUPABASE_URL}/rest/v1/puntajes?select=puntajes,figura&rival=eq.${encodeURIComponent(fecha.rival)}`,{
       headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}
     });
     const data=await res.json();
     if(!data.length){container.innerHTML='<div style="text-align:center;color:#555;padding:20px;font-size:13px;">Sin puntajes enviados.</div>';return;}
     const totalVoters=data.length;
-    const totals={},counts2={};
-    data.forEach(row=>{Object.entries(row.puntajes||{}).forEach(([num,val])=>{totals[num]=(totals[num]||0)+Number(val);counts2[num]=(counts2[num]||0)+1;});});
+    const totals={},counts2={},figureVotes={};
+    data.forEach(row=>{
+      Object.entries(row.puntajes||{}).forEach(([num,val])=>{totals[num]=(totals[num]||0)+Number(val);counts2[num]=(counts2[num]||0)+1;});
+      if(row.figura!=null) figureVotes[row.figura]=(figureVotes[row.figura]||0)+1;
+    });
+    const topFigure=Object.entries(figureVotes).sort((a,b)=>b[1]-a[1])[0];
+    const prevFigFid=topFigure?Number(topFigure[0]):null;
     const results=Object.keys(totals).map(num=>{
       const p=fecha.playedSquad?.find(s=>s.num===Number(num));
       return{num:Number(num),name:p?.name||`#${num}`,fid:p?.fid||0,avg:totals[num]/counts2[num]};
@@ -2987,7 +2996,7 @@ async function fetchPrevScores(fecha){
       row.appendChild(makeAvatar(FOTO(p.fid),p.num,36));
       const inf=document.createElement('div');inf.style.cssText='flex:1;';
       const nm=document.createElement('div');nm.style.cssText='font-size:13px;color:#fff;';nm.textContent=p.name;
-      if(i===0){
+      if(prevFigFid!=null && p.fid===prevFigFid){
         const star=document.createElement('span');
         star.style.cssText='color:#ffc107;font-size:13px;margin-left:5px;text-shadow:0 0 4px rgba(255,193,7,0.6);';
         star.textContent='★';
