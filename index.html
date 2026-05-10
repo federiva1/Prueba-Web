@@ -472,6 +472,10 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
     <h2>⭐ Puntajes</h2>
     <div class="subtitle">Promedio de la gente</div>
     <div id="scores-total-votes" style="font-size:11px;color:#555;text-align:center;margin-bottom:8px;"></div>
+    <div class="mp-toggle">
+      <button class="global-toggle-btn active" data-view="planilla">Planilla</button>
+      <button class="global-toggle-btn" data-view="cancha">Cancha</button>
+    </div>
     <div id="scores-results-list"><div>Cargando...</div></div>
     <button id="download-scores-results-btn" style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;background:#2e7d32;color:#fff;border:none;border-radius:8px;padding:10px;cursor:pointer;width:100%;margin-top:8px;">⬇ Descargar resultados</button>
     <button id="back-scores-results-btn" style="font-family:'Bebas Neue',sans-serif;font-size:15px;color:#aaa;background:none;border:1px solid #333;border-radius:8px;padding:8px 20px;cursor:pointer;width:100%;margin-top:8px;">← Volver</button>
@@ -731,6 +735,7 @@ let rivalVisible=false, rivalElements=[];
 let userScores={}, scoresWasReady=false;
 let userFigure=(()=>{try{const v=localStorage.getItem(LS_SCORES_KEY+'_figura');return v?Number(v):null;}catch(e){return null;}})();
 let misPuntajesView=(()=>{try{return localStorage.getItem(LS_SCORES_KEY+'_view')||'planilla';}catch(e){return 'planilla';}})();
+let globalView=(()=>{try{return localStorage.getItem('aaaj_global_view')||'planilla';}catch(e){return 'planilla';}})();
 
 // Posiciones de los AAAJ titulares — Playoff 1 vs Lanús
 const playedSquadPositions = [
@@ -1377,7 +1382,9 @@ function buildMyScoresCards(container){
   }
 }
 
-function makeBenchItem(p){
+function fmtScore(v){ return Number.isInteger(v) ? String(v) : Number(v).toFixed(1); }
+
+function makeBenchItem(p, scoreVal, figureFid){
   const item=document.createElement('div'); item.className='mp-bench-item';
   const av=document.createElement('div'); av.className='mp-bench-avatar';
   const img=document.createElement('img'); img.src=FOTO(p.fid);
@@ -1386,13 +1393,12 @@ function makeBenchItem(p){
   img.onerror=()=>{img.style.display='none';};
   av.appendChild(img); av.appendChild(fb);
   const name=document.createElement('div'); name.className='mp-bench-name';
-  name.textContent=p.name + (userFigure===p.fid?' ★':'');
-  if(userFigure===p.fid) name.style.color='#ffc107';
-  const score=userScores[p.num];
+  name.textContent=p.name + (figureFid===p.fid?' ★':'');
+  if(figureFid===p.fid) name.style.color='#ffc107';
   const scoreEl=document.createElement('div'); scoreEl.className='mp-bench-score';
-  if(score!=null){
-    scoreEl.style.background=scoreColor(score);
-    scoreEl.textContent=score;
+  if(scoreVal!=null){
+    scoreEl.style.background=scoreColor(scoreVal);
+    scoreEl.textContent=fmtScore(scoreVal);
   } else {
     scoreEl.style.background='rgba(255,255,255,0.08)';
     scoreEl.textContent='—';
@@ -1460,10 +1466,10 @@ function showPlayedPositions(){
   ta.select();
 }
 
-function buildMisPuntajesCancha(container, includePos=true){
-  const titulares=playedSquad.filter(p=>p.tipo==='titular');
-  const suplentes=playedSquad.filter(p=>p.tipo==='suplente');
-  const dt=playedSquad.filter(p=>p.tipo==='dt');
+function buildMisPuntajesCancha(container, scoresMap, figureFid, includePos=true, squad=playedSquad){
+  const titulares=squad.filter(p=>p.tipo==='titular');
+  const suplentes=squad.filter(p=>p.tipo==='suplente');
+  const dt=squad.filter(p=>p.tipo==='dt');
 
   const pitch=document.createElement('div');
   pitch.className='mp-pitch';
@@ -1506,15 +1512,15 @@ function buildMisPuntajesCancha(container, includePos=true){
     bubble.appendChild(img); bubble.appendChild(fb);
     top.appendChild(bubble);
 
-    const score=userScores[p.num];
+    const score=scoresMap[p.num];
     if(score!=null){
       const scoreBadge=document.createElement('div');
       scoreBadge.className='mp-player-score';
       scoreBadge.style.background=scoreColor(score);
-      scoreBadge.textContent=score;
+      scoreBadge.textContent=fmtScore(score);
       top.appendChild(scoreBadge);
     }
-    if(userFigure===p.fid){
+    if(figureFid===p.fid){
       const star=document.createElement('div');
       star.className='mp-player-figure';
       star.textContent='★';
@@ -1545,14 +1551,14 @@ function buildMisPuntajesCancha(container, includePos=true){
     const sep=document.createElement('div'); sep.className='mp-section-label'; sep.textContent='SUPLENTES';
     container.appendChild(sep);
     const grid=document.createElement('div'); grid.className='mp-bench-list';
-    suplentes.forEach(p=>grid.appendChild(makeBenchItem(p)));
+    suplentes.forEach(p=>grid.appendChild(makeBenchItem(p,scoresMap[p.num],figureFid)));
     container.appendChild(grid);
   }
   if(dt.length){
     const sep=document.createElement('div'); sep.className='mp-section-label'; sep.textContent='DIRECTOR TÉCNICO';
     container.appendChild(sep);
     const grid=document.createElement('div'); grid.className='mp-bench-list'; grid.style.gridTemplateColumns='1fr';
-    dt.forEach(p=>grid.appendChild(makeBenchItem(p)));
+    dt.forEach(p=>grid.appendChild(makeBenchItem(p,scoresMap[p.num],figureFid)));
     container.appendChild(grid);
   }
 }
@@ -1572,7 +1578,7 @@ function renderMisPuntajesContent(){
     c.innerHTML='<div style="color:#555;text-align:center;padding:20px;font-size:13px;">Todavía no cargaste puntajes en esta sesión.</div>';
     return;
   }
-  if(misPuntajesView==='cancha') buildMisPuntajesCancha(c,false);
+  if(misPuntajesView==='cancha') buildMisPuntajesCancha(c,userScores,userFigure,false);
   else buildMyScoresCards(c);
 }
 
@@ -1594,7 +1600,7 @@ async function downloadMyScores(){
     sub.textContent=`AAAJ vs ${RIVAL}`;
     tmp.appendChild(title); tmp.appendChild(sub);
 
-    if(misPuntajesView==='cancha') buildMisPuntajesCancha(tmp,false);
+    if(misPuntajesView==='cancha') buildMisPuntajesCancha(tmp,userScores,userFigure,false);
     else buildMyScoresCards(tmp);
 
     document.body.appendChild(tmp);
@@ -1635,6 +1641,7 @@ document.getElementById('scores-mis-puntajes-btn').addEventListener('click', sho
 async function showScoresResults(){
   document.getElementById('scores-results-screen').style.display='flex';
   document.getElementById('scores-success').style.display='none';
+  document.querySelectorAll('.global-toggle-btn').forEach(b=>b.classList.toggle('active',b.dataset.view===globalView));
   const list=document.getElementById('scores-results-list');
   list.innerHTML='<div style="color:#555;text-align:center;padding:20px;">Cargando...</div>';
   try{
@@ -1656,28 +1663,35 @@ async function showScoresResults(){
     const suplResults=results.filter(p=>suplNums.has(p.num));
     const dtResults=results.filter(p=>dtNums.has(p.num));
 
-    // Titulares: 1 / 2 / 4 / 4 (estrella en el #1 del ranking; el voto de figura se consolida cuando se archiva la fecha)
     const globalFigFid=titResults[0]?.fid??null;
-    if(titResults[0])               addGrid(list,[titResults[0]],1,0,52,false,globalFigFid);
-    if(titResults.slice(1,3).length) addGrid(list,titResults.slice(1,3),2,1,44);
-    if(titResults.slice(3,7).length) addGrid(list,titResults.slice(3,7),4,3,36);
-    if(titResults.slice(7).length)   addGrid(list,titResults.slice(7),4,7,36);
 
-    if(suplResults.length){
-      const sepLabel=document.createElement('div');
-      sepLabel.className='scores-section-title';
-      sepLabel.style.marginTop='10px';
-      sepLabel.textContent='SUPLENTES';
-      list.appendChild(sepLabel);
-      addGrid(list,suplResults,3,0,36,true);
-    }
-    if(dtResults.length){
-      const sepLabel=document.createElement('div');
-      sepLabel.className='scores-section-title';
-      sepLabel.style.marginTop='10px';
-      sepLabel.textContent='DIRECTOR TÉCNICO';
-      list.appendChild(sepLabel);
-      addGrid(list,dtResults,1,0,44,true);
+    if(globalView==='cancha'){
+      const scoresMap={};
+      results.forEach(r=>{ scoresMap[r.num]=r.avg; });
+      buildMisPuntajesCancha(list,scoresMap,globalFigFid,false);
+    } else {
+      // Titulares: 1 / 2 / 4 / 4 (estrella en el #1 del ranking)
+      if(titResults[0])               addGrid(list,[titResults[0]],1,0,52,false,globalFigFid);
+      if(titResults.slice(1,3).length) addGrid(list,titResults.slice(1,3),2,1,44);
+      if(titResults.slice(3,7).length) addGrid(list,titResults.slice(3,7),4,3,36);
+      if(titResults.slice(7).length)   addGrid(list,titResults.slice(7),4,7,36);
+
+      if(suplResults.length){
+        const sepLabel=document.createElement('div');
+        sepLabel.className='scores-section-title';
+        sepLabel.style.marginTop='10px';
+        sepLabel.textContent='SUPLENTES';
+        list.appendChild(sepLabel);
+        addGrid(list,suplResults,3,0,36,true);
+      }
+      if(dtResults.length){
+        const sepLabel=document.createElement('div');
+        sepLabel.className='scores-section-title';
+        sepLabel.style.marginTop='10px';
+        sepLabel.textContent='DIRECTOR TÉCNICO';
+        list.appendChild(sepLabel);
+        addGrid(list,dtResults,1,0,44,true);
+      }
     }
   }catch(e){list.innerHTML='<div style="color:#555">Error al cargar.</div>';}
 }
@@ -1694,6 +1708,15 @@ document.getElementById('back-mis-puntajes-btn').addEventListener('click',()=>{
 
 document.querySelectorAll('.mp-toggle-btn').forEach(b=>{
   b.addEventListener('click',()=>setMisPuntajesView(b.dataset.view));
+});
+
+document.querySelectorAll('.global-toggle-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    globalView=b.dataset.view;
+    try{localStorage.setItem('aaaj_global_view',globalView);}catch(_){}
+    document.querySelectorAll('.global-toggle-btn').forEach(x=>x.classList.toggle('active',x.dataset.view===globalView));
+    showScoresResults();
+  });
 });
 
 document.getElementById('download-mis-puntajes-btn').addEventListener('click',()=>{
