@@ -2332,26 +2332,26 @@ function resetPlayoffToBase(){
 
 
 // ===== TABLA Y SIMULADOR =====
-const API_KEY_TABLA = 'b8bbfc856fd5cf12cd7d697b2b01887d';
 const ESCUDO_MAP = {
-  438:'velezsarsfield',450:'estudiantes',451:'bocajuniors',442:'defensayjusticia',
-  441:'union',446:'lanus',456:'talleres',453:'independiente',460:'sanlorenzo',
-  1064:'clubatleticoplatense',1066:'gimnasiamendoza',1065:'centralcordobadesantiago',
-  478:'instituto',476:'deportivoriestra',457:'newellsoldboys',473:'independienterivadavia',
-  435:'riverplate',458:'argentinosjuniors',440:'belgrano',436:'racingclub',
-  437:'rosariocentral',452:'tigre',2432:'barracascentral',474:'sarmiento',
-  445:'huracan',434:'gimnasialp',449:'banfield',455:'atleticotucuman',
-  463:'aldosivi',2424:'estudiantesderiocuarto'
+  10076:'riverplate',10077:'bocajuniors',10078:'independiente',10079:'velezsarsfield',
+  10080:'racingclub',10081:'huracan',10082:'lanus',10083:'sanlorenzo',10084:'rosariocentral',
+  10086:'argentinosjuniors',10087:'banfield',10089:'clubatleticoplatense',10090:'instituto',
+  10092:'belgrano',10094:'estudiantes',10096:'union',10101:'talleres',10103:'gimnasialp',
+  10201:'newellsoldboys',89396:'tigre',161727:'atleticotucuman',161728:'aldosivi',
+  161729:'independienterivadavia',161730:'defensayjusticia',202757:'sarmiento',
+  213534:'barracascentral',213591:'estudiantesderiocuarto',213596:'centralcordobadesantiago',
+  298629:'deportivoriestra',568727:'gimnasiamendoza'
 };
 const NOMBRE_CORTO_T = {
-  438:'Vélez',450:'Estudiantes',451:'Boca',442:'Def. Justicia',441:'Unión SF',
-  446:'Lanús',456:'Talleres',453:'Independiente',460:'San Lorenzo',1064:'Platense',
-  1066:'Gimnasia M',1065:'Cen. Córdoba',478:'Instituto',476:'Riestra',457:"Newell's",
-  473:'Ind. Rivadavia',435:'River',458:'Argentinos',440:'Belgrano',436:'Racing',
-  437:'Rosario C',452:'Tigre',2432:'Barracas C',474:'Sarmiento',445:'Huracán',
-  434:'Gimnasia LP',449:'Banfield',455:'Atl. Tucumán',463:'Aldosivi',2424:'Est. Río Cuarto'
+  10076:'River',10077:'Boca',10078:'Independiente',10079:'Vélez',10080:'Racing',
+  10081:'Huracán',10082:'Lanús',10083:'San Lorenzo',10084:'Rosario C',10086:'Argentinos',
+  10087:'Banfield',10089:'Platense',10090:'Instituto',10092:'Belgrano',10094:'Estudiantes',
+  10096:'Unión SF',10101:'Talleres',10103:'Gimnasia LP',10201:"Newell's",89396:'Tigre',
+  161727:'Atl. Tucumán',161728:'Aldosivi',161729:'Ind. Rivadavia',161730:'Def. Justicia',
+  202757:'Sarmiento',213534:'Barracas C',213591:'Est. Río Cuarto',
+  213596:'Cen. Córdoba',298629:'Riestra',568727:'Gimnasia M'
 };
-const AAAJ_ID_T = 458;
+const AAAJ_ID_T = 10086;
 const FIXTURE_T = {
   A:[
     {fecha:13,partidos:[{h:446,a:1064},{h:441,a:476},{h:460,a:450},{h:1066,a:438},{h:1065,a:457},{h:478,a:442},{h:451,a:456},{h:453,a:436}]},
@@ -2369,7 +2369,9 @@ const FIXTURE_T = {
   ]
 };
 
-let tablaData=null, tablaZona='B', simZonaT='B', selectedTeamsT=[], simStateT=null, simFechaIdxT=0, elimOpenT=false, tablaNextRival={}, simModeActive=false, simAutoTimer=null;
+const TABLA_DATA_HARDCODED = [[{"rank":1,"team":{"id":10094,"name":"Estudiantes"},"points":31,"goalsDiff":12,"form":"LWWDW","all":{"played":16,"win":9,"draw":4,"lose":3,"goals":{"for":19,"against":7}}},{"rank":2,"team":{"id":10077,"name":"Boca Juniors"},"points":30,"goalsDiff":13,"form":"DWWWL","all":{"played":16,"win":8,"draw":6,"lose":2,"goals":{"for":22,"against":9}}},{"rank":3,"team":{"id":10079,"name":"Velez Sarsfield"},"points":28,"goalsDiff":6,"form":"LWDDD","all":{"played":16,"win":7,"draw":7,"lose":2,"goals":{"for":18,"against":12}}},{"rank":4,"team":{"id":10101,"name":"Talleres"},"points":26,"goalsDiff":4,"form":"WWDDL","all":{"played":16,"win":7,"draw":5,"lose":4,"goals":{"for":17,"against":13}}},{"rank":5,"team":{"id":10078,"name":"Independiente"},"points":24,"goalsDiff":4,"form":"WDWLW","all":{"played":16,"win":6,"draw":6,"lose":4,"goals":{"for":24,"against":20}}},{"rank":6,"team":{"id":10082,"name":"Lanus"},"points":24,"goalsDiff":3,"form":"WLDDL","all":{"played":16,"win":6,"draw":6,"lose":4,"goals":{"for":18,"against":15}}},{"rank":7,"team":{"id":10083,"name":"San Lorenzo"},"points":22,"goalsDiff":0,"form":"WDDWL","all":{"played":16,"win":5,"draw":7,"lose":4,"goals":{"for":14,"against":14}}},{"rank":8,"team":{"id":10096,"name":"Union"},"points":21,"goalsDiff":4,"form":"LLDDW","all":{"played":16,"win":5,"draw":6,"lose":5,"goals":{"for":24,"against":20}}},{"rank":9,"team":{"id":10090,"name":"Instituto"},"points":21,"goalsDiff":0,"form":"WWLDW","all":{"played":16,"win":6,"draw":3,"lose":7,"goals":{"for":17,"against":17}}},{"rank":10,"team":{"id":161730,"name":"Defensa y Justicia"},"points":19,"goalsDiff":-3,"form":"LLLLL","all":{"played":16,"win":4,"draw":7,"lose":5,"goals":{"for":18,"against":21}}},{"rank":11,"team":{"id":568727,"name":"Gimnasia Mendoza"},"points":19,"goalsDiff":-8,"form":"WDWLW","all":{"played":16,"win":5,"draw":4,"lose":7,"goals":{"for":14,"against":22}}},{"rank":12,"team":{"id":10089,"name":"Club Atletico Platense"},"points":16,"goalsDiff":-5,"form":"DDLLL","all":{"played":16,"win":3,"draw":7,"lose":6,"goals":{"for":10,"against":15}}},{"rank":13,"team":{"id":213596,"name":"Central Cordoba de Santiago"},"points":16,"goalsDiff":-10,"form":"LLWDL","all":{"played":16,"win":4,"draw":4,"lose":8,"goals":{"for":11,"against":21}}},{"rank":14,"team":{"id":10201,"name":"Newell's Old Boys"},"points":15,"goalsDiff":-12,"form":"WDWDD","all":{"played":16,"win":3,"draw":6,"lose":7,"goals":{"for":15,"against":27}}},{"rank":15,"team":{"id":298629,"name":"Deportivo Riestra"},"points":11,"goalsDiff":-7,"form":"LLLWD","all":{"played":16,"win":1,"draw":8,"lose":7,"goals":{"for":5,"against":12}}}],[{"rank":1,"team":{"id":161729,"name":"Independiente Rivadavia"},"points":34,"goalsDiff":14,"form":"WDWDL","all":{"played":16,"win":10,"draw":4,"lose":2,"goals":{"for":29,"against":15}}},{"rank":2,"team":{"id":10076,"name":"River Plate"},"points":29,"goalsDiff":10,"form":"WWLWL","all":{"played":16,"win":9,"draw":2,"lose":5,"goals":{"for":22,"against":12}}},{"rank":3,"team":{"id":10086,"name":"Argentinos Juniors"},"points":29,"goalsDiff":4,"form":"LWWLW","all":{"played":16,"win":8,"draw":5,"lose":3,"goals":{"for":17,"against":13}}},{"rank":4,"team":{"id":10084,"name":"Rosario Central"},"points":28,"goalsDiff":4,"form":"WLWWD","all":{"played":16,"win":8,"draw":4,"lose":4,"goals":{"for":20,"against":16}}},{"rank":5,"team":{"id":10092,"name":"Belgrano"},"points":26,"goalsDiff":4,"form":"WDLWW","all":{"played":16,"win":7,"draw":5,"lose":4,"goals":{"for":17,"against":13}}},{"rank":6,"team":{"id":10103,"name":"Gimnasia LP"},"points":26,"goalsDiff":0,"form":"LWWWW","all":{"played":16,"win":8,"draw":2,"lose":6,"goals":{"for":19,"against":19}}},{"rank":7,"team":{"id":10081,"name":"Huracan"},"points":22,"goalsDiff":4,"form":"WDLDW","all":{"played":16,"win":5,"draw":7,"lose":4,"goals":{"for":17,"against":13}}},{"rank":8,"team":{"id":10080,"name":"Racing Club"},"points":21,"goalsDiff":2,"form":"LLDDD","all":{"played":16,"win":5,"draw":6,"lose":5,"goals":{"for":17,"against":15}}},{"rank":9,"team":{"id":213534,"name":"Barracas Central"},"points":21,"goalsDiff":0,"form":"LWDDL","all":{"played":16,"win":5,"draw":6,"lose":5,"goals":{"for":15,"against":15}}},{"rank":10,"team":{"id":89396,"name":"Tigre"},"points":20,"goalsDiff":3,"form":"LDDLD","all":{"played":16,"win":4,"draw":8,"lose":4,"goals":{"for":18,"against":15}}},{"rank":11,"team":{"id":202757,"name":"Sarmiento"},"points":19,"goalsDiff":-7,"form":"WLLWL","all":{"played":16,"win":6,"draw":1,"lose":9,"goals":{"for":13,"against":20}}},{"rank":12,"team":{"id":10087,"name":"Banfield"},"points":18,"goalsDiff":-2,"form":"LLDDW","all":{"played":16,"win":5,"draw":3,"lose":8,"goals":{"for":17,"against":19}}},{"rank":13,"team":{"id":161727,"name":"Atletico Tucuman"},"points":14,"goalsDiff":-5,"form":"LDLDW","all":{"played":16,"win":3,"draw":5,"lose":8,"goals":{"for":15,"against":20}}},{"rank":14,"team":{"id":161728,"name":"Aldosivi"},"points":8,"goalsDiff":-13,"form":"DLDLD","all":{"played":16,"win":0,"draw":8,"lose":8,"goals":{"for":6,"against":19}}},{"rank":15,"team":{"id":213591,"name":"Estudiantes de Rio Cuarto"},"points":5,"goalsDiff":-19,"form":"DLLLL","all":{"played":16,"win":1,"draw":2,"lose":13,"goals":{"for":5,"against":24}}}],[{"rank":1,"team":{"id":161729,"name":"Independiente Rivadavia"},"points":34,"goalsDiff":14,"form":"WDWDL","all":{"played":16,"win":10,"draw":4,"lose":2,"goals":{"for":29,"against":15}}},{"rank":2,"team":{"id":10094,"name":"Estudiantes"},"points":31,"goalsDiff":12,"form":"LWWDW","all":{"played":16,"win":9,"draw":4,"lose":3,"goals":{"for":19,"against":7}}},{"rank":3,"team":{"id":10077,"name":"Boca Juniors"},"points":30,"goalsDiff":13,"form":"DWWWL","all":{"played":16,"win":8,"draw":6,"lose":2,"goals":{"for":22,"against":9}}},{"rank":4,"team":{"id":10076,"name":"River Plate"},"points":29,"goalsDiff":10,"form":"WWLWL","all":{"played":16,"win":9,"draw":2,"lose":5,"goals":{"for":22,"against":12}}},{"rank":5,"team":{"id":10086,"name":"Argentinos Juniors"},"points":29,"goalsDiff":4,"form":"LWWLW","all":{"played":16,"win":8,"draw":5,"lose":3,"goals":{"for":17,"against":13}}},{"rank":6,"team":{"id":10079,"name":"Velez Sarsfield"},"points":28,"goalsDiff":6,"form":"LWDDD","all":{"played":16,"win":7,"draw":7,"lose":2,"goals":{"for":18,"against":12}}},{"rank":7,"team":{"id":10084,"name":"Rosario Central"},"points":28,"goalsDiff":4,"form":"WLWWD","all":{"played":16,"win":8,"draw":4,"lose":4,"goals":{"for":20,"against":16}}},{"rank":8,"team":{"id":10101,"name":"Talleres"},"points":26,"goalsDiff":4,"form":"WWDDL","all":{"played":16,"win":7,"draw":5,"lose":4,"goals":{"for":17,"against":13}}},{"rank":9,"team":{"id":10092,"name":"Belgrano"},"points":26,"goalsDiff":4,"form":"WDLWW","all":{"played":16,"win":7,"draw":5,"lose":4,"goals":{"for":17,"against":13}}},{"rank":10,"team":{"id":10103,"name":"Gimnasia LP"},"points":26,"goalsDiff":0,"form":"LWWWW","all":{"played":16,"win":8,"draw":2,"lose":6,"goals":{"for":19,"against":19}}},{"rank":11,"team":{"id":10078,"name":"Independiente"},"points":24,"goalsDiff":4,"form":"WDWLW","all":{"played":16,"win":6,"draw":6,"lose":4,"goals":{"for":24,"against":20}}},{"rank":12,"team":{"id":10082,"name":"Lanus"},"points":24,"goalsDiff":3,"form":"WLDDL","all":{"played":16,"win":6,"draw":6,"lose":4,"goals":{"for":18,"against":15}}},{"rank":13,"team":{"id":10081,"name":"Huracan"},"points":22,"goalsDiff":4,"form":"WDLDW","all":{"played":16,"win":5,"draw":7,"lose":4,"goals":{"for":17,"against":13}}},{"rank":14,"team":{"id":10083,"name":"San Lorenzo"},"points":22,"goalsDiff":0,"form":"WDDWL","all":{"played":16,"win":5,"draw":7,"lose":4,"goals":{"for":14,"against":14}}},{"rank":15,"team":{"id":10096,"name":"Union"},"points":21,"goalsDiff":4,"form":"LLDDW","all":{"played":16,"win":5,"draw":6,"lose":5,"goals":{"for":24,"against":20}}},{"rank":16,"team":{"id":10080,"name":"Racing Club"},"points":21,"goalsDiff":2,"form":"LLDDD","all":{"played":16,"win":5,"draw":6,"lose":5,"goals":{"for":17,"against":15}}},{"rank":17,"team":{"id":10090,"name":"Instituto"},"points":21,"goalsDiff":0,"form":"WWLDW","all":{"played":16,"win":6,"draw":3,"lose":7,"goals":{"for":17,"against":17}}},{"rank":18,"team":{"id":213534,"name":"Barracas Central"},"points":21,"goalsDiff":0,"form":"LWDDL","all":{"played":16,"win":5,"draw":6,"lose":5,"goals":{"for":15,"against":15}}},{"rank":19,"team":{"id":89396,"name":"Tigre"},"points":20,"goalsDiff":3,"form":"LDDLD","all":{"played":16,"win":4,"draw":8,"lose":4,"goals":{"for":18,"against":15}}},{"rank":20,"team":{"id":161730,"name":"Defensa y Justicia"},"points":19,"goalsDiff":-3,"form":"LLLLL","all":{"played":16,"win":4,"draw":7,"lose":5,"goals":{"for":18,"against":21}}},{"rank":21,"team":{"id":202757,"name":"Sarmiento"},"points":19,"goalsDiff":-7,"form":"WLLWL","all":{"played":16,"win":6,"draw":1,"lose":9,"goals":{"for":13,"against":20}}},{"rank":22,"team":{"id":568727,"name":"Gimnasia Mendoza"},"points":19,"goalsDiff":-8,"form":"WDWLW","all":{"played":16,"win":5,"draw":4,"lose":7,"goals":{"for":14,"against":22}}},{"rank":23,"team":{"id":10087,"name":"Banfield"},"points":18,"goalsDiff":-2,"form":"LLDDW","all":{"played":16,"win":5,"draw":3,"lose":8,"goals":{"for":17,"against":19}}},{"rank":24,"team":{"id":10089,"name":"Club Atletico Platense"},"points":16,"goalsDiff":-5,"form":"DDLLL","all":{"played":16,"win":3,"draw":7,"lose":6,"goals":{"for":10,"against":15}}},{"rank":25,"team":{"id":213596,"name":"Central Cordoba de Santiago"},"points":16,"goalsDiff":-10,"form":"LLWDL","all":{"played":16,"win":4,"draw":4,"lose":8,"goals":{"for":11,"against":21}}},{"rank":26,"team":{"id":10201,"name":"Newell's Old Boys"},"points":15,"goalsDiff":-12,"form":"WDWDD","all":{"played":16,"win":3,"draw":6,"lose":7,"goals":{"for":15,"against":27}}},{"rank":27,"team":{"id":161727,"name":"Atletico Tucuman"},"points":14,"goalsDiff":-5,"form":"LDLDW","all":{"played":16,"win":3,"draw":5,"lose":8,"goals":{"for":15,"against":20}}},{"rank":28,"team":{"id":298629,"name":"Deportivo Riestra"},"points":11,"goalsDiff":-7,"form":"LLLWD","all":{"played":16,"win":1,"draw":8,"lose":7,"goals":{"for":5,"against":12}}},{"rank":29,"team":{"id":161728,"name":"Aldosivi"},"points":8,"goalsDiff":-13,"form":"DLDLD","all":{"played":16,"win":0,"draw":8,"lose":8,"goals":{"for":6,"against":19}}},{"rank":30,"team":{"id":213591,"name":"Estudiantes de Rio Cuarto"},"points":5,"goalsDiff":-19,"form":"DLLLL","all":{"played":16,"win":1,"draw":2,"lose":13,"goals":{"for":5,"against":24}}}],[{"rank":1,"team":{"id":10077,"name":"Boca Juniors"},"points":159,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":2,"team":{"id":10076,"name":"River Plate"},"points":152,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":3,"team":{"id":10080,"name":"Racing Club"},"points":144,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":4,"team":{"id":10079,"name":"Velez Sarsfield"},"points":144,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":5,"team":{"id":10086,"name":"Argentinos Juniors"},"points":142,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":6,"team":{"id":10084,"name":"Rosario Central"},"points":141,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":7,"team":{"id":10094,"name":"Estudiantes"},"points":136,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":8,"team":{"id":10078,"name":"Independiente"},"points":134,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":9,"team":{"id":10082,"name":"Lanus"},"points":133,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":10,"team":{"id":10101,"name":"Talleres"},"points":132,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":11,"team":{"id":10081,"name":"Huracan"},"points":131,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":12,"team":{"id":161729,"name":"Independiente Rivadavia"},"points":123,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":13,"team":{"id":10096,"name":"Union"},"points":120,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":14,"team":{"id":213534,"name":"Barracas Central"},"points":119,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":15,"team":{"id":10083,"name":"San Lorenzo"},"points":118,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":16,"team":{"id":161730,"name":"Defensa y Justicia"},"points":115,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":17,"team":{"id":10103,"name":"Gimnasia LP"},"points":112,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":18,"team":{"id":10092,"name":"Belgrano"},"points":112,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":19,"team":{"id":298629,"name":"Deportivo Riestra"},"points":111,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":20,"team":{"id":10089,"name":"Club Atletico Platense"},"points":108,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":21,"team":{"id":89396,"name":"Tigre"},"points":108,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":22,"team":{"id":10090,"name":"Instituto"},"points":108,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":23,"team":{"id":568727,"name":"Gimnasia Mendoza"},"points":19,"goalsDiff":0,"form":"","all":{"played":16,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":24,"team":{"id":213596,"name":"Central Cordoba de Santiago"},"points":100,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":25,"team":{"id":161727,"name":"Atletico Tucuman"},"points":98,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":26,"team":{"id":10201,"name":"Newell's Old Boys"},"points":97,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":27,"team":{"id":10087,"name":"Banfield"},"points":94,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":28,"team":{"id":202757,"name":"Sarmiento"},"points":89,"goalsDiff":0,"form":"","all":{"played":89,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":29,"team":{"id":161728,"name":"Aldosivi"},"points":41,"goalsDiff":0,"form":"","all":{"played":48,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}},{"rank":30,"team":{"id":213591,"name":"Estudiantes de Rio Cuarto"},"points":5,"goalsDiff":0,"form":"","all":{"played":16,"win":0,"draw":0,"lose":0,"goals":{"for":0,"against":0}}}]];
+
+let tablaData=TABLA_DATA_HARDCODED, tablaZona='B', simZonaT='B', selectedTeamsT=[], simStateT=null, simFechaIdxT=0, elimOpenT=false, tablaNextRival={}, simModeActive=false, simAutoTimer=null;
 
 function escudoImgT(id,size=22){
   const img=document.createElement('img');
@@ -2377,40 +2379,6 @@ function escudoImgT(id,size=22){
   img.src=`/fotosEscudos/${ESCUDO_MAP[id]||'argentinosjuniors'}.png`;
   img.onerror=()=>{img.style.display='none';};
   return img;
-}
-
-async function fetchTablaData(){
-  const [sRes,f13Res,f14Res]=await Promise.all([
-    fetch(`https://v3.football.api-sports.io/standings?league=128&season=2026`,{headers:{'x-apisports-key':API_KEY_TABLA}}),
-    fetch(`https://v3.football.api-sports.io/fixtures?league=128&season=2026&round=Regular%20Season%20-%2013`,{headers:{'x-apisports-key':API_KEY_TABLA}}),
-    fetch(`https://v3.football.api-sports.io/fixtures?league=128&season=2026&round=Regular%20Season%20-%2014`,{headers:{'x-apisports-key':API_KEY_TABLA}})
-  ]);
-  const sData=await sRes.json();
-  const f13Data=await f13Res.json();
-  const f14Data=await f14Res.json();
-  // Construir mapa próximo rival: para cada equipo, si ya jugó fecha 13 → próximo es 14, sino es 13
-  const nextRival={};
-  const played13=new Set();
-  (f13Data.response||[]).forEach(f=>{
-    if(f.fixture.status.short==='FT'||f.fixture.status.short==='AET'||f.fixture.status.short==='PEN'){
-      played13.add(f.teams.home.id);
-      played13.add(f.teams.away.id);
-    }
-  });
-  // Asignar próximo rival fecha 13 (para los que no jugaron aún)
-  (f13Data.response||[]).forEach(f=>{
-    const ns=f.fixture.status.short==='NS'||f.fixture.status.short==='1H'||f.fixture.status.short==='HT'||f.fixture.status.short==='2H';
-    if(ns){
-      nextRival[f.teams.home.id]={id:f.teams.away.id,local:true};
-      nextRival[f.teams.away.id]={id:f.teams.home.id,local:false};
-    }
-  });
-  // Asignar próximo rival fecha 14 (para los que ya jugaron fecha 13)
-  (f14Data.response||[]).forEach(f=>{
-    if(!nextRival[f.teams.home.id])nextRival[f.teams.home.id]={id:f.teams.away.id,local:true};
-    if(!nextRival[f.teams.away.id])nextRival[f.teams.away.id]={id:f.teams.home.id,local:false};
-  });
-  return {standings:sData.response[0].league.standings, nextRival};
 }
 
 function formChips(form){
@@ -2798,21 +2766,12 @@ function closeTabla(){
 }
 
 async function loadTablaData(){
-  try{
-    const result=await fetchTablaData();
-    tablaData=result.standings;
-    tablaNextRival=result.nextRival;
-    // Default: Zona B (donde está Argentinos)
-    renderTablaT(tablaData[1],document.getElementById('tabla-content'),tablaNextRival);
-    renderAnualT(tablaData[2],document.getElementById('anual-content'));
-    renderPromediosT(tablaData[3],document.getElementById('promedios-content'));
-    initPlayoff();
-  }catch(e){
-    console.error('[tabla] error al cargar:', e);
-    ['tabla-content','anual-content','promedios-content'].forEach(id=>{
-      document.getElementById(id).innerHTML='<div style="text-align:center;color:var(--rojo);font-size:12px;padding:20px;">Error al cargar. Intentá de nuevo.<br><span style="font-size:10px;color:#888;">'+(e?.message||e)+'</span></div>';
-    });
-  }
+  tablaData = TABLA_DATA_HARDCODED;
+  tablaNextRival = {};
+  renderTablaT(tablaData[1], document.getElementById('tabla-content'), tablaNextRival);
+  renderAnualT(tablaData[2], document.getElementById('anual-content'));
+  renderPromediosT(tablaData[3], document.getElementById('promedios-content'));
+  initPlayoff();
 }
 
 // Tabs
