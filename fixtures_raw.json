@@ -663,30 +663,39 @@
         "opponent": {
           "id": 161729,
           "name": "Independiente Rivadavia",
-          "score": 0
+          "score": 3
         },
         "home": {
           "id": 161729,
           "name": "Independiente Rivadavia",
-          "score": 0
+          "score": 3
         },
         "away": {
           "id": 10086,
           "name": "Argentinos Juniors",
-          "score": 0
+          "score": 1
         },
         "displayTournament": false,
-        "notStarted": true,
+        "result": -1,
+        "notStarted": false,
         "tournament": {
           "name": "Liga Profesional Apertura",
           "stage": "",
           "leagueId": 112
         },
         "status": {
-          "utcTime": "2026-04-11T20:15:00.000Z",
-          "started": false,
+          "utcTime": "2026-04-11T18:30:00.000Z",
+          "finished": true,
+          "started": true,
           "cancelled": false,
-          "finished": false
+          "awarded": false,
+          "scoreStr": "3 - 1",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
         }
       },
       {
@@ -700,7 +709,7 @@
         "home": {
           "id": 10086,
           "name": "Argentinos Juniors",
-          "score": 0
+          "score": 1
         },
         "away": {
           "id": 161727,
@@ -708,7 +717,8 @@
           "score": 0
         },
         "displayTournament": false,
-        "notStarted": true,
+        "result": 1,
+        "notStarted": false,
         "tournament": {
           "name": "Liga Profesional Apertura",
           "stage": "",
@@ -716,9 +726,17 @@
         },
         "status": {
           "utcTime": "2026-04-19T00:45:00.000Z",
-          "started": false,
+          "finished": true,
+          "started": true,
           "cancelled": false,
-          "finished": false
+          "awarded": false,
+          "scoreStr": "1 - 0",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
         }
       },
       {
@@ -727,20 +745,21 @@
         "opponent": {
           "id": 10081,
           "name": "Huracan",
-          "score": 0
+          "score": 1
         },
         "home": {
           "id": 10081,
           "name": "Huracan",
-          "score": 0
+          "score": 1
         },
         "away": {
           "id": 10086,
           "name": "Argentinos Juniors",
-          "score": 0
+          "score": 2
         },
         "displayTournament": false,
-        "notStarted": true,
+        "result": 1,
+        "notStarted": false,
         "tournament": {
           "name": "Liga Profesional Apertura",
           "stage": "",
@@ -748,9 +767,17 @@
         },
         "status": {
           "utcTime": "2026-04-28T00:00:00.000Z",
-          "started": false,
+          "finished": true,
+          "started": true,
           "cancelled": false,
-          "finished": false
+          "awarded": false,
+          "scoreStr": "1 - 2",
+          "reason": {
+            "short": "FT",
+            "shortKey": "fulltime_short",
+            "long": "Full-Time",
+            "longKey": "finished"
+          }
         }
       },
       {
@@ -779,9 +806,7 @@
           "leagueId": 112
         },
         "status": {
-          "utcTime": "2026-05-03T20:00:00.000Z",
-          "matchDateTbd": true,
-          "matchTimeTbd": false,
+          "utcTime": "2026-05-03T19:00:00.000Z",
           "started": false,
           "cancelled": false,
           "finished": false
@@ -1333,16 +1358,16 @@
       }
     ],
     "nextMatch": {
-      "id": 5102082,
-      "pageUrl": "/matches/argentinos-juniors-vs-independiente-rivadavia/6s3zk25#5102082",
+      "id": 5102004,
+      "pageUrl": "/matches/argentinos-juniors-vs-gimnasia-lp/3dcj0q#5102004",
       "opponent": {
-        "id": 161729,
-        "name": "Independiente Rivadavia",
+        "id": 10103,
+        "name": "Gimnasia LP",
         "score": 0
       },
       "home": {
-        "id": 161729,
-        "name": "Independiente Rivadavia",
+        "id": 10103,
+        "name": "Gimnasia LP",
         "score": 0
       },
       "away": {
@@ -1358,28 +1383,28 @@
         "leagueId": 112
       },
       "status": {
-        "utcTime": "2026-04-11T20:15:00.000Z",
+        "utcTime": "2026-05-03T19:00:00.000Z",
         "started": false,
         "cancelled": false,
         "finished": false
       }
     },
     "lastMatch": {
-      "id": 5102060,
-      "pageUrl": "/matches/argentinos-juniors-vs-banfield/3d5luq#5102060",
+      "id": 5102110,
+      "pageUrl": "/matches/huracan-vs-argentinos-juniors/3d30gy#5102110",
       "opponent": {
-        "id": 10087,
-        "name": "Banfield",
-        "score": 2
+        "id": 10081,
+        "name": "Huracan",
+        "score": 1
       },
       "home": {
-        "id": 10086,
-        "name": "Argentinos Juniors",
-        "score": 3
+        "id": 10081,
+        "name": "Huracan",
+        "score": 1
       },
       "away": {
-        "id": 10087,
-        "name": "Banfield",
+        "id": 10086,
+        "name": "Argentinos Juniors",
         "score": 2
       },
       "displayTournament": false,
@@ -1391,12 +1416,12 @@
         "leagueId": 112
       },
       "status": {
-        "utcTime": "2026-04-06T22:00:00.000Z",
+        "utcTime": "2026-04-28T00:00:00.000Z",
         "finished": true,
         "started": true,
         "cancelled": false,
         "awarded": false,
-        "scoreStr": "3 - 2",
+        "scoreStr": "1 - 2",
         "reason": {
           "short": "FT",
           "shortKey": "fulltime_short",

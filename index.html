@@ -23,7 +23,7 @@
   --dark: #0d0d1a;
   --dark2: #1a1a2e;
   --verde-banfield: #2e7d32;
-  --azul-rival: #1565c0;
+  --azul-rival: #5d4037;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -109,7 +109,7 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
 .pc { position: absolute; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.5); }
 
 #rival-toggle-bar { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 8px 0 6px; }
-.rival-toggle-btn { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 1px; background: rgba(21,101,192,0.2); color: #64b5f6; border: 1px solid var(--azul-rival); border-radius: 20px; padding: 5px 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+.rival-toggle-btn { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 1px; background: rgba(93,64,55,0.2); color: #d7ccc8; border: 1px solid var(--azul-rival); border-radius: 20px; padding: 5px 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
 .rival-toggle-btn.active { background: var(--azul-rival); color: #fff; }
 .rival-toggle-btn .toggle-dot { width: 8px; height: 8px; border-radius: 50%; background: #64b5f6; transition: background 0.2s; }
 .rival-toggle-btn.active .toggle-dot { background: #fff; }
@@ -135,7 +135,7 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
 .player-bubble img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: none; }
 .player-bubble .fallback-num { font-family: 'Bebas Neue', sans-serif; font-size: var(--pfs, 16px); color: #fff; }
 .player-numtag { font-size: var(--ntfs, 10px); color: #fff; font-weight: 500; background: var(--rojo); border: 1.5px solid #fff; border-radius: 8px; padding: 1px 5px; margin-top: 2px; line-height: 1.3; white-space: nowrap; }
-.player-numtag.banfield { background: var(--azul-rival); }
+.player-numtag.banfield { background: var(--azul-rival); color: #fff; border-color: #fff; }
 .player-on-pitch .xbtn { position: absolute; top: -5px; right: -5px; width: 16px; height: 16px; border-radius: 50%; background: var(--rojo-dark); border: none; color: #fff; font-size: 9px; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 5; }
 .player-on-pitch:hover .xbtn { display: flex; }
 .player-on-pitch.rival-player { opacity: 0.85; z-index: 9; }
@@ -201,6 +201,8 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
 .score-btn { width: 26px; height: 26px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: #aaa; font-size: 11px; font-weight: 500; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; }
 .score-btn:hover { border-color: var(--rojo); color: #fff; }
 .score-btn.selected { background: var(--rojo); border-color: var(--rojo); color: #fff; }
+.score-btn.skip { color: #555; font-size: 9px; letter-spacing: 0.5px; }
+.score-btn.skip.selected { background: #333; border-color: #666; color: #aaa; }
 #scores-confirm-btn { font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 1px; background: var(--rojo); color: #fff; border: none; border-radius: 8px; padding: 12px; cursor: pointer; width: 100%; margin-top: 16px; opacity: 0.3; transition: opacity 0.3s; }
 #scores-confirm-btn.ready { opacity: 1; animation: pulse-btn 1s ease-in-out 3; }
 #scores-success { display: none; position: absolute; inset: 0; background: rgba(15,15,30,0.97); flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 20px; text-align: center; z-index: 50; }
@@ -282,7 +284,7 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
     <div id="sim-fecha-nav-inline" style="display:none;align-items:center;justify-content:space-between;margin-bottom:8px;background:rgba(255,255,255,0.04);border-radius:8px;padding:6px 10px;">
       <button id="sim-prev-inline" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">‹</button>
       <div style="text-align:center;">
-        <div id="sim-fecha-inline-label" style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:#fff;">FECHA 14</div>
+        <div id="sim-fecha-inline-label" style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;color:#fff;">FECHA 15</div>
         <div id="sim-fecha-inline-sub" style="font-size:10px;color:#666;"></div>
       </div>
       <button id="sim-next-inline" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">›</button>
@@ -309,7 +311,7 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
       <div class="carousel-track" id="track-left"></div>
     </div>
     <div class="panel-overlay">
-      <div class="panel-tag">⚽ vs Ind. Rivadavia</div>
+      <div class="panel-tag">⚽ vs Lanús</div>
       <div class="panel-title">ARMÁ TU FORMACIÓN</div>
       <div class="panel-sub">Elegí los 11 titulares que pondrías vos</div>
       <button class="panel-cta">ENTRAR →</button>
@@ -360,12 +362,12 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
   </div>
   <div id="header">
     <h1>⚽ Armá tu formación</h1>
-    <div class="rival-tag">AAAJ vs Ind. Rivadavia</div>
+    <div class="rival-tag">AAAJ vs Lanús</div>
     <p>Arrastrá jugadores del banco a la cancha · Soltá en el banco para quitar</p>
   </div>
   <div id="rival-toggle-bar">
     <button class="rival-toggle-btn" id="rival-btn" onclick="toggleRival()">
-      <span class="toggle-dot"></span>VER RIVAL (IND. RIVADAVIA)
+      <span class="toggle-dot"></span>VER RIVAL (LANÚS)
     </button>
   </div>
   <div id="pitch-row">
@@ -421,7 +423,7 @@ html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(-
   <button class="back-btn" onclick="goHome()">← Volver</button>
   <div class="scores-header">
     <h1>⭐ Puntuá el partido</h1>
-    <div class="rival-tag">AAAJ vs Ind. Rivadavia</div>
+    <div class="rival-tag">AAAJ vs Lanús</div>
     <p>Poné tu nota del 1 al 10 a cada jugador</p>
   </div>
   <div id="scores-list"></div>
@@ -456,39 +458,139 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 // ============================================================
 // FECHA ACTUAL (actualizar cada fecha):
-const RIVAL = 'Independiente Rivadavia';
-const LS_KEY = 'aaaj_vs_ind_rivadavia';
-const LS_FORMATION_KEY = 'aaaj_vs_ind_rivadavia_formacion';
-const LS_SCORES_KEY = 'aaaj_vs_ind_rivadavia_puntajes';
+const RIVAL = 'Lanús';
+const LS_KEY = 'aaaj_vs_lanus_playoff1';
+const LS_FORMATION_KEY = 'aaaj_vs_lanus_playoff1_formacion';
+const LS_SCORES_KEY = 'aaaj_vs_lanus_playoff1_puntajes';
 const SCORES_ENABLED = true;
 
 const playedSquad = [
   {num:25, name:'Cortés',     fid:424153,  tipo:'titular'},
-  {num:14, name:'Coronel',    fid:1575797, tipo:'titular'},
-  {num:4,  name:'Godoy',      fid:316878,  tipo:'titular'},
+  {num:22, name:'Lozano',     fid:1238138, tipo:'titular'},
+  {num:16, name:'Álvarez',    fid:920404,  tipo:'titular'},
   {num:6,  name:'Riquelme',   fid:1277345, tipo:'titular'},
   {num:20, name:'Prieto',     fid:841913,  tipo:'titular'},
+  {num:10, name:'Lescano',    fid:1342579, tipo:'titular'},
   {num:24, name:'Fattori',    fid:616508,  tipo:'titular'},
   {num:11, name:'Oroz',       fid:543304,  tipo:'titular'},
   {num:23, name:'López',      fid:1037535, tipo:'titular'},
-  {num:10, name:'Lescano',    fid:1342579, tipo:'titular'},
-  {num:29, name:'Viveros',    fid:1304246, tipo:'titular'},
-  {num:30, name:'Morales',    fid:785840,  tipo:'titular'},
-  {num:48, name:'Jainikoski', fid:1843096, tipo:'suplente'},
-  {num:8,  name:'Gómez',      fid:1609797, tipo:'suplente'},
+  {num:27, name:'Molina',     fid:728323,  tipo:'titular'},
+  {num:48, name:'Jainikoski', fid:1843096, tipo:'titular'},
   {num:47, name:'Porcel',     fid:1648046, tipo:'suplente'},
-  {num:31, name:'Carrizo',    fid:1842716, tipo:'suplente'},
-  {num:18, name:'Fernández',  fid:306126,  tipo:'suplente'},
+  {num:30, name:'Morales',    fid:785840,  tipo:'suplente'},
+  {num:26, name:'Bravo',      fid:723489,  tipo:'suplente'},
+  {num:33, name:'Enzo Pérez', fid:40148,   tipo:'suplente'},
+  {num:4,  name:'Godoy',      fid:316878,  tipo:'suplente'},
+  {num:0,  name:'N. Diez',    fid:49658,   tipo:'dt'},
 ];
 // ============================================================
 
 // ===== HISTORIAL DE FECHAS =====
 const FECHAS = [
   {
+    num: 'PO1',
+    label: 'Playoff 1',
+    rival: 'Lanús',
+    escudoFile: 'lanus',
+    isCurrent: true
+  },
+  {
+    num: 9,
+    rival: 'Gimnasia La Plata',
+    escudoFile: 'gimnasialp',
+    isCurrent: false,
+    playedSquad: [
+      {num:25, name:'Cortés',     fid:424153,  tipo:'titular'},
+      {num:14, name:'Coronel',    fid:1575797, tipo:'titular'},
+      {num:16, name:'Álvarez',    fid:920404,  tipo:'titular'},
+      {num:4,  name:'Godoy',      fid:316878,  tipo:'titular'},
+      {num:20, name:'Prieto',     fid:841913,  tipo:'titular'},
+      {num:10, name:'Lescano',    fid:1342579, tipo:'titular'},
+      {num:24, name:'Fattori',    fid:616508,  tipo:'titular'},
+      {num:11, name:'Oroz',       fid:543304,  tipo:'titular'},
+      {num:30, name:'Morales',    fid:785840,  tipo:'titular'},
+      {num:27, name:'Molina',     fid:728323,  tipo:'titular'},
+      {num:48, name:'Jainikoski', fid:1843096, tipo:'titular'},
+      {num:8,  name:'Gómez',      fid:1609797, tipo:'suplente'},
+      {num:23, name:'López',      fid:1037535, tipo:'suplente'},
+      {num:21, name:'Florentín',  fid:1054269, tipo:'suplente'},
+      {num:7,  name:'Giaccone',   fid:1220657, tipo:'suplente'},
+      {num:47, name:'Porcel',     fid:1648046, tipo:'suplente'},
+      {num:0,  name:'N. Diez',    fid:49658,   tipo:'dt'},
+    ]
+  },
+  {
+    num: 16,
+    rival: 'Huracán',
+    escudoFile: 'huracan',
+    isCurrent: false,
+    playedSquad: [
+      {num:25, name:'Cortés',     fid:424153,  tipo:'titular'},
+      {num:22, name:'Lozano',     fid:1238138, tipo:'titular'},
+      {num:16, name:'Álvarez',    fid:920404,  tipo:'titular'},
+      {num:6,  name:'Riquelme',   fid:1277345, tipo:'titular'},
+      {num:20, name:'Prieto',     fid:841913,  tipo:'titular'},
+      {num:10, name:'Lescano',    fid:1342579, tipo:'titular'},
+      {num:24, name:'Fattori',    fid:616508,  tipo:'titular'},
+      {num:11, name:'Oroz',       fid:543304,  tipo:'titular'},
+      {num:30, name:'Morales',    fid:785840,  tipo:'titular'},
+      {num:27, name:'Molina',     fid:728323,  tipo:'titular'},
+      {num:48, name:'Jainikoski', fid:1843096, tipo:'titular'},
+      {num:8,  name:'Gómez',      fid:1609797, tipo:'suplente'},
+      {num:26, name:'Bravo',      fid:723489,  tipo:'suplente'},
+      {num:47, name:'Porcel',     fid:1648046, tipo:'suplente'},
+      {num:4,  name:'Godoy',      fid:316878,  tipo:'suplente'},
+      {num:7,  name:'Giaccone',   fid:1220657, tipo:'suplente'},
+      {num:0,  name:'N. Diez',    fid:49658,   tipo:'dt'},
+    ]
+  },
+  {
+    num: 15,
+    rival: 'Atlético Tucumán',
+    escudoFile: 'atleticotucuman',
+    isCurrent: false,
+    playedSquad: [
+      {num:25, name:'Cortés',     fid:424153,  tipo:'titular'},
+      {num:14, name:'Coronel',    fid:1575797, tipo:'titular'},
+      {num:16, name:'Álvarez',    fid:920404,  tipo:'titular'},
+      {num:6,  name:'Riquelme',   fid:1277345, tipo:'titular'},
+      {num:20, name:'Prieto',     fid:841913,  tipo:'titular'},
+      {num:24, name:'Fattori',    fid:616508,  tipo:'titular'},
+      {num:11, name:'Oroz',       fid:543304,  tipo:'titular'},
+      {num:10, name:'Lescano',    fid:1342579, tipo:'titular'},
+      {num:48, name:'Jainikoski', fid:1843096, tipo:'titular'},
+      {num:30, name:'Morales',    fid:785840,  tipo:'titular'},
+      {num:27, name:'Molina',     fid:728323,  tipo:'titular'},
+      {num:7,  name:'Giaccone',   fid:1220657, tipo:'suplente'},
+      {num:8,  name:'Gómez',      fid:1609797, tipo:'suplente'},
+      {num:4,  name:'Godoy',      fid:316878,  tipo:'suplente'},
+      {num:33, name:'Enzo Pérez', fid:40148,   tipo:'suplente'},
+      {num:47, name:'Porcel',     fid:1648046, tipo:'suplente'},
+    ]
+  },
+  {
     num: 14,
     rival: 'Independiente Rivadavia',
     escudoFile: 'independienterivadavia',
-    isCurrent: true
+    isCurrent: false,
+    playedSquad: [
+      {num:25, name:'Cortés',     fid:424153,  tipo:'titular'},
+      {num:14, name:'Coronel',    fid:1575797, tipo:'titular'},
+      {num:4,  name:'Godoy',      fid:316878,  tipo:'titular'},
+      {num:6,  name:'Riquelme',   fid:1277345, tipo:'titular'},
+      {num:20, name:'Prieto',     fid:841913,  tipo:'titular'},
+      {num:24, name:'Fattori',    fid:616508,  tipo:'titular'},
+      {num:11, name:'Oroz',       fid:543304,  tipo:'titular'},
+      {num:23, name:'López',      fid:1037535, tipo:'titular'},
+      {num:10, name:'Lescano',    fid:1342579, tipo:'titular'},
+      {num:29, name:'Viveros',    fid:1304246, tipo:'titular'},
+      {num:30, name:'Morales',    fid:785840,  tipo:'titular'},
+      {num:48, name:'Jainikoski', fid:1843096, tipo:'suplente'},
+      {num:8,  name:'Gómez',      fid:1609797, tipo:'suplente'},
+      {num:47, name:'Porcel',     fid:1648046, tipo:'suplente'},
+      {num:31, name:'Carrizo',    fid:1842716, tipo:'suplente'},
+      {num:18, name:'Fernández',  fid:306126,  tipo:'suplente'},
+    ]
   },
   {
     num: 13,
@@ -516,7 +618,7 @@ const FECHAS = [
 ];
 
 const FOTO = id => `/fotos/${id}.png`;
-const FOTO_B = id => `/fotosIndependienteRivadavia/${id}.png`;
+const FOTO_B = id => `/fotosLanus/${id}.png`;
 
 const squad = [
   {num:1,  name:'Mangiaut',    fid:1680187},
@@ -552,29 +654,31 @@ const squad = [
   {num:34, name:'Kida',        fid:1383188},
   {num:36, name:'Bouhier',     fid:1789719},
   {num:38, name:'Fernández R', fid:1929107},
+  {num:42, name:'Gianini',     fid:1924773},
   {num:47, name:'Porcel',      fid:1648046},
   {num:48, name:'Jainikoski',  fid:1843096},
   {num:50, name:'Rodríguez',   fid:186986},
 ].sort((a,b)=>a.num-b.num);
 
-// Rival squad — Independiente Rivadavia F14
+// Rival squad — Lanús Playoff 1
 const banfieldSquad = [
-  {num:1,  name:'Bolcato',   fid:1844779, x:49.8, y:5.8},
-  {num:36, name:'Bonifacio', fid:566259,  x:13.2, y:35.3},
-  {num:43, name:'Ríos',      fid:1314171, x:18.4, y:66.8},
-  {num:2,  name:'Costa',     fid:1344767, x:50.3, y:18.9},
-  {num:40, name:'Villalba',  fid:805771,  x:29.6, y:22.3},
-  {num:42, name:'Studer',    fid:1559675, x:71.6, y:22},
-  {num:25, name:'Florentín', fid:1129078, x:49.8, y:41.9},
-  {num:10, name:'Fernández', fid:1273505, x:49.8, y:63.8},
-  {num:14, name:'Gómez',     fid:725483,  x:86,   y:35.2},
-  {num:9,  name:'Arce',      fid:1320444, x:50,   y:81},
-  {num:22, name:'Villa',     fid:859319,  x:82.4, y:67.2},
+  {num:26, name:'Losada',       fid:529372,  x:50,   y:8},
+  {num:33, name:'Guidara',      fid:845260,  x:15.1, y:30.5},
+  {num:24, name:'Izquierdoz',   fid:210726,  x:39.8, y:23.4},
+  {num:13, name:'Canale',       fid:860890,  x:65.5, y:23.6},
+  {num:6,  name:'Marcich',      fid:1232257, x:86.6, y:28.8},
+  {num:5,  name:'Peña Biafore', fid:1256244, x:33.8, y:42.9},
+  {num:30, name:'Cardozo',      fid:795163,  x:67.4, y:43.3},
+  {num:10, name:'M. Moreno',    fid:561737,  x:49,   y:63.9},
+  {num:23, name:'Carrera',      fid:469007,  x:49.5, y:81.1},
+  {num:9,  name:'Salvio',       fid:150093,  x:17.3, y:65},
+  {num:25, name:'Aquino',       fid:1499651, x:81.4, y:64.7},
 ];
 
-const GOALKEEPERS = [1,12,32,50];
-const INJURED = [50, 22, 21, 19, 9];
-const SUSPENDED = [16];
+const GOALKEEPERS = [12,32];
+// No convocados (todos disponibles para Playoff 1 vs Lanús):
+const INJURED = [];
+const SUSPENDED = [];
 let onPitch=[], draggingNew=null, activePitchDrag=null;
 let dragOffX=0, dragOffY=0, sending=false, wasReady=false;
 let rivalVisible=false, rivalElements=[];
@@ -665,7 +769,7 @@ function updatePlayerSizes() {
 const ro = new ResizeObserver(() => updatePlayerSizes());
 ro.observe(pitch); updatePlayerSizes();
 
-function showToast(msg) { toast.textContent=msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),3000); }
+function showToast(msg, duration=3000) { toast.textContent=msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),duration); }
 
 function updateCounter() {
   const n=onPitch.length;
@@ -775,6 +879,8 @@ function toggleRival(){
     banfieldSquad.forEach(p=>{
       const el=makePitchPlayer(p,true);
       el.style.left=p.x+'%'; el.style.top=p.y+'%';
+      el.addEventListener('touchstart',ev=>startRivalDrag(ev,el,p),{passive:false});
+      el.addEventListener('mousedown',ev=>startRivalDrag(ev,el,p));
       pitch.appendChild(el); rivalElements.push(el);
     });
   } else {
@@ -899,8 +1005,21 @@ document.getElementById('confirm-btn').addEventListener('click',async()=>{
     if(res.ok||res.status===201){
       try{localStorage.setItem(LS_KEY,'1');localStorage.setItem(LS_FORMATION_KEY,JSON.stringify(jugadores));}catch(e){}
       if(rivalVisible){ rivalElements.forEach(el=>el.remove()); rivalElements=[]; rivalVisible=false; document.getElementById('rival-btn').classList.remove('active'); }
-      showToast('¡Formación enviada! Gracias, Bicho 🔴🤍');
       updateCounter();
+      try{
+        const allRes=await fetch(`${SUPABASE_URL}/rest/v1/formaciones?select=jugadores&rival=eq.${encodeURIComponent(RIVAL)}`,{headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`}});
+        const allData=await allRes.json();
+        if(Array.isArray(allData)&&allData.length>=2){
+          const counts={};
+          allData.forEach(row=>{(row.jugadores||[]).forEach(j=>{counts[j.num]=(counts[j.num]||0)+1;});});
+          const top11=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,11).map(([n])=>Number(n));
+          const matches=jugadores.filter(j=>top11.includes(j.num)).length;
+          const pct=Math.round((matches/11)*100);
+          showToast(`¡Enviada! Tu coincidencia con la gente: ${pct}% 🔴🤍`,5000);
+        } else {
+          showToast('¡Formación enviada! Gracias, Bicho 🔴🤍');
+        }
+      }catch(e){ showToast('¡Formación enviada! Gracias, Bicho 🔴🤍'); }
     } else showToast('Error al guardar. Intentá de nuevo.');
   }catch(e){showToast('Error de conexión.');}
   finally{sending=false;}
@@ -929,33 +1048,17 @@ async function showResults(){
     totalEl.textContent=`${total} formación${total!==1?'es':''} enviada${total!==1?'s':''}`;
     list.innerHTML='';
     const tiersBase=[
-      {cls:'tier-s', min:81, max:100},
-      {cls:'tier-a', min:61, max:80},
-      {cls:'tier-b', min:41, max:60},
-      {cls:'tier-c', min:21, max:40},
-      {cls:'tier-d', min:0,  max:20},
+      {label:'81-100%', cls:'tier-s', min:81, max:100},
+      {label:'61-80%',  cls:'tier-a', min:61, max:80},
+      {label:'41-60%',  cls:'tier-b', min:41, max:60},
+      {label:'21-40%',  cls:'tier-c', min:21, max:40},
+      {label:'0-20%',   cls:'tier-d', min:0,  max:20},
     ];
-    // Fusionar tiers vacíos con el anterior
-    const mergedTiers=[];
-    for(let i=0;i<tiersBase.length;i++){
-      const t=tiersBase[i];
-      const inT=players.filter(p=>p.pct>=t.min&&p.pct<=t.max);
-      if(!inT.length&&mergedTiers.length>0){
-        mergedTiers[mergedTiers.length-1].min=Math.min(mergedTiers[mergedTiers.length-1].min,t.min);
-      } else {
-        mergedTiers.push({...t});
-      }
-    }
-    function tierLabel(min,max){
-      if(min===81&&max===100) return '81-100%';
-      if(max===100) return min+'%+';
-      return min+'-'+max+'%';
-    }
-    mergedTiers.forEach(tier=>{
+    tiersBase.forEach(tier=>{
       const inTier=players.filter(p=>p.pct>=tier.min&&p.pct<=tier.max);
       if(!inTier.length) return;
       const row=document.createElement('div'); row.className=`tier-row ${tier.cls}`;
-      const label=document.createElement('div'); label.className='tier-label'; label.textContent=tierLabel(tier.min,tier.max);
+      const label=document.createElement('div'); label.className='tier-label'; label.textContent=tier.label;
       row.appendChild(label);
       const pDiv=document.createElement('div'); pDiv.className='tier-players';
       inTier.forEach(p=>{
@@ -1045,20 +1148,21 @@ function renderScores(){
   if(!playedSquad.length){list.innerHTML='<p style="color:#555;font-size:13px;text-align:center;padding:20px;">El DT aún no cargó los jugadores que jugaron.</p>';return;}
   const titulares=playedSquad.filter(p=>p.tipo==='titular');
   const suplentes=playedSquad.filter(p=>p.tipo==='suplente');
-  function renderGroup(title,players){
+  const dt=playedSquad.filter(p=>p.tipo==='dt');
+  function renderGroup(title,players,showSkip=false){
     if(!players.length)return;
     const t=document.createElement('div'); t.className='scores-section-title'; t.textContent=title; list.appendChild(t);
     players.forEach(p=>{
       const row=document.createElement('div'); row.className='score-player-row'; row.dataset.num=p.num;
       const avWrap=document.createElement('div'); avWrap.className='score-avatar-wrap';
       const img=document.createElement('img'); img.src=FOTO(p.fid);
-      const fb=document.createElement('span'); fb.className='av-fb'; fb.textContent=p.num;
+      const fb=document.createElement('span'); fb.className='av-fb'; fb.textContent=p.tipo==='dt'?'DT':p.num;
       img.onload=()=>{img.style.display='block';fb.style.display='none';};
       img.onerror=()=>{img.style.display='none';fb.style.display='block';};
       img.style.display='none';
       avWrap.appendChild(img); avWrap.appendChild(fb); row.appendChild(avWrap);
       const info=document.createElement('div'); info.className='score-player-info';
-      const numEl=document.createElement('div'); numEl.className='score-player-num'; numEl.textContent=`#${p.num}`;
+      const numEl=document.createElement('div'); numEl.className='score-player-num'; numEl.textContent=p.tipo==='dt'?'DT':`#${p.num}`;
       const nameEl=document.createElement('div'); nameEl.className='score-player-name'; nameEl.textContent=p.name;
       info.appendChild(numEl); info.appendChild(nameEl); row.appendChild(info);
       const btns=document.createElement('div'); btns.className='score-btns';
@@ -1072,11 +1176,23 @@ function renderScores(){
         });
         btns.appendChild(btn);
       }
+      if(showSkip){
+        const skipBtn=document.createElement('button'); skipBtn.className='score-btn skip'; skipBtn.textContent='S/P';
+        skipBtn.addEventListener('click',()=>{
+          userScores[p.num]=null;
+          btns.querySelectorAll('.score-btn').forEach(b=>b.classList.remove('selected'));
+          skipBtn.classList.add('selected');
+          row.classList.add('voted');
+          checkScoresReady();
+        });
+        btns.appendChild(skipBtn);
+      }
       row.appendChild(btns); list.appendChild(row);
     });
   }
   renderGroup('TITULARES',titulares);
-  renderGroup('SUPLENTES QUE INGRESARON',suplentes);
+  renderGroup('SUPLENTES QUE INGRESARON',suplentes,true);
+  renderGroup('DIRECTOR TÉCNICO',dt);
 }
 
 function checkScoresReady(){
@@ -1127,13 +1243,15 @@ async function downloadMyScores(){
     sub.textContent=`AAAJ vs ${RIVAL}`;
     tmp.appendChild(title); tmp.appendChild(sub);
 
+    const dtNums=new Set(playedSquad.filter(s=>s.tipo==='dt').map(s=>s.num));
     const suplNums=new Set(playedSquad.filter(s=>s.tipo==='suplente').map(s=>s.num));
-    const sorted=Object.entries(userScores).map(([num,val])=>{
+    const sorted=Object.entries(userScores).filter(([,v])=>v!==null).map(([num,val])=>{
       const p=playedSquad.find(s=>s.num===Number(num));
       return {num:Number(num),name:p?.name||`#${num}`,fid:p?.fid||0,val:Number(val)};
     }).sort((a,b)=>b.val-a.val);
-    const titSorted=sorted.filter(p=>!suplNums.has(p.num));
+    const titSorted=sorted.filter(p=>!suplNums.has(p.num)&&!dtNums.has(p.num));
     const suplSorted=sorted.filter(p=>suplNums.has(p.num));
+    const dtSorted=sorted.filter(p=>dtNums.has(p.num));
 
     if(titSorted[0])               addGrid(tmp,[titSorted[0]],1,0,52);
     if(titSorted.slice(1,3).length) addGrid(tmp,titSorted.slice(1,3),2,1,44);
@@ -1146,6 +1264,13 @@ async function downloadMyScores(){
       sep.textContent='SUPLENTES';
       tmp.appendChild(sep);
       addGrid(tmp,suplSorted,3,0,36,true);
+    }
+    if(dtSorted.length){
+      const sep=document.createElement('div');
+      sep.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:13px;color:#555;letter-spacing:2px;text-align:center;margin:10px 0 6px;';
+      sep.textContent='DIRECTOR TÉCNICO';
+      tmp.appendChild(sep);
+      addGrid(tmp,dtSorted,1,0,44,true);
     }
 
     document.body.appendChild(tmp);
@@ -1164,10 +1289,11 @@ document.getElementById('scores-confirm-btn').addEventListener('click',async()=>
   if(localStorage.getItem(LS_SCORES_KEY)){ downloadMyScores(); return; }
   if(Object.keys(userScores).length!==playedSquad.length||!playedSquad.length)return;
   try{
+    const puntajesFiltered=Object.fromEntries(Object.entries(userScores).filter(([,v])=>v!==null));
     await fetch(`${SUPABASE_URL}/rest/v1/puntajes`,{
       method:'POST',
       headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Prefer':'return=minimal'},
-      body:JSON.stringify({rival:RIVAL,puntajes:userScores})
+      body:JSON.stringify({rival:RIVAL,puntajes:puntajesFiltered})
     });
     try{localStorage.setItem(LS_SCORES_KEY,'1');}catch(e){}
     btn.textContent='⬇ Descargar puntajes';
@@ -1196,10 +1322,11 @@ async function showScoresResults(){
       return {num:Number(num),name:p?.name||`#${num}`,fid:p?.fid||0,avg:totals[num]/counts2[num]};
     }).sort((a,b)=>b.avg-a.avg);
     list.innerHTML='';
-    // Separar titulares y suplentes usando playedSquad
+    const dtNums=new Set(playedSquad.filter(s=>s.tipo==='dt').map(s=>s.num));
     const suplNums=new Set(playedSquad.filter(s=>s.tipo==='suplente').map(s=>s.num));
-    const titResults=results.filter(p=>!suplNums.has(p.num));
+    const titResults=results.filter(p=>!suplNums.has(p.num)&&!dtNums.has(p.num));
     const suplResults=results.filter(p=>suplNums.has(p.num));
+    const dtResults=results.filter(p=>dtNums.has(p.num));
 
     // Titulares: 1 / 2 / 4 / 4
     if(titResults[0])               addGrid(list,[titResults[0]],1,0,52);
@@ -1207,7 +1334,6 @@ async function showScoresResults(){
     if(titResults.slice(3,7).length) addGrid(list,titResults.slice(3,7),4,3,36);
     if(titResults.slice(7).length)   addGrid(list,titResults.slice(7),4,7,36);
 
-    // Suplentes
     if(suplResults.length){
       const sepLabel=document.createElement('div');
       sepLabel.className='scores-section-title';
@@ -1215,6 +1341,14 @@ async function showScoresResults(){
       sepLabel.textContent='SUPLENTES';
       list.appendChild(sepLabel);
       addGrid(list,suplResults,3,0,36,true);
+    }
+    if(dtResults.length){
+      const sepLabel=document.createElement('div');
+      sepLabel.className='scores-section-title';
+      sepLabel.style.marginTop='10px';
+      sepLabel.textContent='DIRECTOR TÉCNICO';
+      list.appendChild(sepLabel);
+      addGrid(list,dtResults,1,0,44,true);
     }
   }catch(e){list.innerHTML='<div style="color:#555">Error al cargar.</div>';}
 }
@@ -1243,13 +1377,16 @@ async function toggleLike(rowId, curLikes){
   if(wasLiked){delete liked[rowId];nl=Math.max(0,nl-1);}
   else{liked[rowId]=true;nl++;}
   saveFeedLikes(liked);
-  try{
-    await fetch(`${SUPABASE_URL}/rest/v1/formaciones?id=eq.${rowId}`,{
-      method:'PATCH',
-      headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Prefer':'return=minimal'},
-      body:JSON.stringify({likes:nl})
-    });
-  }catch(e){}
+  if(rowId!=='local'){
+    try{
+      const r=await fetch(`${SUPABASE_URL}/rest/v1/formaciones?id=eq.${rowId}`,{
+        method:'PATCH',
+        headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Prefer':'return=minimal'},
+        body:JSON.stringify({likes:nl})
+      });
+      if(!r.ok) console.error('Like PATCH falló:',r.status,await r.text());
+    }catch(e){console.error('Like error:',e);}
+  }
   return{likes:nl,isLiked:!!liked[rowId]};
 }
 
@@ -2400,7 +2537,7 @@ function renderFechasPanel(){
       rival.appendChild(esc);
     }
     const rivalText=document.createElement('span');
-    rivalText.textContent='vs '+f.rival.toUpperCase();
+    rivalText.textContent=(f.label?f.label.toUpperCase()+' · ':'')+'vs '+f.rival.toUpperCase();
     rival.appendChild(rivalText);
     const sub=document.createElement('div');
     sub.className='fecha-card-sub';
@@ -2424,7 +2561,7 @@ async function showPrevFechaResults(fecha){
   const screen=document.getElementById('prev-fecha-screen');
   screen.style.display='block';
   document.getElementById('prev-fecha-header').innerHTML=`
-    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:2px;">FECHA ${fecha.num}</h1>
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:2px;">${fecha.label?fecha.label.toUpperCase():'FECHA '+fecha.num}</h1>
     <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--rojo);letter-spacing:1px;">AAAJ vs ${fecha.rival.toUpperCase()}</div>
     <div style="font-size:11px;color:#888;margin-top:4px;">Resultados de votaciones</div>
   `;
@@ -2452,22 +2589,15 @@ async function fetchPrevFormations(fecha){
     totalEl.textContent=`${total} formación${total!==1?'es':''} enviada${total!==1?'s':''}`;
     container.appendChild(totalEl);
     const tiersBase=[
-      {cls:'tier-s',min:81,max:100},{cls:'tier-a',min:61,max:80},
-      {cls:'tier-b',min:41,max:60},{cls:'tier-c',min:21,max:40},{cls:'tier-d',min:0,max:20}
+      {label:'81-100%',cls:'tier-s',min:81,max:100},{label:'61-80%',cls:'tier-a',min:61,max:80},
+      {label:'41-60%',cls:'tier-b',min:41,max:60},{label:'21-40%',cls:'tier-c',min:21,max:40},{label:'0-20%',cls:'tier-d',min:0,max:20}
     ];
-    const mergedTiers=[];
-    for(let i=0;i<tiersBase.length;i++){
-      const t=tiersBase[i];
-      const inT=players.filter(p=>p.pct>=t.min&&p.pct<=t.max);
-      if(!inT.length&&mergedTiers.length>0){mergedTiers[mergedTiers.length-1].min=Math.min(mergedTiers[mergedTiers.length-1].min,t.min);}
-      else{mergedTiers.push({...t});}
-    }
-    mergedTiers.forEach(tier=>{
+    tiersBase.forEach(tier=>{
       const inTier=players.filter(p=>p.pct>=tier.min&&p.pct<=tier.max);
       if(!inTier.length)return;
       const row=document.createElement('div');row.className=`tier-row ${tier.cls}`;
       const label=document.createElement('div');label.className='tier-label';
-      label.textContent=tier.min+'-'+tier.max+'%';
+      label.textContent=tier.label;
       row.appendChild(label);
       const pDiv=document.createElement('div');pDiv.className='tier-players';
       inTier.forEach(p=>{
@@ -2512,7 +2642,7 @@ async function fetchPrevScores(fecha){
       row.appendChild(makeAvatar(FOTO(p.fid),p.num,36));
       const inf=document.createElement('div');inf.style.cssText='flex:1;';
       const nm=document.createElement('div');nm.style.cssText='font-size:13px;color:#fff;';nm.textContent=p.name;
-      const num=document.createElement('div');num.style.cssText='font-size:11px;color:#555;';num.textContent=`#${p.num}`;
+      const num=document.createElement('div');num.style.cssText='font-size:11px;color:#555;';num.textContent=p?.tipo==='dt'?'DT':`#${p.num}`;
       inf.appendChild(nm);inf.appendChild(num);row.appendChild(inf);
       const val=document.createElement('div');
       val.style.cssText='font-family:"Bebas Neue",sans-serif;font-size:22px;color:var(--rojo);min-width:40px;text-align:right;';
